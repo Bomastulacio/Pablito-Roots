@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablito Roots — Los postres mágicos más ricos</title>
+  <meta name="description"
+    content="Cookies artesanales premium hechas con materia prima de primera calidad. Envíos a CABA los miércoles y sábados. ¡Pedí por Instagram!" />
+
+  <!-- ─── FONTS ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+    rel="stylesheet" />
+
+  <!-- ─── TAILWIND CONFIG (must come BEFORE CDN script) ─── -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pr-beige': '#e8dfc8',
+            'pr-beige-light': '#f2ece0',
+            'pr-beige-dark': '#d4c9b0',
+            'pr-dark': '#1a1208',
+            'pr-dark-mid': '#2d1f0e',
+            'pr-orange': '#e8620a',
+            'pr-orange-hover': '#c4530a',
+            'pr-olive': '#6b7c2a',
+            'pr-olive-dark': '#4e5c1e',
+            'pr-brown': '#4a3520',
+            'pr-brown-light': '#7a5c3a',
+            'pr-cream': '#f5ede0',
+            'pr-gold': '#8b6914',
+            'pr-gold-light': '#c8a97e',
+          },
+          fontFamily: {
+            'serif': ['"Playfair Display"', 'Georgia', 'serif'],
+            'sans': ['"DM Sans"', 'system-ui', 'sans-serif'],
+            'display': ['"Bebas Neue"', 'Impact', 'sans-serif'],
+          },
+          letterSpacing: {
+            'widest-xl': '0.25em',
+            'widest-2xl': '0.35em',
+          },
+          backgroundImage: {
+            'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E\")",
+          },
+          boxShadow: {
+            'warm': '0 4px 24px rgba(74, 53, 32, 0.15)',
+            'warm-lg': '0 8px 48px rgba(74, 53, 32, 0.20)',
+            'orange': '0 4px 20px rgba(232, 98, 10, 0.25)',
+            'gold': '0 0 0 1px rgba(139, 105, 20, 0.4)',
+          },
+          animation: {
+            'marquee': 'marquee 30s linear infinite',
+            'marquee-slow': 'marquee 50s linear infinite',
+            'fade-up': 'fadeUp 0.7s ease forwards',
+            'stagger-in': 'staggerIn 0.05s ease forwards',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(28px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            staggerIn: {
+              '0%': { opacity: '0', transform: 'translateY(12px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- ─── TAILWIND CDN ─── -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ─── CUSTOM STYLES ─── -->
+  <style>
+    /* ── Grain overlay global ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* ── Scroll suave ── */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ── Selection personalizada ── */
+    ::selection {
+      background: #e8620a;
+      color: white;
+    }
+
+    /* ── Scrollbar custom (webkit) ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #e8dfc8;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #8b6914;
+      border-radius: 99px;
+    }
+
+    /* ── Cursor ── */
+    * {
+      cursor: default;
+    }
+
+    a,
+    button {
+      cursor: pointer;
+    }
+
+    /* ── Navbar scrolled ── */
+    #navbar.scrolled {
+      background-color: rgba(232, 223, 200, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(74, 53, 32, 0.15);
+      border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+    }
+
+    /* ── Mobile menu ── */
+    #mobile-menu {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    #mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Hamburger → X ── */
+    .bar-1,
+    .bar-2,
+    .bar-3 {
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+
+    #hamburger.open .bar-1 {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    #hamburger.open .bar-2 {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    #hamburger.open .bar-3 {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* ── Texto vertical hero ── */
+    .vert-letter {
+      opacity: 0;
+      animation: staggerIn 0.4s ease forwards;
+    }
+
+    /* ── Shimmer placeholders ── */
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .hero-placeholder {
+      background: linear-gradient(135deg, #d4c9b0 0%, #e8dfc8 40%, #d4c9b0 60%, #c8bda4 100%);
+      background-size: 300% 300%;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    /* ── Scroll indicator ── */
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(-8px);
+      }
+    }
+
+    /* ── Marquee infinito ── */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 35s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* ── IntersectionObserver: is-visible ── */
+    .is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* ── Texto vertical (writing mode) ── */
+    .writing-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    /* ── Imágenes reales ── */
+    .img-producto {
+      border-radius: 1.5rem;
+      object-fit: cover;
+      object-position: center;
+      filter: sepia(12%) saturate(110%) contrast(102%) brightness(98%);
+      box-shadow: 0 8px 48px rgba(74, 53, 32, 0.20), 0 2px 12px rgba(74, 53, 32, 0.10);
+      transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .img-producto:hover {
+      transform: scale(1.02) translateY(-2px);
+      filter: sepia(8%) saturate(115%) contrast(103%) brightness(100%);
+      box-shadow: 0 16px 64px rgba(74, 53, 32, 0.25), 0 4px 20px rgba(232, 98, 10, 0.10);
+    }
+
+    .img-gato {
+      border-radius: 9999px;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid #8b6914;
+      outline: 6px solid rgba(139, 105, 20, 0.15);
+      filter: sepia(15%) saturate(105%) contrast(103%) brightness(97%);
+      box-shadow: 0 4px 24px rgba(74, 53, 32, 0.20), 0 0 0 8px rgba(232, 220, 200, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .img-gato:hover {
+      transform: rotate(2deg) scale(1.04);
+      box-shadow: 0 8px 32px rgba(74, 53, 32, 0.25), 0 0 0 8px rgba(232, 98, 10, 0.12);
+    }
+
+    .img-logo {
+      filter: drop-shadow(0 2px 8px rgba(74, 53, 32, 0.25));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .img-logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 4px 12px rgba(232, 98, 10, 0.20));
+    }
+
+    nav .img-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    footer .img-logo {
+      height: 72px;
+      width: auto;
+      filter: brightness(1.05) drop-shadow(0 2px 12px rgba(139, 105, 20, 0.30));
+    }
+
+    /* ── Sello vintage — rotación lenta ── */
+    .sello-vintage {
+      animation: sello-rotate 20s linear infinite;
+    }
+
+    .sello-inner {
+      /* el contenido central no rota */
+    }
+
+    @keyframes sello-rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ── Process illos ── */
+    .process-illo {
+      width: 80px;
+      height: 80px;
+      opacity: 0.75;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .process-illo:hover {
+      opacity: 1;
+      transform: scale(1.08) rotate(-2deg);
+    }
+
+    /* ── SVG wave divider ── */
+    .section-divider {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .section-divider svg {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body class="bg-pr-beige font-sans text-pr-brown antialiased overflow-x-hidden">
+
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 1 — NAVBAR
+       ════════════════════════════════════════════════ -->
+  <nav id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-5 transition-all duration-500">
+
+    <!-- Logo -->
+    <a href="#hero"
+      class="flex items-center font-serif font-black text-pr-brown text-xl md:text-2xl tracking-widest-xl uppercase hover:text-pr-orange transition-colors duration-300">
+      <span class="mr-2 text-lg">🐱</span>
+      PABLITO ROOTS
+    </a>
+
+    <!-- Links desktop -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#menu"
+        class="font-display tracking-widest text-sm text-pr-brown hover:text-pr-orange transition-colors duration-300">MENÚ</a>
+      <a href="#envios"
+        class="font-display tracking-widest text-sm text-pr-brown hover:text-pr-orange transition-colors duration-300">ENVÍOS</a>
+      <a href="#recomendamos"
+        class="font-display tracking-widest text-sm text-pr-brown hover:text-pr-orange transition-colors duration-300">RECOMENDAMOS</a>
+      <!-- CTA navbar -->
+      <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+        class="ml-2 px-5 py-2 bg-pr-orange text-white font-display tracking-widest text-sm rounded-full hover:bg-pr-orange-hover transition-all duration-300 shadow-orange">
+        PEDIR
+      </a>
+    </div>
+
+    <!-- Hamburger mobile -->
+    <button id="hamburger" aria-label="Abrir menú" class="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 z-50">
+      <span class="bar-1 block w-6 h-0.5 bg-pr-brown rounded-full"></span>
+      <span class="bar-2 block w-6 h-0.5 bg-pr-brown rounded-full"></span>
+      <span class="bar-3 block w-6 h-0.5 bg-pr-brown rounded-full"></span>
+    </button>
+  </nav>
+
+  <!-- Menú mobile desplegable -->
+  <div id="mobile-menu" class="fixed inset-0 bg-pr-beige z-40 flex flex-col items-center justify-center gap-8">
+    <a href="#menu" onclick="closeMenu()"
+      class="font-display text-3xl tracking-widest text-pr-brown hover:text-pr-orange transition-colors duration-300">MENÚ</a>
+    <a href="#envios" onclick="closeMenu()"
+      class="font-display text-3xl tracking-widest text-pr-brown hover:text-pr-orange transition-colors duration-300">ENVÍOS</a>
+    <a href="#recomendamos" onclick="closeMenu()"
+      class="font-display text-3xl tracking-widest text-pr-brown hover:text-pr-orange transition-colors duration-300">RECOMENDAMOS</a>
+    <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+      class="mt-4 px-8 py-3 bg-pr-orange text-white font-display tracking-widest text-xl rounded-full hover:bg-pr-orange-hover transition-all duration-300 shadow-orange">
+      PEDIR AHORA
+    </a>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 2 — HERO (full screen)
+       ════════════════════════════════════════════════ -->
+  <section id="hero"
+    class="relative min-h-screen w-full bg-pr-beige flex flex-col md:flex-row items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-6 md:px-12 lg:px-20 gap-10 md:gap-16">
+
+    <!-- Texto vertical decorativo (solo desktop) — estilo Touchy Coffee -->
+    <div id="vert-text"
+      class="hidden lg:flex flex-col items-center absolute left-6 top-1/2 -translate-y-1/2 font-display text-xs tracking-widest-2xl text-pr-brown/30 select-none"
+      aria-hidden="true">
+      <!-- JS inyecta los spans con stagger -->
+    </div>
+
+    <!-- ── Contenido principal (texto) ── -->
+    <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left max-w-xl md:max-w-2xl z-10">
+
+      <!-- Badge -->
+      <div
+        class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-pr-gold bg-pr-gold/10 font-sans text-xs font-medium text-pr-brown tracking-widest uppercase">
+        🐱 EMPRENDIMIENTO ARTESANAL · CABA
+      </div>
+
+      <!-- Título principal -->
+      <h1
+        class="font-serif font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] md:leading-[0.85] text-pr-brown mb-6">
+        Postres que<br>
+        <em class="italic text-pr-olive">te abrazan.</em>
+      </h1>
+
+      <!-- Subtítulo -->
+      <p
+        class="font-sans font-light text-base md:text-lg text-pr-brown-light leading-relaxed mb-8 md:mb-10 max-w-sm md:max-w-md">
+        Cookies artesanales hechas con materia prima premium. Con envío a CABA o take away.
+      </p>
+
+      <!-- Botones CTA -->
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <!-- Primario -->
+        <a href="#menu"
+          class="w-full sm:w-auto text-center px-8 py-4 bg-pr-orange text-white font-display tracking-widest text-base rounded-full hover:bg-pr-orange-hover hover:shadow-orange hover:-translate-y-0.5 transition-all duration-300 ease-out shadow-orange">
+          VER MENÚ
+        </a>
+        <!-- Secundario -->
+        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+          class="w-full sm:w-auto text-center px-8 py-4 border-2 border-pr-brown text-pr-brown font-display tracking-widest text-base rounded-full bg-transparent hover:bg-pr-brown hover:text-pr-cream hover:-translate-y-0.5 transition-all duration-300 ease-out">
+          HACER UN PEDIDO
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Imagen hero (derecha en desktop) ── -->
+    <div class="relative mt-0 w-full max-w-xs md:max-w-sm lg:max-w-md flex-shrink-0 animate-on-scroll">
+      <!-- Cookie real -->
+      <div class="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-warm-lg" style="aspect-ratio:4/5;">
+        <img src="cookie.png" alt="Cookie artesanal Pablito Roots" class="img-producto w-full h-full" />
+        <div class="absolute inset-0 bg-gradient-to-t from-pr-brown/20 to-transparent pointer-events-none"></div>
+      </div>
+
+      <!-- Texto decorativo cinta debajo -->
+      <div class="mt-3 text-center">
+        <span class="font-display text-xs tracking-widest text-pr-gold/60 whitespace-nowrap">
+          · COOKIES · BROWNIES · ARTESANAL · PREMIUM ·
+        </span>
+      </div>
+
+      <!-- Sello vintage SVG flotante -->
+      <div class="absolute -top-6 -right-6 md:-top-4 md:-right-8 w-24 h-24 opacity-80">
+        <svg class="sello-vintage w-full h-full" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#8b6914" stroke-width="2" stroke-dasharray="4 3" />
+          <circle cx="60" cy="60" r="48" fill="none" stroke="#8b6914" stroke-width="1" opacity="0.5" />
+          <defs>
+            <path id="ct" d="M 60,60 m -40,0 a 40,40 0 1,1 80,0" />
+            <path id="cb" d="M 60,60 m -40,0 a 40,40 0 0,0 80,0" />
+          </defs>
+          <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#8b6914" letter-spacing="3">
+            <textPath href="#ct" startOffset="5%">ARTESANAL · PREMIUM · CABA ·</textPath>
+          </text>
+          <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#8b6914" letter-spacing="3">
+            <textPath href="#cb" startOffset="5%">PABLITO ROOTS · DESDE 2024 ·</textPath>
+          </text>
+          <ellipse cx="60" cy="60" rx="16" ry="15" fill="#c8a97e" stroke="#4a3520" stroke-width="1.2" />
+          <ellipse cx="55" cy="56" rx="3" ry="2.5" fill="#4a3520" transform="rotate(-10 55 56)" />
+          <ellipse cx="64" cy="59" rx="2.5" ry="2" fill="#4a3520" transform="rotate(8 64 59)" />
+          <ellipse cx="57" cy="65" rx="2.8" ry="2.2" fill="#4a3520" transform="rotate(-5 57 65)" />
+        </svg>
+      </div>
+
+      <!-- Badge flotante — días de envío -->
+      <div
+        class="absolute bottom-4 -left-4 md:-left-6 bg-pr-dark text-pr-cream rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-warm-lg -rotate-6 border border-pr-gold/20">
+        <span class="font-display text-xs tracking-widest leading-none">ENVÍOS</span>
+        <span class="font-display text-lg text-pr-orange leading-none">MIÉ</span>
+        <span class="font-display text-xs tracking-widest leading-none">Y SÁB</span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+      aria-hidden="true">
+      <span class="font-sans text-xs text-pr-brown/40 tracking-widest uppercase">scroll</span>
+      <svg class="w-4 h-4 text-pr-brown/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       PLACEHOLDER — Resto de secciones (Partes 2-5)
+       ════════════════════════════════════════════════ -->
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 3 — EN NUESTRA COCINA (productos)
+       ════════════════════════════════════════════════ -->
+  <section id="menu" class="w-full bg-pr-beige-light py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+
+    <!-- Grain overlay -->
+    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Título vertical lateral (solo desktop) -->
+    <div
+      class="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 font-display text-[10px] tracking-widest-2xl text-pr-brown/20 select-none"
+      style="writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg);" aria-hidden="true">
+      E N · N U E S T R A · C O C I N A
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <!-- Header de sección -->
+      <div class="mb-16 md:mb-20 animate-on-scroll">
+        <span class="font-display tracking-widest text-xs text-pr-orange uppercase mb-3 block">
+          🍪 NUESTROS PRODUCTOS
+        </span>
+        <h2 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-pr-brown leading-tight">
+          Lo que hacemos,<br>
+          <em class="italic text-pr-olive">lo hacemos bien.</em>
+        </h2>
+      </div>
+
+      <!-- Grid de productos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 stagger-children">
+
+        <!-- ── CARD 1: INDIVIDUAL ── -->
+        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+          class="group relative bg-pr-beige rounded-2xl overflow-hidden border border-pr-gold/20 shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer block">
+
+          <!-- Imagen placeholder -->
+          <div class="relative w-full aspect-square bg-pr-beige-dark overflow-hidden">
+            <div class="absolute inset-0 hero-placeholder"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-5xl opacity-30">🍪</span>
+            </div>
+            <!-- Badge -->
+            <div
+              class="absolute top-4 left-4 z-10 px-3 py-1 bg-pr-orange text-white font-display tracking-widest text-xs rounded-full">
+              INDIVIDUAL
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-6 md:p-7">
+            <!-- Número decorativo -->
+            <div class="font-display text-6xl text-pr-brown/[0.06] leading-none mb-1 select-none">X1</div>
+            <!-- Nombre -->
+            <h3
+              class="font-serif font-bold text-xl md:text-2xl text-pr-brown mb-3 group-hover:text-pr-olive transition-colors duration-300">
+              LA COOKIE INDIVIDUAL
+            </h3>
+            <!-- Descripción -->
+            <p class="font-sans text-sm md:text-base text-pr-brown-light leading-relaxed mb-5">
+              Para cuando la querés toda para vos. Sin culpa, sin compartir. Una cookie entera de materia prima premium.
+            </p>
+            <!-- Divisor -->
+            <div class="w-12 h-px bg-pr-gold/40 mb-5"></div>
+            <!-- CTA -->
+            <span
+              class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-orange group-hover:gap-3 transition-all duration-300">
+              PEDIR POR DM →
+            </span>
+          </div>
+        </a>
+
+        <!-- ── CARD 2: BOX x3 ── -->
+        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+          class="group relative bg-pr-beige rounded-2xl overflow-hidden border border-pr-gold/20 shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer block">
+
+          <!-- Imagen placeholder -->
+          <div class="relative w-full aspect-square bg-pr-beige-dark overflow-hidden">
+            <div class="absolute inset-0 hero-placeholder"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-5xl opacity-30">🍪</span>
+            </div>
+            <!-- Badge LA MÁS PEDIDA -->
+            <div
+              class="absolute top-4 left-4 z-10 px-3 py-1 bg-pr-olive text-white font-display tracking-widest text-xs rounded-full">
+              LA MÁS PEDIDA
+            </div>
+            <!-- Estrella recomendada -->
+            <div
+              class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-pr-gold text-white flex items-center justify-center font-display text-xs tracking-wide">
+              ★
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-6 md:p-7">
+            <div class="font-display text-6xl text-pr-brown/[0.06] leading-none mb-1 select-none">X3</div>
+            <h3
+              class="font-serif font-bold text-xl md:text-2xl text-pr-brown mb-3 group-hover:text-pr-olive transition-colors duration-300">
+              LA BOX
+            </h3>
+            <p class="font-sans text-sm md:text-base text-pr-brown-light leading-relaxed mb-5">
+              Tres cookies. Ideal para compartir — o no, te entendemos. La opción perfecta para el antojo en serio.
+            </p>
+            <div class="w-12 h-px bg-pr-gold/40 mb-5"></div>
+            <span
+              class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-orange group-hover:gap-3 transition-all duration-300">
+              PEDIR POR DM →
+            </span>
+          </div>
+        </a>
+
+        <!-- ── CARD 3: PEDIDOS ESPECIALES (fondo oscuro) ── -->
+        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+          class="group relative bg-pr-dark rounded-2xl overflow-hidden border border-pr-gold/30 shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer block md:col-span-2 lg:col-span-1">
+
+          <!-- Imagen placeholder oscura -->
+          <div class="relative w-full aspect-square bg-pr-dark-mid overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20">
+              <span class="text-8xl">📦</span>
+            </div>
+            <!-- Badge MAYORISTA -->
+            <div
+              class="absolute top-4 left-4 z-10 px-3 py-1 bg-pr-gold text-pr-dark font-display tracking-widest text-xs rounded-full">
+              MAYORISTA
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-6 md:p-7">
+            <span class="text-4xl mb-3 block">📦</span>
+            <h3 class="font-serif font-bold text-xl md:text-2xl text-pr-cream mb-3">
+              PEDIDOS ESPECIALES
+            </h3>
+            <p class="font-sans text-sm md:text-base text-pr-cream/70 leading-relaxed mb-5">
+              ¿Querés más? Precio y consultas para pedidos mayores al DM. Tu consulta no molesta.
+            </p>
+            <div class="w-12 h-px bg-pr-gold/40 mb-5"></div>
+            <span
+              class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-gold group-hover:gap-3 transition-all duration-300">
+              ESCRIBINOS →
+            </span>
+          </div>
+        </a>
+
+      </div><!-- /grid -->
+
+      <!-- Nota debajo del grid -->
+      <p class="mt-12 text-center font-sans text-sm text-pr-brown-light">
+        Todos los pedidos se coordinan por Instagram. Los precios se consultan por DM.
+      </p>
+
+    </div>
+  </section>
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 4 — ENVÍOS
+       ════════════════════════════════════════════════ -->
+  <section id="envios" class="w-full bg-pr-dark py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+
+    <!-- Árbol bonsái decorativo de fondo -->
+    <div class="absolute bottom-0 right-0 text-[300px] leading-none opacity-[0.03] select-none pointer-events-none"
+      aria-hidden="true">🌳</div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <!-- Header -->
+      <span class="font-display tracking-widest text-xs text-pr-orange uppercase mb-3 block">📦 LOGÍSTICA</span>
+      <h2 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-pr-cream leading-tight mb-4">
+        ¿Cuándo<br>
+        <span class="text-pr-orange italic">llegamos?</span>
+      </h2>
+      <p class="font-sans text-base text-pr-cream/60 mb-16 max-w-md">
+        Programá tu entrega. Solo hacemos envíos en estos horarios en CABA.
+      </p>
+
+      <!-- Grid de días -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl">
+
+        <!-- CARD MIÉRCOLES -->
+        <div
+          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-8 md:p-10 overflow-hidden hover:border-pr-orange/40 hover:shadow-orange transition-all duration-300">
+          <div class="absolute -right-4 -top-6 font-display text-[120px] text-white/[0.03] leading-none select-none"
+            aria-hidden="true">MI</div>
+          <span class="text-3xl mb-4 block">🌙</span>
+          <span class="font-display tracking-widest-xl text-3xl md:text-4xl text-pr-orange mb-2 block">MIÉRCOLES</span>
+          <p class="font-serif font-bold text-2xl md:text-3xl text-pr-cream mb-4">19:00 — 21:00 hs</p>
+          <p class="font-sans text-sm text-pr-cream/50 border-t border-pr-gold/10 pt-4 mt-2">
+            Coordinar antes de las 18hs del miércoles
+          </p>
+        </div>
+
+        <!-- CARD SÁBADO -->
+        <div
+          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-8 md:p-10 overflow-hidden hover:border-pr-orange/40 hover:shadow-orange transition-all duration-300">
+          <div class="absolute -right-4 -top-6 font-display text-[120px] text-white/[0.03] leading-none select-none"
+            aria-hidden="true">SA</div>
+          <span class="text-3xl mb-4 block">☀️</span>
+          <span class="font-display tracking-widest-xl text-3xl md:text-4xl text-pr-orange mb-2 block">SÁBADO</span>
+          <p class="font-serif font-bold text-2xl md:text-3xl text-pr-cream mb-4">09:00 — 13:00 hs</p>
+          <p class="font-sans text-sm text-pr-cream/50 border-t border-pr-gold/10 pt-4 mt-2">
+            Coordinar antes del viernes por la tarde
+          </p>
+        </div>
+
+      </div><!-- /grid -->
+
+      <!-- Take Away -->
+      <div
+        class="mt-12 p-6 md:p-8 rounded-2xl border border-pr-gold/20 border-dashed bg-pr-gold/5 flex flex-col md:flex-row items-start md:items-center gap-4 max-w-2xl">
+        <span class="text-2xl flex-shrink-0">🛍️</span>
+        <p class="font-sans text-pr-cream/80 text-sm md:text-base leading-relaxed">
+          <span class="font-semibold text-pr-cream">Take away disponible.</span>
+          Pasás a buscar tus cookies y coordinamos el punto de encuentro por DM. Nada complicado.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 5 — RECOMENDAMOS
+       ════════════════════════════════════════════════ -->
+  <section id="recomendamos" class="w-full bg-pr-beige py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+
+    <!-- Grain overlay -->
+    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <!-- Header -->
+      <span class="font-display tracking-widest text-xs text-pr-olive uppercase mb-3 block">🌿 ANTES DE ARRANCAR</span>
+      <h2 class="font-serif font-bold text-4xl md:text-5xl text-pr-brown mb-4">
+        Consejos para<br>
+        <em class="italic text-pr-olive">buen viaje.</em>
+      </h2>
+
+      <!-- Card de advertencia amigable -->
+      <div
+        class="mt-12 md:mt-16 max-w-2xl relative bg-pr-beige-light rounded-2xl border-2 border-pr-olive/30 p-8 md:p-12 overflow-hidden">
+
+        <!-- Línea lateral naranja -->
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl bg-pr-orange"></div>
+
+        <!-- Texto principal -->
+        <p class="font-display tracking-wide text-2xl md:text-3xl lg:text-4xl text-pr-brown leading-snug mb-6">
+          CONSUMILA PREFERENTEMENTE<br>
+          DESPUÉS DE UNA COMIDA<br>
+          (BRUNCH, ALMUERZO).
+        </p>
+
+        <!-- Divisor -->
+        <div class="w-16 h-px bg-pr-gold/40 mb-6"></div>
+
+        <!-- Texto secundario -->
+        <p class="font-serif italic text-base md:text-lg text-pr-brown-light leading-relaxed mb-4">
+          Nuestras cookies están hechas con materia prima PREMIUM.
+        </p>
+
+        <!-- Texto terciario -->
+        <p class="font-sans text-sm md:text-base text-pr-brown leading-relaxed">
+          Seguí nuestros consejos. Recomendamos
+          <span class="font-semibold text-pr-olive">iniciar con media cookie</span>
+          para que el viaje arranque bien.
+        </p>
+
+        <!-- Badge de calidad -->
+        <div
+          class="mt-8 inline-flex items-center gap-3 px-5 py-2.5 bg-pr-olive/10 border border-pr-olive/30 rounded-full font-display tracking-widest text-xs text-pr-olive uppercase">
+          ✓ MATERIA PRIMA PREMIUM
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 6 — MANIFIESTO / FILOSOFÍA
+       ════════════════════════════════════════════════ -->
+  <section id="manifiesto" class="w-full bg-pr-dark-mid py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+
+    <!-- Cita central -->
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="font-serif text-8xl text-pr-gold/20 leading-none block mb-4 -mt-4" aria-hidden="true">"</span>
+      <p class="font-serif italic text-xl md:text-2xl lg:text-3xl text-pr-cream leading-relaxed mb-8">
+        Pablito nació de las ganas de hacer algo rico de verdad. Sin atajos, sin apuro. Cada cookie mezclada a mano,
+        horneada con atención, entregada con cariño. Somos un emprendimiento chico con muchas ganas, y eso se nota en
+        cada caja que sale por la puerta.
+      </p>
+      <span class="font-display tracking-widest text-sm text-pr-gold uppercase">
+        — El equipo de Pablito Roots 🐱
+      </span>
+    </div>
+
+    <!-- Galería marquee -->
+    <div class="mt-20 relative w-full overflow-hidden">
+      <div
+        class="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-pr-dark-mid to-transparent pointer-events-none">
+      </div>
+      <div
+        class="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-pr-dark-mid to-transparent pointer-events-none">
+      </div>
+      <div class="flex gap-4 animate-marquee" style="width: max-content;">
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
+          <span class="text-5xl opacity-30">🍪</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍫</span></div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">🌿</span></div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
+          <span class="text-5xl opacity-30">⭐</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍪</span></div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">📦</span></div>
+        <!-- duplicado para loop seamless -->
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
+          <span class="text-5xl opacity-30">🍪</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍫</span></div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">🌿</span></div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
+          <span class="text-5xl opacity-30">⭐</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍪</span></div>
+        <div
+          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
+          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">📦</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 7 — ¿CÓMO PEDÍS?
+       ════════════════════════════════════════════════ -->
+  <section id="como-pedir"
+    class="w-full bg-pr-beige-light py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+
+    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-16 md:mb-20">
+        <span class="font-display tracking-widest text-xs text-pr-orange uppercase mb-3 block">PROCESO</span>
+        <h2 class="font-serif font-bold text-4xl md:text-5xl text-pr-brown">
+          Pedir es<br>
+          <em class="italic text-pr-olive">facilísimo.</em>
+        </h2>
+      </div>
+
+      <!-- Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-12 max-w-4xl mx-auto relative stagger-children">
+        <div
+          class="hidden md:block absolute top-10 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px bg-pr-gold/30"
+          aria-hidden="true"></div>
+
+        <!-- Paso 1 -->
+        <div class="relative flex flex-col items-center text-center group">
+          <div
+            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-pr-gold/40 bg-pr-beige flex items-center justify-center mb-6 group-hover:border-pr-orange/60 group-hover:bg-pr-orange/5 transition-all duration-300">
+            <span class="font-display text-2xl text-pr-brown">01</span>
+            <span class="absolute -top-2 -right-2 text-2xl">🛒</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-pr-brown mb-3">Elegís tus cookies</h3>
+          <p class="font-sans text-sm text-pr-brown-light leading-relaxed">
+            Mirás el menú, te decidís (spoiler: vas a querer todo). Individual o Box, vos mandás.
+          </p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="relative flex flex-col items-center text-center group">
+          <div
+            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-pr-gold/40 bg-pr-beige flex items-center justify-center mb-6 group-hover:border-pr-orange/60 group-hover:bg-pr-orange/5 transition-all duration-300">
+            <span class="font-display text-2xl text-pr-brown">02</span>
+            <span class="absolute -top-2 -right-2 text-2xl">📩</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-pr-brown mb-3">Escribís por Instagram</h3>
+          <p class="font-sans text-sm text-pr-brown-light leading-relaxed">
+            Mandanos un DM a @pablito.roots con tu pedido. Tu consulta no molesta, de verdad.
+          </p>
+          <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+            class="mt-3 px-3 py-1 rounded-full bg-pr-orange/10 border border-pr-orange/30 font-display tracking-widest text-xs text-pr-orange uppercase hover:bg-pr-orange/20 transition-colors duration-200 inline-block">
+            @pablito.roots
+          </a>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="relative flex flex-col items-center text-center group">
+          <div
+            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-pr-gold/40 bg-pr-beige flex items-center justify-center mb-6 group-hover:border-pr-orange/60 group-hover:bg-pr-orange/5 transition-all duration-300">
+            <span class="font-display text-2xl text-pr-brown">03</span>
+            <span class="absolute -top-2 -right-2 text-2xl">📦</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-pr-brown mb-3">Coordinamos la entrega</h3>
+          <p class="font-sans text-sm text-pr-brown-light leading-relaxed">
+            Envío a CABA (miércoles o sábado) o take away. Acordamos todo por DM, sin complicaciones.
+          </p>
+        </div>
+
+      </div><!-- /steps -->
+
+      <!-- CTA -->
+      <div class="mt-16 flex justify-center">
+        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 px-10 py-5 bg-pr-orange text-white font-display tracking-widest text-base rounded-full hover:bg-pr-orange-hover hover:shadow-orange hover:-translate-y-0.5 transition-all duration-300 shadow-orange">
+          📸&nbsp; IR AL INSTAGRAM
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 8 — RESEÑAS
+       ════════════════════════════════════════════════ -->
+  <section id="resenas" class="w-full bg-pr-dark py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+
+    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="font-serif font-bold text-4xl md:text-5xl text-pr-cream">
+          Lo que dice<br>
+          <em class="italic text-pr-gold">la gente.</em>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 stagger-children">
+
+        <!-- Reseña 1 -->
+        <div
+          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-6 md:p-8 hover:border-pr-gold/40 transition-all duration-300"
+          onmouseenter="this.style.boxShadow='0 0 30px rgba(139,105,20,0.1)'"
+          onmouseleave="this.style.boxShadow='none'">
+          <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
+              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
+              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
+          <p class="font-serif italic text-pr-cream/90 text-base md:text-lg leading-relaxed mb-6">
+            "Los brownies son literalmente los mejores que probé en mi vida. Pedí doble la segunda vez, sin ningún
+            arrepentimiento."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-pr-brown/40 flex items-center justify-center"><span
+                class="font-display text-sm text-pr-gold">M</span></div>
+            <div>
+              <p class="font-display tracking-wider text-sm text-pr-gold">@mari.gomez</p>
+              <p class="font-sans text-xs text-pr-cream/40 mt-0.5">Cliente frecuente</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reseña 2 -->
+        <div
+          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-6 md:p-8 hover:border-pr-gold/40 transition-all duration-300"
+          onmouseenter="this.style.boxShadow='0 0 30px rgba(139,105,20,0.1)'"
+          onmouseleave="this.style.boxShadow='none'">
+          <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
+              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
+              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
+          <p class="font-serif italic text-pr-cream/90 text-base md:text-lg leading-relaxed mb-6">
+            "Las cookies llegaron perfectas y la presentación era re cuidada. Ya pedí para regalar en el cumple de mi
+            mamá."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-pr-brown/40 flex items-center justify-center"><span
+                class="font-display text-sm text-pr-gold">S</span></div>
+            <div>
+              <p class="font-display tracking-wider text-sm text-pr-gold">@sofi.ramos</p>
+              <p class="font-sans text-xs text-pr-cream/40 mt-0.5">Cliente frecuente</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reseña 3 -->
+        <div
+          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-6 md:p-8 hover:border-pr-gold/40 transition-all duration-300"
+          onmouseenter="this.style.boxShadow='0 0 30px rgba(139,105,20,0.1)'"
+          onmouseleave="this.style.boxShadow='none'">
+          <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
+              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
+              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
+          <p class="font-serif italic text-pr-cream/90 text-base md:text-lg leading-relaxed mb-6">
+            "El gato del logo me conquistó antes de probarlas. Los brownies terminaron de convencerme. Ahora pido cada
+            semana."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-pr-brown/40 flex items-center justify-center"><span
+                class="font-display text-sm text-pr-gold">J</span></div>
+            <div>
+              <p class="font-display tracking-wider text-sm text-pr-gold">@juampi.v</p>
+              <p class="font-sans text-xs text-pr-cream/40 mt-0.5">Adicto confirmado</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECCIÓN 9 — FOOTER
+       ════════════════════════════════════════════════ -->
+  <footer class="w-full bg-pr-dark border-t border-pr-gold/10 py-16 md:py-20 px-6 md:px-12 lg:px-20">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Grid footer -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+
+        <!-- Col 1: Logo -->
+        <div>
+          <p class="font-serif font-black text-3xl text-pr-cream mb-4">
+            <span class="text-2xl mr-2">🐱</span>PABLITO ROOTS
+          </p>
+          <p class="font-sans text-sm text-pr-cream/50 leading-relaxed max-w-xs">
+            Los postres mágicos más ricos. Cookies artesanales con materia prima premium. Hecho con amor y demasiado
+            chocolate.
+          </p>
+        </div>
+
+        <!-- Col 2: Navegación -->
+        <div>
+          <p class="font-display tracking-widest text-xs text-pr-gold uppercase mb-5">NAVEGACIÓN</p>
+          <div class="flex flex-col gap-3">
+            <a href="#menu"
+              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Menú</a>
+            <a href="#envios"
+              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Envíos</a>
+            <a href="#recomendamos"
+              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Recomendamos</a>
+            <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Hacer un
+              pedido</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Contacto -->
+        <div>
+          <p class="font-display tracking-widest text-xs text-pr-gold uppercase mb-5">CONTACTO</p>
+          <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-orange hover:text-pr-cream transition-colors duration-200">
+            📸 @pablito.roots
+          </a>
+          <div class="mt-4 font-sans text-xs text-pr-cream/40 leading-loose">
+            Envíos CABA<br>
+            Miércoles 19–21hs<br>
+            Sábado 09–13hs
+          </div>
+        </div>
+
+      </div><!-- /grid -->
+
+      <!-- Divisor + copyright -->
+      <div class="border-t border-pr-gold/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-sans text-xs text-pr-cream/30">© 2025 Pablito Roots. Todos los derechos reservados.</p>
+        <p class="font-serif italic text-xs text-pr-gold/50">"Hecho con amor y demasiado chocolate." 🐱</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════════
+       JAVASCRIPT — ANIMACIONES Y COMPORTAMIENTO
+       ════════════════════════════════════════════════ -->
+  <script>
+    /* ── INTERSECTION OBSERVER — fade-in por sección ── */
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Activar stagger en hijos si el padre tiene la clase
+          if (entry.target.classList.contains('stagger-children')) {
+            [...entry.target.children].forEach((child, i) => {
+              setTimeout(() => child.classList.add('is-visible'), i * 110);
+            });
+          }
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-7', 'transition-all', 'duration-700', 'ease-out');
+      scrollObserver.observe(el);
+    });
+
+    document.querySelectorAll('.stagger-children').forEach(parent => {
+      [...parent.children].forEach((child, i) => {
+        child.style.transitionDelay = `${i * 100}ms`;
+        child.classList.add('opacity-0', 'translate-y-5', 'transition-all', 'duration-500', 'ease-out');
+      });
+      scrollObserver.observe(parent);
+    });
+
+    /* ── NAVBAR scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    /* ── TEXTO VERTICAL HERO — aparece letra por letra ── */
+    const vertText = document.getElementById('vert-text');
+    if (vertText) {
+      const vertChars = 'LOS POSTRES MÁGICOS'.split('');
+      vertChars.forEach((char, i) => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? '·' : char;
+        span.className = 'vertical-char block leading-loose';
+        span.style.opacity = '0';
+        span.style.transform = 'translateY(8px)';
+        span.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        span.style.transitionDelay = `${i * 60 + 400}ms`;
+        vertText.appendChild(span);
+        setTimeout(() => {
+          span.style.opacity = '1';
+          span.style.transform = 'translateY(0)';
+        }, 100);
+      });
+    }
+
+    /* ── HAMBURGER menu mobile ── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      hamburger.classList.toggle('open', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* ── Compatibilidad con closeMenu() usado en onclick ── */
+    function closeMenu() {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+
+</html>
