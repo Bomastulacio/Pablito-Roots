@@ -403,105 +403,86 @@
        SECCIÓN 2 — HERO (full screen)
        ════════════════════════════════════════════════ -->
   <section id="hero"
-    class="relative min-h-screen w-full bg-pr-beige flex flex-col md:flex-row items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-6 md:px-12 lg:px-20 gap-10 md:gap-16">
+    class="relative min-h-screen w-full bg-pr-dark flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-4 md:px-8">
 
-    <!-- Texto vertical decorativo (solo desktop) — estilo Touchy Coffee -->
+    <!-- Texto vertical decorativo (solo desktop) -->
     <div id="vert-text"
-      class="hidden lg:flex flex-col items-center absolute left-6 top-1/2 -translate-y-1/2 font-display text-xs tracking-widest-2xl text-pr-brown/30 select-none"
+      class="hidden lg:flex flex-col items-center absolute left-6 top-1/2 -translate-y-1/2 font-display text-xs tracking-widest-2xl text-pr-cream/20 select-none"
       aria-hidden="true">
-      <!-- JS inyecta los spans con stagger -->
     </div>
 
-    <!-- ── Contenido principal (texto) ── -->
-    <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left max-w-xl md:max-w-2xl z-10">
+    <!-- ── Contenido principal (texto gigante) ── -->
+    <div class="flex-1 flex flex-col items-center justify-center text-center w-full z-10 px-2 mt-12 md:mt-20">
 
       <!-- Badge -->
       <div
-        class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-pr-gold bg-pr-gold/10 font-sans text-xs font-medium text-pr-brown tracking-widest uppercase">
+        class="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full border border-pr-gold/40 bg-pr-gold/10 font-sans text-xs font-medium text-pr-cream tracking-widest uppercase">
         🐱 EMPRENDIMIENTO ARTESANAL · CABA
       </div>
 
-      <!-- Título principal -->
-      <h1
-        class="font-serif font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] md:leading-[0.85] text-pr-brown mb-6">
+      <!-- Título principal gigante -->
+      <h1 class="font-serif font-black text-pr-cream mb-10 w-full"
+        style="font-size: clamp(4rem, 10vw, 9rem); leading-trim: both; text-edge: cap; line-height: 0.9;">
         Postres que<br>
         <em class="italic text-pr-olive">te abrazan.</em>
       </h1>
 
       <!-- Subtítulo -->
       <p
-        class="font-sans font-light text-base md:text-lg text-pr-brown-light leading-relaxed mb-8 md:mb-10 max-w-sm md:max-w-md">
+        class="font-sans font-light text-base md:text-xl text-pr-cream/70 leading-relaxed mb-12 max-w-sm md:max-w-xl mx-auto">
         Cookies artesanales hechas con materia prima premium. Con envío a CABA o take away.
       </p>
 
       <!-- Botones CTA -->
-      <div class="flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full md:w-auto">
         <!-- Primario -->
         <a href="#menu"
-          class="w-full sm:w-auto text-center px-8 py-4 bg-pr-orange text-white font-display tracking-widest text-base rounded-full hover:bg-pr-orange-hover hover:shadow-orange hover:-translate-y-0.5 transition-all duration-300 ease-out shadow-orange">
+          class="w-full sm:w-auto text-center px-10 py-5 bg-pr-orange text-white font-display tracking-widest text-lg md:text-xl rounded-full hover:bg-pr-orange-hover hover:shadow-orange hover:-translate-y-1 transition-all duration-300 ease-out shadow-orange">
           VER MENÚ
-        </a>
-        <!-- Secundario -->
-        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="w-full sm:w-auto text-center px-8 py-4 border-2 border-pr-brown text-pr-brown font-display tracking-widest text-base rounded-full bg-transparent hover:bg-pr-brown hover:text-pr-cream hover:-translate-y-0.5 transition-all duration-300 ease-out">
-          HACER UN PEDIDO
         </a>
       </div>
     </div>
 
-    <!-- ── Imagen hero (derecha en desktop) ── -->
-    <div class="relative mt-0 w-full max-w-xs md:max-w-sm lg:max-w-md flex-shrink-0 animate-on-scroll">
-      <!-- Cookie real -->
-      <div class="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-warm-lg" style="aspect-ratio:4/5;">
-        <img src="cookie.png" alt="Cookie artesanal Pablito Roots" class="img-producto w-full h-full" />
-        <div class="absolute inset-0 bg-gradient-to-t from-pr-brown/20 to-transparent pointer-events-none"></div>
-      </div>
-
-      <!-- Texto decorativo cinta debajo -->
-      <div class="mt-3 text-center">
-        <span class="font-display text-xs tracking-widest text-pr-gold/60 whitespace-nowrap">
-          · COOKIES · BROWNIES · ARTESANAL · PREMIUM ·
-        </span>
-      </div>
-
-      <!-- Sello vintage SVG flotante -->
-      <div class="absolute -top-6 -right-6 md:-top-4 md:-right-8 w-24 h-24 opacity-80">
-        <svg class="sello-vintage w-full h-full" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="60" r="56" fill="none" stroke="#8b6914" stroke-width="2" stroke-dasharray="4 3" />
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#8b6914" stroke-width="1" opacity="0.5" />
-          <defs>
-            <path id="ct" d="M 60,60 m -40,0 a 40,40 0 1,1 80,0" />
-            <path id="cb" d="M 60,60 m -40,0 a 40,40 0 0,0 80,0" />
-          </defs>
-          <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#8b6914" letter-spacing="3">
-            <textPath href="#ct" startOffset="5%">ARTESANAL · PREMIUM · CABA ·</textPath>
-          </text>
-          <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#8b6914" letter-spacing="3">
-            <textPath href="#cb" startOffset="5%">PABLITO ROOTS · DESDE 2024 ·</textPath>
-          </text>
-          <ellipse cx="60" cy="60" rx="16" ry="15" fill="#c8a97e" stroke="#4a3520" stroke-width="1.2" />
-          <ellipse cx="55" cy="56" rx="3" ry="2.5" fill="#4a3520" transform="rotate(-10 55 56)" />
-          <ellipse cx="64" cy="59" rx="2.5" ry="2" fill="#4a3520" transform="rotate(8 64 59)" />
-          <ellipse cx="57" cy="65" rx="2.8" ry="2.2" fill="#4a3520" transform="rotate(-5 57 65)" />
-        </svg>
-      </div>
-
-      <!-- Badge flotante — días de envío -->
-      <div
-        class="absolute bottom-4 -left-4 md:-left-6 bg-pr-dark text-pr-cream rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-warm-lg -rotate-6 border border-pr-gold/20">
-        <span class="font-display text-xs tracking-widest leading-none">ENVÍOS</span>
-        <span class="font-display text-lg text-pr-orange leading-none">MIÉ</span>
-        <span class="font-display text-xs tracking-widest leading-none">Y SÁB</span>
-      </div>
+    <!-- Sello vintage SVG flotante gigante -->
+    <div
+      class="absolute right-4 md:right-12 top-24 md:top-32 w-32 md:w-48 h-32 md:h-48 opacity-60 pointer-events-none hidden md:block">
+      <svg class="sello-vintage w-full h-full" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="56" fill="none" stroke="#c8a97e" stroke-width="1.5" stroke-dasharray="4 3" />
+        <circle cx="60" cy="60" r="48" fill="none" stroke="#c8a97e" stroke-width="1" opacity="0.5" />
+        <defs>
+          <path id="ct-hero" d="M 60,60 m -40,0 a 40,40 0 1,1 80,0" />
+          <path id="cb-hero" d="M 60,60 m -40,0 a 40,40 0 0,0 80,0" />
+        </defs>
+        <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#c8a97e" letter-spacing="3">
+          <textPath href="#ct-hero" startOffset="5%">ARTESANAL · PREMIUM · CABA ·</textPath>
+        </text>
+        <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#c8a97e" letter-spacing="3">
+          <textPath href="#cb-hero" startOffset="5%">PABLITO ROOTS · DESDE 2024 ·</textPath>
+        </text>
+        <ellipse cx="60" cy="60" rx="16" ry="15" fill="none" stroke="#c8a97e" stroke-width="1" />
+        <ellipse cx="55" cy="56" rx="3" ry="2.5" fill="#c8a97e" transform="rotate(-10 55 56)" />
+        <ellipse cx="64" cy="59" rx="2.5" ry="2" fill="#c8a97e" transform="rotate(8 64 59)" />
+        <ellipse cx="57" cy="65" rx="2.8" ry="2.2" fill="#c8a97e" transform="rotate(-5 57 65)" />
+      </svg>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+    <div class="scroll-indicator absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       aria-hidden="true">
-      <span class="font-sans text-xs text-pr-brown/40 tracking-widest uppercase">scroll</span>
-      <svg class="w-4 h-4 text-pr-brown/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <span class="font-sans text-xs text-pr-cream/40 tracking-widest uppercase">scroll</span>
+      <svg class="w-4 h-4 text-pr-cream/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
       </svg>
+    </div>
+
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-pr-dark border-t border-pr-gold/20 overflow-hidden py-3">
+      <div
+        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+      </div>
     </div>
   </section>
 
@@ -512,7 +493,8 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 3 — EN NUESTRA COCINA (productos)
        ════════════════════════════════════════════════ -->
-  <section id="menu" class="w-full bg-pr-beige-light py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="menu"
+    class="w-full bg-pr-beige py-24 md:py-32 px-4 md:px-8 lg:px-12 relative overflow-hidden flex flex-col items-center">
 
     <!-- Grain overlay -->
     <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
@@ -526,15 +508,15 @@
 
     <div class="relative z-10 max-w-7xl mx-auto">
 
-      <!-- Header de sección -->
-      <div class="mb-16 md:mb-20 animate-on-scroll">
-        <span class="font-display tracking-widest text-xs text-pr-orange uppercase mb-3 block">
+      <!-- Header de sección gigante -->
+      <div class="mb-16 md:mb-20 animate-on-scroll text-center md:text-left">
+        <h2 class="font-display tracking-[0.1em] text-pr-orange text-2xl md:text-3xl uppercase mb-3 block">
           🍪 NUESTROS PRODUCTOS
-        </span>
-        <h2 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-pr-brown leading-tight">
-          Lo que hacemos,<br>
-          <em class="italic text-pr-olive">lo hacemos bien.</em>
         </h2>
+        <h3 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-dark leading-none uppercase">
+          LO QUE HACEMOS,<br>
+          <em class="font-serif italic text-pr-olive lowercase tracking-normal">lo hacemos bien.</em>
+        </h3>
       </div>
 
       <!-- Grid de productos -->
@@ -542,39 +524,35 @@
 
         <!-- ── CARD 1: INDIVIDUAL ── -->
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-pr-beige rounded-2xl overflow-hidden border border-pr-gold/20 shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer block">
+          class="group relative bg-pr-dark rounded-[4px] overflow-hidden border border-pr-gold/20 shadow-warm hover:-translate-y-2 transition-transform duration-400 ease-out cursor-pointer block h-[38rem] flex flex-col">
 
-          <!-- Imagen placeholder -->
-          <div class="relative w-full aspect-square bg-pr-beige-dark overflow-hidden">
+          <!-- Imagen 70% -->
+          <div class="relative w-full h-[70%] bg-pr-beige-dark overflow-hidden flex-shrink-0">
             <div class="absolute inset-0 hero-placeholder"></div>
             <div class="absolute inset-0 flex items-center justify-center">
-              <span class="text-5xl opacity-30">🍪</span>
+              <span class="text-6xl opacity-30">🍪</span>
             </div>
             <!-- Badge -->
             <div
-              class="absolute top-4 left-4 z-10 px-3 py-1 bg-pr-orange text-white font-display tracking-widest text-xs rounded-full">
+              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-pr-orange text-white font-display tracking-[0.1em] text-sm rounded-[2px] uppercase">
               INDIVIDUAL
             </div>
           </div>
 
-          <!-- Contenido -->
-          <div class="p-6 md:p-7">
-            <!-- Número decorativo -->
-            <div class="font-display text-6xl text-pr-brown/[0.06] leading-none mb-1 select-none">X1</div>
-            <!-- Nombre -->
-            <h3
-              class="font-serif font-bold text-xl md:text-2xl text-pr-brown mb-3 group-hover:text-pr-olive transition-colors duration-300">
-              LA COOKIE INDIVIDUAL
-            </h3>
-            <!-- Descripción -->
-            <p class="font-sans text-sm md:text-base text-pr-brown-light leading-relaxed mb-5">
-              Para cuando la querés toda para vos. Sin culpa, sin compartir. Una cookie entera de materia prima premium.
-            </p>
-            <!-- Divisor -->
-            <div class="w-12 h-px bg-pr-gold/40 mb-5"></div>
-            <!-- CTA -->
+          <!-- Contenido inferior -->
+          <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-display font-medium text-4xl text-pr-cream uppercase tracking-[0.1em] group-hover:text-pr-orange transition-colors duration-300">
+                LA COOKIE INDIVIDUAL
+              </h3>
+              <p class="font-sans text-sm md:text-base text-pr-cream/70 leading-relaxed mt-2">
+                Para cuando la querés toda para vos. Sin culpa, sin compartir. Una cookie entera de materia prima
+                premium.
+              </p>
+            </div>
             <span
-              class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-orange group-hover:gap-3 transition-all duration-300">
+              class="inline-flex items-center gap-2 font-display tracking-[0.1em] text-lg text-pr-orange group-hover:gap-3 transition-all duration-300 mt-4">
               PEDIR POR DM →
             </span>
           </div>
@@ -582,72 +560,67 @@
 
         <!-- ── CARD 2: BOX x3 ── -->
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-pr-beige rounded-2xl overflow-hidden border border-pr-gold/20 shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer block">
+          class="group relative bg-pr-dark rounded-[4px] overflow-hidden border border-pr-gold/20 shadow-warm hover:-translate-y-2 transition-transform duration-400 ease-out cursor-pointer block h-[38rem] flex flex-col">
 
-          <!-- Imagen placeholder -->
-          <div class="relative w-full aspect-square bg-pr-beige-dark overflow-hidden">
+          <!-- Imagen 70% -->
+          <div class="relative w-full h-[70%] bg-pr-beige-dark overflow-hidden flex-shrink-0">
             <div class="absolute inset-0 hero-placeholder"></div>
             <div class="absolute inset-0 flex items-center justify-center">
-              <span class="text-5xl opacity-30">🍪</span>
+              <span class="text-6xl opacity-30">🍪</span>
             </div>
             <!-- Badge LA MÁS PEDIDA -->
             <div
-              class="absolute top-4 left-4 z-10 px-3 py-1 bg-pr-olive text-white font-display tracking-widest text-xs rounded-full">
+              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-pr-olive text-white font-display tracking-[0.1em] text-sm rounded-[2px] uppercase">
               LA MÁS PEDIDA
-            </div>
-            <!-- Estrella recomendada -->
-            <div
-              class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-pr-gold text-white flex items-center justify-center font-display text-xs tracking-wide">
-              ★
             </div>
           </div>
 
-          <!-- Contenido -->
-          <div class="p-6 md:p-7">
-            <div class="font-display text-6xl text-pr-brown/[0.06] leading-none mb-1 select-none">X3</div>
-            <h3
-              class="font-serif font-bold text-xl md:text-2xl text-pr-brown mb-3 group-hover:text-pr-olive transition-colors duration-300">
-              LA BOX
-            </h3>
-            <p class="font-sans text-sm md:text-base text-pr-brown-light leading-relaxed mb-5">
-              Tres cookies. Ideal para compartir — o no, te entendemos. La opción perfecta para el antojo en serio.
-            </p>
-            <div class="w-12 h-px bg-pr-gold/40 mb-5"></div>
+          <!-- Contenido inferior -->
+          <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-display font-medium text-4xl text-pr-cream uppercase tracking-[0.1em] group-hover:text-pr-olive transition-colors duration-300">
+                LA BOX X3
+              </h3>
+              <p class="font-sans text-sm md:text-base text-pr-cream/70 leading-relaxed mt-2">
+                Tres cookies. Ideal para compartir — o no, te entendemos. La opción perfecta para el antojo en serio.
+              </p>
+            </div>
             <span
-              class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-orange group-hover:gap-3 transition-all duration-300">
+              class="inline-flex items-center gap-2 font-display tracking-[0.1em] text-lg text-pr-olive group-hover:gap-3 transition-all duration-300 mt-4">
               PEDIR POR DM →
             </span>
           </div>
         </a>
 
-        <!-- ── CARD 3: PEDIDOS ESPECIALES (fondo oscuro) ── -->
+        <!-- ── CARD 3: PEDIDOS ESPECIALES ── -->
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-pr-dark rounded-2xl overflow-hidden border border-pr-gold/30 shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer block md:col-span-2 lg:col-span-1">
+          class="group relative bg-pr-beige rounded-[4px] overflow-hidden border border-pr-gold/20 shadow-warm hover:-translate-y-2 transition-transform duration-400 ease-out cursor-pointer block md:col-span-2 lg:col-span-1 h-[38rem] flex flex-col">
 
-          <!-- Imagen placeholder oscura -->
-          <div class="relative w-full aspect-square bg-pr-dark-mid overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center opacity-20">
-              <span class="text-8xl">📦</span>
-            </div>
-            <!-- Badge MAYORISTA -->
+          <!-- Imagen 70% -->
+          <div
+            class="relative w-full h-[70%] bg-[#d4c9b0] overflow-hidden flex-shrink-0 flex items-center justify-center">
+            <span class="text-9xl opacity-20">📦</span>
+            <!-- Badge -->
             <div
-              class="absolute top-4 left-4 z-10 px-3 py-1 bg-pr-gold text-pr-dark font-display tracking-widest text-xs rounded-full">
+              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-pr-gold text-pr-dark font-display tracking-[0.1em] text-sm rounded-[2px] uppercase">
               MAYORISTA
             </div>
           </div>
 
-          <!-- Contenido -->
-          <div class="p-6 md:p-7">
-            <span class="text-4xl mb-3 block">📦</span>
-            <h3 class="font-serif font-bold text-xl md:text-2xl text-pr-cream mb-3">
-              PEDIDOS ESPECIALES
-            </h3>
-            <p class="font-sans text-sm md:text-base text-pr-cream/70 leading-relaxed mb-5">
-              ¿Querés más? Precio y consultas para pedidos mayores al DM. Tu consulta no molesta.
-            </p>
-            <div class="w-12 h-px bg-pr-gold/40 mb-5"></div>
+          <!-- Contenido inferior -->
+          <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-display font-medium text-4xl text-pr-dark uppercase tracking-[0.1em] group-hover:text-pr-gold transition-colors duration-300">
+                PEDIDOS ESPECIALES
+              </h3>
+              <p class="font-sans text-sm md:text-base text-pr-brown-light leading-relaxed mt-2">
+                Precio y consultas para pedidos mayores al DM. Tu consulta no molesta.
+              </p>
+            </div>
             <span
-              class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-gold group-hover:gap-3 transition-all duration-300">
+              class="inline-flex items-center gap-2 font-display tracking-[0.1em] text-lg text-pr-gold group-hover:gap-3 transition-all duration-300 mt-4">
               ESCRIBINOS →
             </span>
           </div>
@@ -656,10 +629,20 @@
       </div><!-- /grid -->
 
       <!-- Nota debajo del grid -->
-      <p class="mt-12 text-center font-sans text-sm text-pr-brown-light">
+      <p class="mt-12 text-center font-sans text-sm text-pr-brown-light mb-8 pt-4">
         Todos los pedidos se coordinan por Instagram. Los precios se consultan por DM.
       </p>
 
+    </div>
+
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-pr-dark border-t border-pr-gold/20 overflow-hidden py-3">
+      <div
+        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+      </div>
     </div>
   </section>
   <!-- ════════════════════════════════════════════════
@@ -671,43 +654,50 @@
     <div class="absolute bottom-0 right-0 text-[300px] leading-none opacity-[0.03] select-none pointer-events-none"
       aria-hidden="true">🌳</div>
 
-    <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center pb-8">
 
-      <!-- Header -->
-      <span class="font-display tracking-widest text-xs text-pr-orange uppercase mb-3 block">📦 LOGÍSTICA</span>
-      <h2 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-pr-cream leading-tight mb-4">
-        ¿Cuándo<br>
-        <span class="text-pr-orange italic">llegamos?</span>
-      </h2>
-      <p class="font-sans text-base text-pr-cream/60 mb-16 max-w-md">
-        Programá tu entrega. Solo hacemos envíos en estos horarios en CABA.
-      </p>
+      <!-- Header gigante -->
+      <div class="mb-16 md:mb-24 animate-on-scroll text-center w-full">
+        <span class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-orange uppercase mb-4 block">📦
+          LOGÍSTICA</span>
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-cream leading-none uppercase">
+          ¿CUÁNDO<br>
+          <em class="font-serif italic text-pr-orange lowercase tracking-normal">llegamos?</em>
+        </h2>
+        <p class="font-sans text-lg text-pr-cream/70 mt-8 max-w-lg mx-auto">
+          Programá tu entrega. Solo hacemos envíos en estos horarios en CABA.
+        </p>
+      </div>
 
       <!-- Grid de días -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 w-full max-w-5xl">
 
         <!-- CARD MIÉRCOLES -->
         <div
-          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-8 md:p-10 overflow-hidden hover:border-pr-orange/40 hover:shadow-orange transition-all duration-300">
-          <div class="absolute -right-4 -top-6 font-display text-[120px] text-white/[0.03] leading-none select-none"
+          class="relative bg-pr-dark-mid rounded-[4px] border border-pr-gold/10 p-8 md:p-12 overflow-hidden hover:border-pr-orange/30 hover:-translate-y-2 transition-transform duration-400 ease-out text-center">
+          <div class="absolute -right-4 -top-6 font-display text-[150px] text-white/[0.02] leading-none select-none"
             aria-hidden="true">MI</div>
-          <span class="text-3xl mb-4 block">🌙</span>
-          <span class="font-display tracking-widest-xl text-3xl md:text-4xl text-pr-orange mb-2 block">MIÉRCOLES</span>
-          <p class="font-serif font-bold text-2xl md:text-3xl text-pr-cream mb-4">19:00 — 21:00 hs</p>
-          <p class="font-sans text-sm text-pr-cream/50 border-t border-pr-gold/10 pt-4 mt-2">
+          <span class="text-4xl mb-6 block">🌙</span>
+          <span class="font-display tracking-[0.1em] text-pr-orange mb-4 block leading-none"
+            style="font-size: clamp(3rem, 7vw, 6rem);">MIÉRCOLES</span>
+          <p class="font-serif font-bold text-pr-cream mb-6 leading-none" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+            19:00 — 21:00 hs</p>
+          <p class="font-sans text-sm md:text-lg text-pr-cream/50 pt-4 mt-6">
             Coordinar antes de las 18hs del miércoles
           </p>
         </div>
 
         <!-- CARD SÁBADO -->
         <div
-          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-8 md:p-10 overflow-hidden hover:border-pr-orange/40 hover:shadow-orange transition-all duration-300">
-          <div class="absolute -right-4 -top-6 font-display text-[120px] text-white/[0.03] leading-none select-none"
+          class="relative bg-pr-dark-mid rounded-[4px] border border-pr-gold/10 p-8 md:p-12 overflow-hidden hover:border-pr-orange/30 hover:-translate-y-2 transition-transform duration-400 ease-out text-center">
+          <div class="absolute -right-4 -top-6 font-display text-[150px] text-white/[0.02] leading-none select-none"
             aria-hidden="true">SA</div>
-          <span class="text-3xl mb-4 block">☀️</span>
-          <span class="font-display tracking-widest-xl text-3xl md:text-4xl text-pr-orange mb-2 block">SÁBADO</span>
-          <p class="font-serif font-bold text-2xl md:text-3xl text-pr-cream mb-4">09:00 — 13:00 hs</p>
-          <p class="font-sans text-sm text-pr-cream/50 border-t border-pr-gold/10 pt-4 mt-2">
+          <span class="text-4xl mb-6 block">☀️</span>
+          <span class="font-display tracking-[0.1em] text-pr-orange mb-4 block leading-none"
+            style="font-size: clamp(3rem, 7vw, 6rem);">SÁBADO</span>
+          <p class="font-serif font-bold text-pr-cream mb-6 leading-none" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+            09:00 — 13:00 hs</p>
+          <p class="font-sans text-sm md:text-lg text-pr-cream/50 pt-4 mt-6">
             Coordinar antes del viernes por la tarde
           </p>
         </div>
@@ -716,140 +706,179 @@
 
       <!-- Take Away -->
       <div
-        class="mt-12 p-6 md:p-8 rounded-2xl border border-pr-gold/20 border-dashed bg-pr-gold/5 flex flex-col md:flex-row items-start md:items-center gap-4 max-w-2xl">
-        <span class="text-2xl flex-shrink-0">🛍️</span>
-        <p class="font-sans text-pr-cream/80 text-sm md:text-base leading-relaxed">
-          <span class="font-semibold text-pr-cream">Take away disponible.</span>
+        class="mt-16 p-8 md:p-10 rounded-[4px] border border-pr-gold/20 border-dashed bg-pr-dark flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-6 max-w-3xl w-full">
+        <span class="text-4xl flex-shrink-0">🛍️</span>
+        <p class="font-sans text-pr-cream/80 text-lg md:text-xl leading-relaxed">
+          <span class="font-display text-pr-orange tracking-[0.1em] text-2xl block mb-1">TAKE AWAY DISPONIBLE.</span>
           Pasás a buscar tus cookies y coordinamos el punto de encuentro por DM. Nada complicado.
         </p>
       </div>
 
     </div>
+
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-pr-dark border-t border-pr-gold/20 overflow-hidden py-3 z-30">
+      <div
+        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+      </div>
+    </div>
   </section>
   <!-- ════════════════════════════════════════════════
        SECCIÓN 5 — RECOMENDAMOS
        ════════════════════════════════════════════════ -->
-  <section id="recomendamos" class="w-full bg-pr-beige py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="recomendamos"
+    class="w-full bg-pr-orange py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
 
-    <!-- Grain overlay -->
-    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col items-center pb-8">
 
-    <div class="relative z-10 max-w-7xl mx-auto">
-
-      <!-- Header -->
-      <span class="font-display tracking-widest text-xs text-pr-olive uppercase mb-3 block">🌿 ANTES DE ARRANCAR</span>
-      <h2 class="font-serif font-bold text-4xl md:text-5xl text-pr-brown mb-4">
-        Consejos para<br>
-        <em class="italic text-pr-olive">buen viaje.</em>
-      </h2>
+      <!-- Header gigante -->
+      <div class="text-center w-full">
+        <span class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-dark uppercase mb-4 block">🌿 ANTES DE
+          ARRANCAR</span>
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-cream leading-none uppercase">
+          CONSEJOS PARA<br>
+          <em class="font-serif italic text-pr-dark lowercase tracking-normal">buen viaje.</em>
+        </h2>
+      </div>
 
       <!-- Card de advertencia amigable -->
       <div
-        class="mt-12 md:mt-16 max-w-2xl relative bg-pr-beige-light rounded-2xl border-2 border-pr-olive/30 p-8 md:p-12 overflow-hidden">
-
-        <!-- Línea lateral naranja -->
-        <div class="absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl bg-pr-orange"></div>
+        class="mt-16 md:mt-24 max-w-3xl relative bg-pr-beige rounded-[4px] border-none shadow-warm-lg p-10 md:p-16 overflow-hidden text-center mx-auto">
 
         <!-- Texto principal -->
-        <p class="font-display tracking-wide text-2xl md:text-3xl lg:text-4xl text-pr-brown leading-snug mb-6">
+        <p class="font-display tracking-[0.1em] text-3xl md:text-4xl lg:text-5xl text-pr-dark leading-[1.1] mb-8">
           CONSUMILA PREFERENTEMENTE<br>
           DESPUÉS DE UNA COMIDA<br>
           (BRUNCH, ALMUERZO).
         </p>
 
-        <!-- Divisor -->
-        <div class="w-16 h-px bg-pr-gold/40 mb-6"></div>
+        <!-- Divisor centrado -->
+        <div class="w-24 h-px bg-pr-dark/20 mx-auto mb-8"></div>
 
         <!-- Texto secundario -->
-        <p class="font-serif italic text-base md:text-lg text-pr-brown-light leading-relaxed mb-4">
+        <p class="font-serif italic text-xl md:text-2xl text-pr-olive leading-relaxed mb-6">
           Nuestras cookies están hechas con materia prima PREMIUM.
         </p>
 
         <!-- Texto terciario -->
-        <p class="font-sans text-sm md:text-base text-pr-brown leading-relaxed">
+        <p class="font-sans text-lg md:text-xl text-pr-brown leading-relaxed">
           Seguí nuestros consejos. Recomendamos
-          <span class="font-semibold text-pr-olive">iniciar con media cookie</span>
+          <span class="font-bold text-pr-dark">iniciar con media cookie</span>
           para que el viaje arranque bien.
         </p>
 
         <!-- Badge de calidad -->
         <div
-          class="mt-8 inline-flex items-center gap-3 px-5 py-2.5 bg-pr-olive/10 border border-pr-olive/30 rounded-full font-display tracking-widest text-xs text-pr-olive uppercase">
+          class="mt-10 inline-flex items-center gap-3 px-6 py-3 bg-pr-dark text-pr-cream rounded-[4px] font-display tracking-[0.1em] text-sm uppercase">
           ✓ MATERIA PRIMA PREMIUM
         </div>
 
       </div>
 
     </div>
+
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-pr-dark overflow-hidden py-3 z-30">
+      <div
+        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+      </div>
+    </div>
   </section>
   <!-- ════════════════════════════════════════════════
        SECCIÓN 6 — MANIFIESTO / FILOSOFÍA
        ════════════════════════════════════════════════ -->
-  <section id="manifiesto" class="w-full bg-pr-dark-mid py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="manifiesto"
+    class="w-full bg-pr-olive py-32 md:py-48 relative overflow-hidden flex flex-col items-center justify-center">
 
     <!-- Cita central -->
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="font-serif text-8xl text-pr-gold/20 leading-none block mb-4 -mt-4" aria-hidden="true">"</span>
-      <p class="font-serif italic text-xl md:text-2xl lg:text-3xl text-pr-cream leading-relaxed mb-8">
+    <div class="w-full px-6 md:px-16 lg:px-24 text-center z-10 animate-on-scroll">
+      <p class="font-serif text-pr-cream leading-[1.2] mb-12 uppercase mx-auto"
+        style="font-size: clamp(1.5rem, 3vw, 2.8rem); max-width: 90vw;">
         Pablito nació de las ganas de hacer algo rico de verdad. Sin atajos, sin apuro. Cada cookie mezclada a mano,
         horneada con atención, entregada con cariño. Somos un emprendimiento chico con muchas ganas, y eso se nota en
         cada caja que sale por la puerta.
       </p>
-      <span class="font-display tracking-widest text-sm text-pr-gold uppercase">
+      <span
+        class="font-display tracking-[0.2em] text-lg text-pr-dark uppercase bg-pr-cream px-6 py-2 rounded-full inline-block">
         — El equipo de Pablito Roots 🐱
       </span>
     </div>
 
     <!-- Galería marquee -->
-    <div class="mt-20 relative w-full overflow-hidden">
+    <div class="mt-24 relative w-full overflow-hidden opacity-90">
       <div
-        class="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-pr-dark-mid to-transparent pointer-events-none">
+        class="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-pr-olive to-transparent pointer-events-none">
       </div>
       <div
-        class="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-pr-dark-mid to-transparent pointer-events-none">
+        class="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-pr-olive to-transparent pointer-events-none">
       </div>
-      <div class="flex gap-4 animate-marquee" style="width: max-content;">
+
+      <div class="flex gap-6 animate-marquee" style="width: max-content;">
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
-          <span class="text-5xl opacity-30">🍪</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🍪</span>
         </div>
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍫</span></div>
-        <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">🌿</span></div>
-        <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
-          <span class="text-5xl opacity-30">⭐</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🍫</span>
         </div>
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍪</span></div>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🌿</span>
+        </div>
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">📦</span></div>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">⭐</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🍪</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">📦</span>
+        </div>
         <!-- duplicado para loop seamless -->
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
-          <span class="text-5xl opacity-30">🍪</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🍪</span>
         </div>
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍫</span></div>
-        <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">🌿</span></div>
-        <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl bg-pr-dark border border-pr-gold/10 flex items-center justify-center">
-          <span class="text-5xl opacity-30">⭐</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🍫</span>
         </div>
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(74,53,32,0.3)"><span class="text-5xl opacity-30">🍪</span></div>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🌿</span>
+        </div>
         <div
-          class="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-xl border border-pr-gold/10 flex items-center justify-center"
-          style="background:rgba(107,124,42,0.2)"><span class="text-5xl opacity-30">📦</span></div>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">⭐</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">🍪</span>
+        </div>
+        <div
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
+          <span class="text-6xl opacity-40">📦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-pr-dark overflow-hidden py-3 z-30">
+      <div
+        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
       </div>
     </div>
   </section>
@@ -858,19 +887,19 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 7 — ¿CÓMO PEDÍS?
        ════════════════════════════════════════════════ -->
-  <section id="como-pedir"
-    class="w-full bg-pr-beige-light py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="como-pedir" class="w-full bg-pr-beige py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="relative z-10 max-w-7xl mx-auto mb-16">
 
-      <!-- Header -->
-      <div class="text-center mb-16 md:mb-20">
-        <span class="font-display tracking-widest text-xs text-pr-orange uppercase mb-3 block">PROCESO</span>
-        <h2 class="font-serif font-bold text-4xl md:text-5xl text-pr-brown">
-          Pedir es<br>
-          <em class="italic text-pr-olive">facilísimo.</em>
+      <!-- Header gigante -->
+      <div class="text-center md:text-left mb-16 md:mb-24 w-full">
+        <span
+          class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-orange uppercase mb-4 block">PROCESO</span>
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-dark leading-none uppercase">
+          PEDIR ES<br>
+          <em class="font-serif italic text-pr-olive lowercase tracking-normal">facilísimo.</em>
         </h2>
       </div>
 
@@ -926,13 +955,23 @@
       </div><!-- /steps -->
 
       <!-- CTA -->
-      <div class="mt-16 flex justify-center">
+      <div class="mt-20 flex justify-center pb-12">
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 px-10 py-5 bg-pr-orange text-white font-display tracking-widest text-base rounded-full hover:bg-pr-orange-hover hover:shadow-orange hover:-translate-y-0.5 transition-all duration-300 shadow-orange">
+          class="inline-flex items-center gap-4 px-12 py-6 bg-pr-dark text-white font-display tracking-[0.1em] text-xl rounded-full hover:bg-pr-orange hover:shadow-orange hover:-translate-y-1 transition-all duration-300 shadow-warm">
           📸&nbsp; IR AL INSTAGRAM
         </a>
       </div>
 
+    </div>
+
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-pr-dark overflow-hidden py-3 z-30">
+      <div
+        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+      </div>
     </div>
   </section>
 
@@ -940,26 +979,26 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 8 — RESEÑAS
        ════════════════════════════════════════════════ -->
-  <section id="resenas" class="w-full bg-pr-dark py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="resenas" class="w-full bg-pr-dark-mid py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
 
-      <div class="text-center mb-16">
-        <h2 class="font-serif font-bold text-4xl md:text-5xl text-pr-cream">
-          Lo que dice<br>
-          <em class="italic text-pr-gold">la gente.</em>
+      <div class="text-center mb-16 md:mb-24 w-full">
+        <span
+          class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-gold uppercase mb-4 block">COMUNIDAD</span>
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-cream leading-none uppercase">
+          LO QUE DICE<br>
+          <em class="font-serif italic text-pr-orange lowercase tracking-normal">la gente.</em>
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 stagger-children">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 stagger-children pb-16">
 
         <!-- Reseña 1 -->
         <div
-          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-6 md:p-8 hover:border-pr-gold/40 transition-all duration-300"
-          onmouseenter="this.style.boxShadow='0 0 30px rgba(139,105,20,0.1)'"
-          onmouseleave="this.style.boxShadow='none'">
+          class="relative bg-pr-dark rounded-[4px] border border-pr-gold/10 p-8 md:p-10 hover:border-pr-gold/30 hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between">
           <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
               class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
               class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
@@ -979,9 +1018,7 @@
 
         <!-- Reseña 2 -->
         <div
-          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-6 md:p-8 hover:border-pr-gold/40 transition-all duration-300"
-          onmouseenter="this.style.boxShadow='0 0 30px rgba(139,105,20,0.1)'"
-          onmouseleave="this.style.boxShadow='none'">
+          class="relative bg-pr-dark rounded-[4px] border border-pr-gold/10 p-8 md:p-10 hover:border-pr-gold/30 hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between">
           <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
               class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
               class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
@@ -1001,9 +1038,7 @@
 
         <!-- Reseña 3 -->
         <div
-          class="relative bg-pr-dark-mid rounded-2xl border border-pr-gold/20 p-6 md:p-8 hover:border-pr-gold/40 transition-all duration-300"
-          onmouseenter="this.style.boxShadow='0 0 30px rgba(139,105,20,0.1)'"
-          onmouseleave="this.style.boxShadow='none'">
+          class="relative bg-pr-dark rounded-[4px] border border-pr-gold/10 p-8 md:p-10 hover:border-pr-gold/30 hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between">
           <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
               class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
               class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
@@ -1022,6 +1057,7 @@
         </div>
 
       </div>
+
     </div>
   </section>
 
