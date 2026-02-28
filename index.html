@@ -1142,6 +1142,116 @@
       letter-spacing: 0.01em !important;
     }
 
+
+    /* ═══════════════════════════════════════════════════════
+       PRODUCTOS — EDITORIAL GRID
+       ═══════════════════════════════════════════════════════ */
+    .menu-section-title {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 900 !important;
+      font-size: clamp(2.8rem, 6vw, 5rem) !important;
+      line-height: 1.0 !important;
+      color: #1a1208 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .menu-section-title em {
+      font-style: italic;
+    }
+
+    .menu-product-item {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      background-color: #e8dfc8;
+      transition: opacity 150ms ease;
+    }
+
+    .menu-product-item:hover {
+      opacity: 0.88;
+    }
+
+    .menu-product-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .menu-product-info {
+      padding: 16px 12px 20px;
+    }
+
+    .menu-product-name {
+      font-family: 'Bebas Neue', Impact, sans-serif !important;
+      letter-spacing: 0.12em !important;
+      font-size: 0.9rem !important;
+      color: #1a1208;
+      margin-bottom: 4px;
+      line-height: 1.2 !important;
+    }
+
+    .menu-product-desc {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-weight: 300 !important;
+      font-size: 0.8rem !important;
+      color: #1a120880;
+      line-height: 1.4 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TICKER — PLAYFAIR ITALIC (todos los tickers)
+       ═══════════════════════════════════════════════════════ */
+    .ticker-playfair {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+      font-size: 1rem !important;
+      letter-spacing: 0.04em !important;
+      color: #1a1208 !important;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-ticker-wrap {
+      background-color: #f5ede0;
+      padding: 14px 0;
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Override ALL section ticker wrappers to use cream + Playfair */
+    section>div[class*="absolute bottom-0"],
+    section>div[class*="absolute"][class*="bottom-0"] {
+      background-color: #f5ede0 !important;
+      border: none !important;
+      padding: 14px 0 !important;
+    }
+
+    section>div[class*="absolute bottom-0"] .marquee-track,
+    section>div[class*="absolute"][class*="bottom-0"] .marquee-track {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+      font-size: 1rem !important;
+      letter-spacing: 0.04em !important;
+      color: #1a1208 !important;
+    }
+
+    /* Responsive: stack products on mobile */
+    @media (max-width: 640px) {
+      .menu-product-item {
+        flex: 0 0 100%;
+      }
+
+      #menu>div[style*="display:flex"] {
+        flex-direction: column !important;
+      }
+    }
+
     .is-visible {
       opacity: 1 !important;
       transform: translateY(0) !important;
@@ -1165,7 +1275,7 @@
 
 
   <section id="hero" class="relative w-full flex items-center justify-center overflow-hidden px-4 md:px-8"
-    style="min-height: 100vh; background-color: #1a1208;">
+    style="min-height: 100vh; background-color: #6b7c2a;">
 
     <!-- Texto central tipo Touchy Coffee -->
     <h1 class="hero-headline">
@@ -1187,158 +1297,66 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 3 — EN NUESTRA COCINA (productos)
        ════════════════════════════════════════════════ -->
-  <section id="menu"
-    class="w-full bg-blk-celeste py-24 md:py-32 px-4 md:px-8 lg:px-12 relative overflow-hidden flex flex-col items-center">
+  <section id="menu" class="w-full relative overflow-hidden flex flex-col" style="background-color:#e8dfc8;">
 
-    <!-- Título vertical lateral (solo desktop) -->
-    <div
-      class="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 font-display text-[10px] tracking-widest-2xl text-brand-black/10 select-none"
-      style="writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg);" aria-hidden="true">
-      E N · N U E S T R A · C O C I N A
+    <!-- Título de sección -->
+    <div style="padding: clamp(3rem,6vw,5rem) clamp(1rem,4vw,3rem) 2rem;">
+      <h2 class="menu-section-title">
+        LO QUE HACEMOS,<br>
+        <em>lo hacemos bien.</em>
+      </h2>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Grid editorial flush — 3 columnas sin gap real -->
+    <div style="display:flex; flex-direction:row; gap:2px; width:100%;">
 
-      <!-- Header de sección gigante -->
-      <div class="mb-16 md:mb-20 animate-on-scroll text-center md:text-left">
-        <h2 class="font-sans font-bold tracking-wide text-brand-black text-2xl md:text-3xl uppercase mb-3 block">
-          🍪 NUESTROS PRODUCTOS
-        </h2>
-        <h3 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-black leading-none uppercase">
-          LO QUE HACEMOS,<br>
-          <em class="font-serif italic text-brand-olive lowercase tracking-normal">lo hacemos bien.</em>
-        </h3>
-      </div>
+      <!-- PRODUCTO 1: Cookie Individual -->
+      <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer" class="menu-product-item">
+        <div class="menu-product-img">
+          <img src="img/hero-cookie.png" alt="Cookie Individual"
+            style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="menu-product-info">
+          <p class="menu-product-name">COOKIE INDIVIDUAL</p>
+          <p class="menu-product-desc">x1 · Materia prima premium</p>
+        </div>
+      </a>
 
-      <!-- Grid de productos -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 stagger-children">
+      <!-- PRODUCTO 2: Cookie Box -->
+      <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer" class="menu-product-item">
+        <div class="menu-product-img">
+          <img src="img/hero-cookie.png" alt="Cookie Box"
+            style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="menu-product-info">
+          <p class="menu-product-name">COOKIE BOX</p>
+          <p class="menu-product-desc">x3 · La más pedida</p>
+        </div>
+      </a>
 
-        <!-- ── CARD 1: INDIVIDUAL ── -->
-        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block h-[38rem] flex flex-col">
-
-          <!-- Imagen 70% -->
-          <div
-            class="relative w-full h-[70%] bg-brand-blue overflow-hidden flex-shrink-0 flex items-center justify-center border-b-[3px] border-brand-black">
-            <img src="img/hero-cookie.png" alt="Cookie Premium"
-              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
-            <!-- Badge pill -->
-            <div
-              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-orange text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
-              INDIVIDUAL
-            </div>
-          </div>
-
-          <!-- Contenido inferior -->
-          <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
-            <div>
-              <h3
-                class="font-sans font-bold text-3xl text-brand-black uppercase tracking-wide group-hover:text-brand-orange transition-colors duration-150">
-                LA COOKIE INDIVIDUAL
-              </h3>
-              <p class="font-sans text-sm md:text-base text-brand-black/70 leading-relaxed mt-2">
-                Para cuando la querés toda para vos. Sin culpa, sin compartir. Una cookie entera de materia prima
-                premium.
-              </p>
-            </div>
-            <!-- Compound cart button -->
-            <div class="btn-compound-cart mt-4 self-start">
-              <span class="cart-control">−</span>
-              <span class="cart-qty">1</span>
-              <span class="cart-control">+</span>
-              <span class="cart-divider"></span>
-              <span class="cart-add">PEDIR →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- ── CARD 2: BOX x3 ── -->
-        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block h-[38rem] flex flex-col">
-
-          <!-- Imagen 70% -->
-          <div class="relative w-full h-[70%] bg-brand-orange/30 overflow-hidden flex-shrink-0">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <span class="text-6xl opacity-30">🍪</span>
-            </div>
-            <!-- Badge pill -->
-            <div
-              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-yellow text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
-              LA MÁS PEDIDA
-            </div>
-          </div>
-
-          <!-- Contenido inferior -->
-          <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
-            <div>
-              <h3
-                class="font-sans font-bold text-3xl text-brand-black uppercase tracking-wide group-hover:text-brand-olive transition-colors duration-150">
-                LA BOX X3
-              </h3>
-              <p class="font-sans text-sm md:text-base text-brand-black/70 leading-relaxed mt-2">
-                Tres cookies. Ideal para compartir — o no, te entendemos. La opción perfecta para el antojo en serio.
-              </p>
-            </div>
-            <!-- Compound cart button -->
-            <div class="btn-compound-cart mt-4 self-start">
-              <span class="cart-control">−</span>
-              <span class="cart-qty">1</span>
-              <span class="cart-control">+</span>
-              <span class="cart-divider"></span>
-              <span class="cart-add">PEDIR →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- ── CARD 3: PEDIDOS ESPECIALES ── -->
-        <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block md:col-span-2 lg:col-span-1 h-[38rem] flex flex-col">
-
-          <!-- Imagen 70% -->
-          <div
-            class="relative w-full h-[70%] bg-brand-black/10 overflow-hidden flex-shrink-0 flex items-center justify-center">
-            <span class="text-9xl opacity-20">📦</span>
-            <!-- Badge pill -->
-            <div
-              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-cream text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
-              MAYORISTA
-            </div>
-          </div>
-
-          <!-- Contenido inferior -->
-          <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
-            <div>
-              <h3
-                class="font-sans font-bold text-3xl text-brand-black uppercase tracking-wide group-hover:text-brand-orange transition-colors duration-150">
-                PEDIDOS ESPECIALES
-              </h3>
-              <p class="font-sans text-sm md:text-base text-brand-black/70 leading-relaxed mt-2">
-                Precio y consultas para pedidos mayores al DM. Tu consulta no molesta.
-              </p>
-            </div>
-            <!-- Secondary button -->
-            <span class="btn-pill-secondary mt-4 self-start text-sm">
-              ESCRIBINOS →
-            </span>
-          </div>
-        </a>
-
-      </div><!-- /grid -->
-
-      <!-- Nota debajo del grid -->
-      <p class="mt-12 text-center font-sans text-sm text-brand-black/60 mb-8 pt-4">
-        Todos los pedidos se coordinan por Instagram. Los precios se consultan por DM.
-      </p>
+      <!-- PRODUCTO 3: Pedidos Especiales (fondo oscuro) -->
+      <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer" class="menu-product-item"
+        style="background-color:#1a1208;">
+        <div class="menu-product-img" style="display:flex; align-items:center; justify-content:center;">
+          <span style="font-size:4rem; color:#f5ede020; font-family:serif;">→</span>
+        </div>
+        <div class="menu-product-info">
+          <p class="menu-product-name" style="color:#f5ede0;">PEDIDOS ESPECIALES</p>
+          <p class="menu-product-desc" style="color:#f5ede060;">Consultas por DM</p>
+        </div>
+      </a>
 
     </div>
 
     <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3">
-      <div
-        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+    <div class="menu-ticker-wrap">
+      <div class="marquee-track ticker-playfair" style="white-space:nowrap;">
+        <span>Cookies · Artesanal · Hecho a mano · Caba · Premium · Miércoles · Sábado · Pablito Roots · Los postres
+          mágicos ·&nbsp;</span>
+        <span>Cookies · Artesanal · Hecho a mano · Caba · Premium · Miércoles · Sábado · Pablito Roots · Los postres
+          mágicos ·&nbsp;</span>
+        <span>Cookies · Artesanal · Hecho a mano · Caba · Premium · Miércoles · Sábado · Pablito Roots · Los postres
+          mágicos ·&nbsp;</span>
       </div>
     </div>
   </section>
@@ -1506,68 +1524,15 @@
       </div>
     </div>
 
-    <!-- Galería marquee -->
-    <div class="mt-24 relative w-full overflow-hidden">
-      <div class="flex gap-6 animate-marquee" style="width: max-content;">
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🍪</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🍫</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🌿</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">⭐</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🍪</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">📦</span>
-        </div>
-        <!-- duplicado para loop seamless -->
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🍪</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🍫</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🌿</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">⭐</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">🍪</span>
-        </div>
-        <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
-          <span class="text-6xl opacity-60">📦</span>
-        </div>
-      </div>
-    </div>
-
     <!-- Ticker/Marquee -->
-    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3 z-30">
-      <div
-        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+    <div class="menu-ticker-wrap" style="position:absolute; bottom:0; left:0; width:100%;">
+      <div class="marquee-track ticker-playfair" style="white-space:nowrap;">
+        <span>Cookies · Artesanal · Hecho a mano · Caba · Premium · Miércoles · Sábado · Pablito Roots · Los postres
+          mágicos ·&nbsp;</span>
+        <span>Cookies · Artesanal · Hecho a mano · Caba · Premium · Miércoles · Sábado · Pablito Roots · Los postres
+          mágicos ·&nbsp;</span>
+        <span>Cookies · Artesanal · Hecho a mano · Caba · Premium · Miércoles · Sábado · Pablito Roots · Los postres
+          mágicos ·&nbsp;</span>
       </div>
     </div>
   </section>
