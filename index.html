@@ -80,34 +80,39 @@
 
   <!-- ─── CUSTOM STYLES ─── -->
   <style>
-    /* ── Neo-Brutalismo: NO grain, NO gradients, NO soft shadows ── */
+    /* ═══════════════════════════════════════════════════════
+       PABLITO ROOTS — CSS Design System v4
+       Paleta: #1a1208 (dark) · #e8620a (orange) · #f5ede0 (cream)
+               #e8dfc8 (beige) · #6b7c2a (olive) · #2d1f0e (mid-dark)
+       ═══════════════════════════════════════════════════════ */
 
-    /* ── Scroll suave ── */
+    /* ── Base ── */
     html {
       scroll-behavior: smooth;
     }
 
-    /* ── Selection ── */
     ::selection {
-      background: #111111;
-      color: #F5ED98;
+      background: #e8620a;
+      color: #ffffff;
     }
 
-    /* ── Scrollbar custom (webkit) ── */
     ::-webkit-scrollbar {
       width: 8px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #FAF7F0;
+      background: #e8dfc8;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #111111;
+      background: #8b6914;
       border-radius: 0;
     }
 
-    /* ── Cursor Neo-Brutal ── */
+    * {
+      scrollbar-color: #8b6914 #e8dfc8;
+    }
+
     * {
       cursor: crosshair;
     }
@@ -117,112 +122,28 @@
       cursor: pointer;
     }
 
-    /* ══════════════════════════════════════
-       PILL BUTTON SYSTEM
-       ══════════════════════════════════════ */
-
-    /* A. Primario — Píldora Negra */
-    .btn-pill-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 2rem;
-      background: #111111;
-      color: #FAF7F0;
-      border: 3px solid #111111;
-      border-radius: 9999px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      transition: all 150ms ease;
+    /* ── Section padding base ── */
+    section {
+      padding-top: clamp(5rem, 10vw, 8rem);
+      padding-bottom: clamp(5rem, 10vw, 8rem);
     }
 
-    .btn-pill-primary:hover {
-      background: transparent;
-      color: #111111;
-    }
-
-    /* B. Secundario — Píldora Transparente */
-    .btn-pill-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.625rem 1.5rem;
-      background: transparent;
-      color: #111111;
-      border: 3px solid #111111;
-      border-radius: 9999px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      transition: all 150ms ease;
-    }
-
-    .btn-pill-secondary:hover {
-      background: #111111;
-      color: #FAF7F0;
-    }
-
-    /* C. Compound Cart — Píldora Negra Compuesta */
-    .btn-compound-cart {
-      display: inline-flex;
-      align-items: center;
-      background: #111111;
-      color: #FAF7F0;
-      border: 3px solid #111111;
-      border-radius: 9999px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      overflow: hidden;
-    }
-
-    .btn-compound-cart .cart-control {
-      padding: 0.75rem 1rem;
-      transition: all 150ms ease;
-      user-select: none;
-    }
-
-    .btn-compound-cart .cart-control:hover {
-      opacity: 0.7;
-      transform: scale(1.15);
-    }
-
-    .btn-compound-cart .cart-qty {
-      padding: 0.75rem 0.5rem;
-      min-width: 2rem;
-      text-align: center;
-    }
-
-    .btn-compound-cart .cart-divider {
-      width: 2px;
-      align-self: stretch;
-      background: rgba(250, 247, 240, 0.25);
-    }
-
-    .btn-compound-cart .cart-add {
-      padding: 0.75rem 1.5rem;
-      transition: all 150ms ease;
-    }
-
-    .btn-compound-cart .cart-add:hover {
-      background: #ED8A4A;
-    }
-
-    /* ══════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════
        NAVBAR
-       ══════════════════════════════════════ */
+       ═══════════════════════════════════════════════════════ */
+    #navbar a {
+      color: #4a3520;
+    }
+
+    #navbar a:hover {
+      color: #e8620a;
+    }
+
     #navbar.scrolled {
-      background-color: #FAF7F0;
-      border-bottom: 3px solid #111111;
+      background-color: #e8dfc8ee;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #8b691420;
     }
 
     /* ── Mobile menu ── */
@@ -257,30 +178,131 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* ── Texto vertical hero ── */
-    .vert-letter {
-      opacity: 0;
-      animation: staggerIn 0.4s ease forwards;
+    /* ═══════════════════════════════════════════════════════
+       PILL BUTTON SYSTEM
+       ═══════════════════════════════════════════════════════ */
+
+    /* A. Primary */
+    .btn-pill-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      background: #1a1208;
+      color: #f5ede0;
+      border: 2px solid #1a1208;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 150ms ease;
     }
 
-    /* ── Scroll indicator ── */
-    .scroll-indicator {
-      animation: bounce 2s infinite;
+    .btn-pill-primary:hover {
+      background: transparent;
+      color: #1a1208;
     }
 
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      50% {
-        transform: translateX(-50%) translateY(-8px);
-      }
+    /* B. Secondary */
+    .btn-pill-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.5rem;
+      background: transparent;
+      color: #1a1208;
+      border: 2px solid #1a1208;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 150ms ease;
     }
 
-    /* ── Marquee infinito ── */
+    .btn-pill-secondary:hover {
+      background: #1a1208;
+      color: #f5ede0;
+    }
+
+    /* C. Compound Cart */
+    .btn-compound-cart {
+      display: inline-flex;
+      align-items: center;
+      background: #1a1208;
+      color: #f5ede0;
+      border: 2px solid #1a1208;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+    }
+
+    .btn-compound-cart .cart-control {
+      padding: 0.75rem 1rem;
+      transition: all 150ms ease;
+      user-select: none;
+    }
+
+    .btn-compound-cart .cart-control:hover {
+      opacity: 0.7;
+      transform: scale(1.15);
+    }
+
+    .btn-compound-cart .cart-qty {
+      padding: 0.75rem 0.5rem;
+      min-width: 2rem;
+      text-align: center;
+    }
+
+    .btn-compound-cart .cart-divider {
+      width: 2px;
+      align-self: stretch;
+      background: rgba(245, 237, 224, 0.25);
+    }
+
+    .btn-compound-cart .cart-add {
+      padding: 0.75rem 1.5rem;
+      transition: all 150ms ease;
+    }
+
+    .btn-compound-cart .cart-add:hover {
+      background: #e8620a;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TICKER / MARQUEE BARS
+       ═══════════════════════════════════════════════════════ */
+    [class*="absolute bottom-0"]>div[class*="marquee-track"],
+    [class*="overflow-hidden"]>div[class*="marquee-track"] {
+      color: #1a1208;
+    }
+
+    /* Override all ticker wrappers to orange */
+    section>div[class*="absolute bottom-0"],
+    section>div[class*="absolute"][class*="bottom-0"] {
+      background-color: #e8620a !important;
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+
+    section>div[class*="absolute bottom-0"] .marquee-track,
+    section>div[class*="absolute"][class*="bottom-0"] .marquee-track {
+      color: #1a1208 !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Marquee animation ── */
     @keyframes marquee {
       0% {
         transform: translateX(0);
@@ -301,19 +323,68 @@
       animation-play-state: paused;
     }
 
-    /* ── IntersectionObserver: is-visible ── */
-    .is-visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    /* ═══════════════════════════════════════════════════════
+       HERO SECTION (#hero)
+       ═══════════════════════════════════════════════════════ */
+    #hero {
+      background-color: #1a1208 !important;
     }
 
-    /* ── Texto vertical ── */
-    .writing-vertical {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+    #hero h1 {
+      font-size: clamp(4.5rem, 11vw, 10rem) !important;
+      color: #f5ede0 !important;
+      line-height: 0.9 !important;
+      max-width: 100%;
     }
 
-    /* ── Sello — rotación ── */
+    #hero h1 em {
+      color: #f5ede0;
+    }
+
+    #hero p {
+      color: #f5ede0aa !important;
+    }
+
+    /* Badge "PRODUCTO ARTESANAL · CABA" */
+    #hero .btn-pill-secondary {
+      border-color: #8b6914 !important;
+      color: #c8a97e !important;
+    }
+
+    #hero .btn-pill-secondary:hover {
+      background: #8b6914 !important;
+      color: #f5ede0 !important;
+    }
+
+    /* CTA buttons in hero */
+    #hero .btn-pill-primary,
+    #hero .btn-pill-primary:not(.btn-pill-secondary) {
+      background-color: #e8620a;
+      border-color: #e8620a;
+      color: #1a1208;
+    }
+
+    #hero .btn-pill-primary:hover {
+      background: transparent;
+      color: #e8620a;
+    }
+
+    /* Cookie image */
+    #hero img[alt="Cookie Premium"] {
+      filter: brightness(0.95) contrast(1.05);
+    }
+
+    /* Texto vertical decorativo */
+    #vert-text {
+      color: #f5ede033;
+    }
+
+    /* Scroll indicator */
+    #hero .scroll-indicator span {
+      color: #f5ede040;
+    }
+
+    /* ── Sello vintage ── */
     .sello-vintage {
       animation: sello-rotate 20s linear infinite;
     }
@@ -328,14 +399,439 @@
       }
     }
 
-    /* ── Neo-Brutal Card hover ── */
+    /* ── Vertical text ── */
+    .vert-letter {
+      opacity: 0;
+      animation: staggerIn 0.4s ease forwards;
+    }
+
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(-8px);
+      }
+    }
+
+    .writing-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PRODUCTOS (#menu)
+       ═══════════════════════════════════════════════════════ */
+    #menu {
+      background-color: #e8dfc8 !important;
+    }
+
+    #menu h3[class*="text-6xl"],
+    #menu h3[class*="text-7xl"],
+    #menu h3[class*="text-8xl"] {
+      font-size: clamp(2.5rem, 6vw, 5rem) !important;
+      color: #1a1208 !important;
+    }
+
+    #menu h2[class*="text-6xl"],
+    #menu h2[class*="text-7xl"],
+    #menu h2[class*="text-8xl"] {
+      font-size: clamp(2.5rem, 6vw, 5rem) !important;
+      color: #1a1208 !important;
+    }
+
+    /* Texto lateral decorativo */
+    #menu [style*="writing-mode: vertical-rl"] {
+      color: #4a352020 !important;
+    }
+
+    /* Cards 1 y 2 */
+    #menu a[class*="bg-brand-cream"],
+    #menu a[href] {
+      background-color: #f5ede0 !important;
+      border: 1.5px solid #8b691440 !important;
+      border-radius: 4px !important;
+      box-shadow: none !important;
+    }
+
+    #menu a[href]:hover {
+      box-shadow: 4px 4px 0 #8b691499 !important;
+      transform: translate(-2px, -2px) !important;
+    }
+
+    /* Card MAYORISTA (tercera — col-span) */
+    #menu a[class*="col-span"] {
+      background-color: #1a1208 !important;
+      border-color: #8b6914 !important;
+    }
+
+    #menu a[class*="col-span"] h3,
+    #menu a[class*="col-span"] p {
+      color: #f5ede0 !important;
+    }
+
+    #menu a[class*="col-span"] .btn-pill-secondary {
+      color: #f5ede0 !important;
+      border-color: #f5ede040 !important;
+    }
+
+    /* Image fill areas in cards */
+    #menu [class*="bg-brand-blue"],
+    #menu [class*="bg-brand-orange"],
+    #menu [class*="bg-brand-black"] {
+      background-color: #c8b89a !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ENVÍOS (#envios)
+       ═══════════════════════════════════════════════════════ */
+    #envios {
+      background-color: #1a1208 !important;
+    }
+
+    #envios h2 {
+      color: #f5ede0 !important;
+      font-size: clamp(3rem, 7vw, 6rem) !important;
+    }
+
+    #envios h2 em {
+      color: #e8620a !important;
+    }
+
+    #envios p[class*="text-brand-black/70"],
+    #envios p[class*="text-lg"] {
+      color: #f5ede080 !important;
+    }
+
+    /* Day cards */
+    #envios [class*="bg-brand-cream"][class*="rounded-none"],
+    #envios div[class*="bg-brand-cream"] {
+      background-color: #2d1f0e !important;
+      border: 1px solid #8b691430 !important;
+      border-radius: 8px !important;
+      box-shadow: none !important;
+    }
+
+    /* "MIÉRCOLES" / "SÁBADO" big labels */
+    #envios span[style*="clamp(3rem"] {
+      color: #e8620a !important;
+      font-size: clamp(2rem, 5vw, 4rem) !important;
+      letter-spacing: 0.05em !important;
+    }
+
+    /* Horarios */
+    #envios p[style*="clamp(2rem"] {
+      color: #f5ede0 !important;
+      font-size: clamp(1.8rem, 4vw, 3rem) !important;
+    }
+
+    /* "Coordinar" note text */
+    #envios p[class*="text-brand-black/50"] {
+      color: #f5ede050 !important;
+    }
+
+    /* Emoji moon / sun */
+    #envios span[class*="text-4xl"] {
+      filter: none;
+    }
+
+    /* Take away block */
+    #envios [class*="border-dashed"] {
+      border-color: #8b691440 !important;
+      background-color: #2d1f0e !important;
+    }
+
+    #envios [class*="border-dashed"] p,
+    #envios [class*="border-dashed"] span {
+      color: #f5ede0bb !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RECOMENDAMOS (#recomendamos)
+       ═══════════════════════════════════════════════════════ */
+    #recomendamos {
+      background-color: #e8620a !important;
+    }
+
+    #recomendamos * {
+      color: #1a1208;
+    }
+
+    #recomendamos h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem) !important;
+      color: #1a1208 !important;
+    }
+
+    #recomendamos span[class*="font-bold tracking-wide"],
+    #recomendamos span[class*="uppercase"] {
+      color: #1a1208 !important;
+    }
+
+    /* Main card */
+    #recomendamos [class*="bg-brand-cream"],
+    #recomendamos div[class*="max-w-3xl"] {
+      background-color: #1a120815 !important;
+      border-color: #1a120830 !important;
+      box-shadow: none !important;
+    }
+
+    /* Big warning text */
+    #recomendamos p[class*="font-bold"][class*="text-3xl"],
+    #recomendamos p[class*="font-bold"][class*="text-4xl"],
+    #recomendamos p[class*="font-bold"][class*="text-5xl"] {
+      font-size: clamp(1.8rem, 4vw, 3rem) !important;
+      font-weight: 900 !important;
+      line-height: 1.1 !important;
+      color: #1a1208 !important;
+    }
+
+    /* Italic serif paragraph */
+    #recomendamos p[class*="italic"] {
+      color: #1a120899 !important;
+    }
+
+    /* Badge */
+    #recomendamos .btn-pill-primary {
+      background-color: #1a120820 !important;
+      border-color: #1a120840 !important;
+      color: #1a1208 !important;
+    }
+
+    /* Divider line */
+    #recomendamos div[class*="w-24 h-"][class*="bg-"] {
+      background-color: #1a1208 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MANIFIESTO (#manifiesto)
+       ═══════════════════════════════════════════════════════ */
+    #manifiesto {
+      background-color: #6b7c2a !important;
+    }
+
+    /* Main quote paragraph */
+    #manifiesto p[style*="clamp"] {
+      color: #f5ede0 !important;
+      font-size: clamp(1.4rem, 3vw, 2.2rem) !important;
+      line-height: 1.5 !important;
+      max-width: 900px !important;
+      margin: 0 auto !important;
+      text-align: left !important;
+    }
+
+    /* Firma */
+    #manifiesto .btn-pill-secondary {
+      color: #c8a97e !important;
+      border-color: #c8a97e80 !important;
+    }
+
+    #manifiesto .btn-pill-secondary:hover {
+      background: #c8a97e !important;
+      color: #1a1208 !important;
+    }
+
+    /* Cat portrait */
+    #manifiesto img[alt="Pablito Cat"] {
+      border-color: #c8a97e80 !important;
+    }
+
+    /* Gallery marquee squares */
+    #manifiesto [class*="animate-marquee"]>div,
+    #manifiesto .flex.gap-6>div {
+      background-color: #4e5c1e !important;
+      padding: 20px 0 !important;
+    }
+
+    /* Marquee container */
+    #manifiesto [class*="mt-24"] {
+      background-color: #4e5c1e;
+      padding: 1.5rem 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CÓMO PEDÍS (#como-pedir)
+       ═══════════════════════════════════════════════════════ */
+    #como-pedir {
+      background-color: #e8dfc8 !important;
+    }
+
+    #como-pedir h2 {
+      color: #1a1208 !important;
+      font-size: clamp(2.5rem, 6vw, 5rem) !important;
+    }
+
+    #como-pedir h2 em {
+      color: #6b7c2a !important;
+    }
+
+    /* Step number spans */
+    #como-pedir span[class*="font-bold text-2xl"] {
+      color: #e8620a !important;
+      font-size: 3rem !important;
+    }
+
+    /* Step circles */
+    #como-pedir div[class*="rounded-full"] {
+      border-color: #8b691440 !important;
+      background-color: #f5ede0 !important;
+    }
+
+    /* Step headings + text */
+    #como-pedir h3 {
+      color: #1a1208 !important;
+    }
+
+    #como-pedir p[class*="text-brand-black"] {
+      color: #1a1208cc !important;
+    }
+
+    /* Connector line */
+    #como-pedir div[class*="h-[3px]"] {
+      background-color: #8b691440 !important;
+    }
+
+    /* IG button */
+    #como-pedir .btn-pill-primary {
+      background: #1a1208 !important;
+      border-color: #1a1208 !important;
+      color: #f5ede0 !important;
+    }
+
+    #como-pedir .btn-pill-primary:hover {
+      background: transparent !important;
+      color: #1a1208 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESEÑAS (#resenas)
+       ═══════════════════════════════════════════════════════ */
+    #resenas {
+      background-color: #2d1f0e !important;
+    }
+
+    #resenas h2 {
+      color: #f5ede0 !important;
+    }
+
+    #resenas h2 em {
+      color: #e8620a !important;
+    }
+
+    #resenas span[class*="font-bold tracking-wide"] {
+      color: #f5ede0 !important;
+    }
+
+    /* Review cards */
+    #resenas div[class*="bg-brand-yellow"],
+    #resenas div[class*="bg-brand-blue"],
+    #resenas div[class*="bg-brand-orange"] {
+      background-color: #1a1208 !important;
+      border: 1px solid #8b691430 !important;
+      box-shadow: 4px 4px 0 #8b691440 !important;
+    }
+
+    /* Stars */
+    #resenas span[class*="text-brand-orange"] {
+      color: #e8620a !important;
+    }
+
+    /* Review text */
+    #resenas p[class*="italic"] {
+      color: #f5ede0ee !important;
+    }
+
+    /* Author name */
+    #resenas p[class*="font-bold tracking-wide"] {
+      color: #c8a97e !important;
+    }
+
+    #resenas p[class*="text-brand-black/50"] {
+      color: #f5ede050 !important;
+    }
+
+    /* Avatar circles */
+    #resenas div[class*="rounded-full"] {
+      border-color: #8b691460 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ */
+    footer {
+      background-color: #1a1208 !important;
+      border-top: 1px solid #8b691420 !important;
+    }
+
+    /* Logo and brand name */
+    footer p[class*="font-bold text-3xl"] {
+      color: #f5ede0 !important;
+    }
+
+    footer p[class*="font-bold text-3xl"] img {
+      border-color: #f5ede040 !important;
+    }
+
+    /* Description */
+    footer p[class*="text-sm"] {
+      color: #f5ede060 !important;
+    }
+
+    /* Nav headings */
+    footer p[class*="uppercase mb-5"] {
+      color: #f5ede080 !important;
+    }
+
+    /* Nav links */
+    footer a[href^="#"] {
+      color: #f5ede060 !important;
+    }
+
+    footer a[href^="#"]:hover {
+      color: #f5ede0 !important;
+    }
+
+    /* IG link */
+    footer a[href*="instagram"] {
+      color: #e8620a !important;
+    }
+
+    footer a[href*="instagram"]:hover {
+      color: #f5ede0 !important;
+    }
+
+    /* Copyright */
+    footer p[class*="text-xs"]:first-of-type {
+      color: #f5ede030 !important;
+    }
+
+    /* Italic tagline */
+    footer p[class*="italic"] {
+      color: #8b691480 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       INTERSECTION OBSERVER + ANIMATIONS
+       ═══════════════════════════════════════════════════════ */
+    .is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* ── Card hover ── */
     .card-brutal {
       transition: transform 150ms ease, box-shadow 150ms ease;
     }
 
     .card-brutal:hover {
       transform: translate(-2px, -2px);
-      box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+      box-shadow: 6px 6px 0 #8b691480;
     }
   </style>
 
