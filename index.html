@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,300;1,400&display=swap"
     rel="stylesheet" />
 
   <!-- ─── TAILWIND CONFIG (must come BEFORE CDN script) ─── -->
@@ -817,8 +817,220 @@
     }
 
     /* ═══════════════════════════════════════════════════════
-       INTERSECTION OBSERVER + ANIMATIONS
+       GLOBAL FONT SYSTEM
        ═══════════════════════════════════════════════════════ */
+    body {
+      font-family: 'DM Sans', 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 300;
+    }
+
+    /* H2 section titles → Playfair Display */
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 900 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    /* Labels / badges (small ALL-CAPS) → Bebas Neue */
+    .section-label,
+    [class*="uppercase"][class*="tracking-wide"],
+    [class*="tracking-widest"] {
+      font-family: 'Bebas Neue', Impact, sans-serif !important;
+      letter-spacing: 0.2em !important;
+      font-size: 0.75rem;
+    }
+
+    /* Body text / descriptions → DM Sans light */
+    p,
+    li {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Day names in envios → Bebas Neue */
+    #envios span[style*="clamp"] {
+      font-family: 'Bebas Neue', Impact, sans-serif !important;
+      letter-spacing: 0.08em !important;
+    }
+
+    /* All links & button text: no underline, tracked */
+    a {
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO CTA BUTTONS (Touchy Coffee style)
+       ═══════════════════════════════════════════════════════ */
+    .hero-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      background: #1a1208;
+      color: #f5ede0;
+      border: 2px solid #f5ede0;
+      border-radius: 999px;
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      padding: 14px 36px;
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .hero-cta-primary:hover {
+      background: #f5ede0;
+      color: #1a1208;
+    }
+
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: #f5ede0;
+      border: 2px solid #f5ede060;
+      border-radius: 999px;
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      padding: 14px 36px;
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .hero-cta-secondary:hover {
+      border-color: #f5ede0;
+      background: #f5ede010;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO TICKER (hard override)
+       ═══════════════════════════════════════════════════════ */
+    #hero>[class*="absolute"][class*="bottom-0"],
+    #hero>div[class*="bottom-0"] {
+      background-color: #e8620a !important;
+      height: 36px !important;
+      display: flex;
+      align-items: center;
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    #hero>[class*="absolute"][class*="bottom-0"] .marquee-track,
+    #hero>div[class*="bottom-0"] .marquee-track {
+      font-family: 'Bebas Neue', Impact, sans-serif !important;
+      font-size: 0.7rem !important;
+      color: #1a1208 !important;
+      letter-spacing: 0.2em !important;
+      font-weight: 700 !important;
+    }
+
+    /* Hero padding ensures buttons don't overlap ticker */
+    #hero {
+      padding-bottom: 60px !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RECOMENDAMOS — EDITORIAL TEXT SYSTEM
+       ═══════════════════════════════════════════════════════ */
+    .recomendamos-label {
+      display: block;
+      font-family: 'Bebas Neue', Impact, sans-serif !important;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+      color: #1a1208;
+      margin-bottom: 1.5rem;
+    }
+
+    .recomendamos-h2 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 900 !important;
+      font-size: clamp(2.5rem, 5vw, 4rem) !important;
+      line-height: 1.1 !important;
+      color: #1a1208 !important;
+      margin-bottom: 2.5rem !important;
+    }
+
+    .recomendamos-h2 em {
+      font-style: italic;
+    }
+
+    .recomendamos-main {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-style: italic !important;
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem) !important;
+      line-height: 1.4 !important;
+      color: #1a1208 !important;
+      max-width: 860px;
+      margin-bottom: 2rem;
+    }
+
+    .recomendamos-body {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-weight: 300 !important;
+      font-size: 1.05rem !important;
+      line-height: 1.7 !important;
+      color: #1a1208 !important;
+      margin-bottom: 1.5rem;
+    }
+
+    .recomendamos-note {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-weight: 300 !important;
+      font-style: italic !important;
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
+      color: #1a120899 !important;
+      margin-bottom: 2rem;
+    }
+
+    .recomendamos-final {
+      font-family: 'Bebas Neue', Impact, sans-serif !important;
+      font-size: 1.4rem !important;
+      letter-spacing: 0.15em !important;
+      color: #1a1208 !important;
+      border-top: 1px solid #1a120830;
+      padding-top: 24px;
+      margin-top: 32px;
+      line-height: 1.5 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       GLOBAL BORDER-RADIUS & SHADOW CLEANUP
+       ═══════════════════════════════════════════════════════ */
+    /* Cards: max 6px radius, not pill */
+    .card-brutal,
+    [class*="bg-brand-cream"][class*="rounded-none"],
+    [class*="bg-brand-cream"][class*="border"],
+    [class*="bg-2d1f0e"],
+    #resenas div[class*="bg-brand"],
+    #menu a[href] {
+      border-radius: 6px !important;
+    }
+
+    /* Remove decorative box-shadows everywhere */
+    [class*="shadow-brutal"] {
+      box-shadow: none !important;
+    }
+
+    [class*="shadow-brutal-lg"] {
+      box-shadow: none !important;
+    }
+
+    [class*="shadow-brutal-orange"] {
+      box-shadow: none !important;
+    }
+
+    /* Section padding uniform */
+    section {
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 6rem) !important;
+    }
+
+    /* But hero keeps its own padding bottom for ticker clearance */
+    #hero {
+      padding: 0 clamp(1rem, 4vw, 2rem) 60px !important;
+    }
+
     .is-visible {
       opacity: 1 !important;
       transform: translateY(0) !important;
@@ -839,54 +1051,10 @@
 
 <body class="font-sans text-black antialiased overflow-x-hidden">
 
-  <!-- ════════════════════════════════════════════════
-       SECCIÓN 1 — NAVBAR
-       ════════════════════════════════════════════════ -->
-  <nav id="navbar"
-    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-5 w-full bg-blk-crema border-b-[3px] border-black transition-all duration-300">
-
-    <!-- Logo -->
-    <a href="#hero"
-      class="flex items-center font-sans font-bold text-brand-black text-xl md:text-2xl tracking-wide uppercase hover:text-brand-orange transition-colors duration-150">
-      <img src="img/brand-pablito.png" alt="Logo"
-        class="h-10 w-auto mr-3 border-2 border-brand-black rounded-full p-0.5 bg-brand-cream shadow-brutal transition-transform hover:scale-110">
-      PABLITO ROOTS
-    </a>
-
-    <!-- Links desktop -->
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#menu" class="btn-pill-secondary text-sm py-2 px-4">MENÚ</a>
-      <a href="#envios" class="btn-pill-secondary text-sm py-2 px-4">ENVÍOS</a>
-      <a href="#recomendamos" class="btn-pill-secondary text-sm py-2 px-4">TIPS</a>
-      <!-- CTA navbar -->
-      <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-        class="btn-pill-primary text-sm py-2 px-6">
-        PEDIR →
-      </a>
-    </div>
-
-    <!-- Hamburger mobile -->
-    <button id="hamburger" aria-label="Abrir menú" class="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 z-50">
-      <span class="bar-1 block w-6 h-0.5 bg-brand-black rounded-full"></span>
-      <span class="bar-2 block w-6 h-0.5 bg-brand-black rounded-full"></span>
-      <span class="bar-3 block w-6 h-0.5 bg-brand-black rounded-full"></span>
-    </button>
-  </nav>
-
-  <!-- Menú mobile desplegable -->
-  <div id="mobile-menu" class="fixed inset-0 bg-brand-yellow z-40 flex flex-col items-center justify-center gap-8">
-    <a href="#menu" onclick="closeMenu()" class="btn-pill-secondary text-2xl py-3 px-8">MENÚ</a>
-    <a href="#envios" onclick="closeMenu()" class="btn-pill-secondary text-2xl py-3 px-8">ENVÍOS</a>
-    <a href="#recomendamos" onclick="closeMenu()" class="btn-pill-secondary text-2xl py-3 px-8">TIPS</a>
-    <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-      class="btn-pill-primary text-2xl py-4 px-10 mt-4">
-      PEDIR AHORA →
-    </a>
-  </div>
 
 
   <section id="hero"
-    class="relative min-h-screen w-full bg-blk-terracota flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-4 md:px-8">
+    class="relative min-h-screen w-full bg-blk-terracota flex flex-col items-center justify-center overflow-hidden pt-0 pb-20 px-4 md:px-8">
 
     <!-- Texto vertical decorativo (solo desktop) -->
     <div id="vert-text"
@@ -895,17 +1063,7 @@
     </div>
 
     <!-- ── Contenido principal (texto gigante) ── -->
-    <div class="flex-1 flex flex-col items-center justify-center text-center w-full z-10 px-2 mt-12 md:mt-20">
-
-      <!-- Imagen Hero Destacada -->
-      <div class="relative mb-8 animate-on-scroll">
-        <img src="img/hero-cookie.png" alt="Cookie Premium"
-          class="w-48 md:w-64 h-auto border-[3px] border-brand-black shadow-brutal rotate-3 hover:rotate-0 transition-transform duration-300 bg-brand-cream p-2">
-        <div
-          class="absolute -top-4 -right-4 bg-brand-orange text-brand-black font-bold py-1 px-3 border-2 border-brand-black rounded-full text-xs shadow-brutal animate-bounce">
-          NUEVA!
-        </div>
-      </div>
+    <div class="flex-1 flex flex-col items-center justify-center text-center w-full z-10 px-2">
 
       <!-- Badge pill -->
       <div
@@ -926,14 +1084,10 @@
         Cookies artesanales hechas con materia prima premium. Con envío a CABA o take away.
       </p>
 
-      <!-- Botones CTA -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full md:w-auto">
-        <a href="#menu" class="btn-pill-primary text-lg md:text-xl py-4 px-10">
-          VER MENÚ →
-        </a>
-        <a href="#envios" class="btn-pill-secondary text-lg md:text-xl py-4 px-10">
-          ENVÍOS ↓
-        </a>
+      <!-- Botones CTA estilo Touchy Coffee -->
+      <div class="flex flex-col sm:flex-row items-center justify-center" style="gap:16px;">
+        <a href="#menu" class="hero-cta-primary">PEDIDOS →</a>
+        <a href="#recomendamos" class="hero-cta-secondary">RECOMENDAMOS →</a>
       </div>
     </div>
 
@@ -1231,54 +1385,42 @@
   <section id="recomendamos"
     class="w-full bg-blk-lila py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
 
-    <div class="relative z-10 max-w-7xl mx-auto flex flex-col items-center pb-8">
+    <div class="relative z-10 w-full max-w-3xl mx-auto flex flex-col pb-20">
 
-      <!-- Header gigante -->
-      <div class="text-center w-full">
-        <span class="font-sans font-bold tracking-wide text-xl md:text-2xl text-brand-black uppercase mb-4 block">🌿
-          ANTES DE
-          ARRANCAR</span>
-        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-cream leading-none uppercase">
-          CONSEJOS PARA<br>
-          <em class="font-serif italic text-brand-black lowercase tracking-normal">buen viaje.</em>
-        </h2>
-      </div>
+      <!-- Label -->
+      <span class="recomendamos-label">🌿 ANTES DE ARRANCAR</span>
 
-      <!-- Card de advertencia amigable -->
-      <div
-        class="mt-16 md:mt-24 max-w-3xl relative bg-brand-cream rounded-none border-[3px] border-brand-black shadow-brutal-lg p-10 md:p-16 overflow-hidden text-center mx-auto">
+      <!-- Título -->
+      <h2 class="recomendamos-h2">
+        Consejos para<br>
+        <em>buen viaje.</em>
+      </h2>
 
-        <!-- Texto principal -->
-        <p
-          class="font-sans font-bold tracking-wide text-3xl md:text-4xl lg:text-5xl text-brand-black leading-[1.1] mb-8">
-          CONSUMILA PREFERENTEMENTE<br>
-          DESPUÉS DE UNA COMIDA<br>
-          (BRUNCH, ALMUERZO).
-        </p>
+      <!-- Texto principal grande (tipografía editorial) -->
+      <p class="recomendamos-main">
+        Consumila preferentemente después de una comida.
+      </p>
 
-        <!-- Divisor centrado -->
-        <div class="w-24 h-[3px] bg-brand-black mx-auto mb-8"></div>
+      <!-- Segundo párrafo -->
+      <p class="recomendamos-body">
+        La dosis es fuerte. Recomendamos iniciar con un cuarto o media porción y esperar al menos 50 minutos antes de
+        continuar.
+      </p>
 
-        <!-- Texto secundario -->
-        <p class="font-serif italic text-xl md:text-2xl text-brand-olive leading-relaxed mb-6">
-          Nuestras cookies están hechas con materia prima PREMIUM.
-        </p>
+      <!-- Tercer párrafo -->
+      <p class="recomendamos-note">
+        Una vez ingerida, el efecto puede demorar entre 2 y 4 horas según tu proceso digestivo.
+        No te desesperes — los buenos viajes toman su tiempo.
+      </p>
 
-        <!-- Texto terciario -->
-        <p class="font-sans text-lg md:text-xl text-brand-black leading-relaxed">
-          Seguí nuestros consejos. Recomendamos
-          <span class="font-bold text-brand-black">iniciar con media cookie</span>
-          para que el viaje arranque bien.
-        </p>
-
-        <!-- Badge pill -->
-        <div class="mt-10 btn-pill-primary inline-flex text-sm">
-          ✓ MATERIA PRIMA PREMIUM
-        </div>
-
-      </div>
+      <!-- Frase final destacada -->
+      <p class="recomendamos-final">
+        Si sentís que el viaje está siendo muy intenso: respirá hondo, hidratate, comé algo y recordá que se va a pasar.
+        🌿
+      </p>
 
     </div>
+
 
     <!-- Ticker/Marquee -->
     <div class="absolute bottom-0 left-0 w-full bg-brand-black overflow-hidden py-3 z-30">
