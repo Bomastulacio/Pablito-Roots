@@ -21,12 +21,20 @@
       theme: {
         extend: {
           colors: {
+            /* ── LEGACY (kompatibilidad) ── */
             'brand-orange': '#ED8A4A',
             'brand-yellow': '#F5ED98',
-            'brand-blue': '#C4E4EE',
+            'brand-blue': '#A8C9D1',
             'brand-black': '#111111',
-            'brand-cream': '#FAF7F0',
-            'brand-olive': '#6b7c2a',
+            'brand-cream': '#F4EFE6',
+            'brand-olive': '#7B9A42',
+            /* ── NEW BLOCK PALETTE (Touchy Coffee) ── */
+            'blk-crema': '#F4EFE6',
+            'blk-terracota': '#B05C38',
+            'blk-celeste': '#A8C9D1',
+            'blk-lila': '#B4A0C4',
+            'blk-verde': '#7B9A42',
+            'blk-black': '#111111',
           },
           fontFamily: {
             'serif': ['"Playfair Display"', 'Georgia', 'serif'],
@@ -333,13 +341,13 @@
 
 </head>
 
-<body class="bg-brand-cream font-sans text-brand-black antialiased overflow-x-hidden">
+<body class="font-sans text-black antialiased overflow-x-hidden">
 
   <!-- ════════════════════════════════════════════════
        SECCIÓN 1 — NAVBAR
        ════════════════════════════════════════════════ -->
   <nav id="navbar"
-    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-5 transition-all duration-300">
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-5 w-full bg-blk-crema border-b-[3px] border-black transition-all duration-300">
 
     <!-- Logo -->
     <a href="#hero"
@@ -382,7 +390,7 @@
 
 
   <section id="hero"
-    class="relative min-h-screen w-full bg-brand-black flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-4 md:px-8">
+    class="relative min-h-screen w-full bg-blk-terracota flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-4 md:px-8">
 
     <!-- Texto vertical decorativo (solo desktop) -->
     <div id="vert-text"
@@ -405,31 +413,29 @@
 
       <!-- Badge pill -->
       <div
-        class="btn-pill-secondary mb-8 text-xs bg-transparent text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
+        class="btn-pill-secondary mb-8 text-xs bg-transparent text-black border-black hover:bg-black hover:text-blk-crema">
         PRODUCTO ARTESANAL · CABA
       </div>
 
       <!-- Título principal gigante -->
-      <h1 class="font-serif font-black text-brand-cream mb-10 w-full"
+      <h1 class="font-serif font-black text-black mb-10 w-full"
         style="font-size: clamp(4rem, 10vw, 9rem); line-height: 0.9;">
         Postres que<br>
-        <em class="italic text-brand-orange">te abrazan.</em>
+        <em class="italic">te abrazan.</em>
       </h1>
 
       <!-- Subtítulo -->
       <p
-        class="font-sans font-light text-base md:text-xl text-brand-cream/70 leading-relaxed mb-12 max-w-sm md:max-w-xl mx-auto">
+        class="font-sans font-light text-base md:text-xl text-black/70 leading-relaxed mb-12 max-w-sm md:max-w-xl mx-auto">
         Cookies artesanales hechas con materia prima premium. Con envío a CABA o take away.
       </p>
 
       <!-- Botones CTA -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full md:w-auto">
-        <a href="#menu"
-          class="btn-pill-primary text-lg md:text-xl py-4 px-10 bg-brand-orange border-brand-orange hover:bg-transparent hover:text-brand-orange">
+        <a href="#menu" class="btn-pill-primary text-lg md:text-xl py-4 px-10">
           VER MENÚ →
         </a>
-        <a href="#envios"
-          class="btn-pill-secondary text-lg md:text-xl py-4 px-10 text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
+        <a href="#envios" class="btn-pill-secondary text-lg md:text-xl py-4 px-10">
           ENVÍOS ↓
         </a>
       </div>
@@ -467,10 +473,10 @@
       </svg>
     </div>
 
-    <!-- Ticker/Marquee separador inferior — AMARILLO POP -->
-    <div class="absolute bottom-0 left-0 w-full bg-brand-yellow border-t-[3px] border-brand-black overflow-hidden py-3">
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3">
       <div
-        class="marquee-track font-sans font-bold text-brand-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -483,7 +489,7 @@
        SECCIÓN 3 — EN NUESTRA COCINA (productos)
        ════════════════════════════════════════════════ -->
   <section id="menu"
-    class="w-full bg-brand-yellow py-24 md:py-32 px-4 md:px-8 lg:px-12 relative overflow-hidden flex flex-col items-center">
+    class="w-full bg-blk-celeste py-24 md:py-32 px-4 md:px-8 lg:px-12 relative overflow-hidden flex flex-col items-center">
 
     <!-- Título vertical lateral (solo desktop) -->
     <div
@@ -627,10 +633,10 @@
 
     </div>
 
-    <!-- Ticker/Marquee separador inferior — POP -->
-    <div class="absolute bottom-0 left-0 w-full bg-brand-black border-t-[3px] border-brand-black overflow-hidden py-3">
+    <!-- Ticker/Marquee separador inferior -->
+    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3">
       <div
-        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -640,7 +646,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 4 — ENVÍOS
        ════════════════════════════════════════════════ -->
-  <section id="envios" class="w-full bg-brand-blue py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="envios" class="w-full bg-blk-verde py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <!-- Árbol bonsái decorativo de fondo -->
     <div class="absolute bottom-0 right-0 text-[300px] leading-none opacity-[0.05] select-none pointer-events-none"
@@ -714,10 +720,9 @@
     </div>
 
     <!-- Ticker/Marquee -->
-    <div
-      class="absolute bottom-0 left-0 w-full bg-brand-black border-t-[3px] border-brand-black overflow-hidden py-3 z-30">
+    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3 z-30">
       <div
-        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -728,7 +733,7 @@
        SECCIÓN 5 — RECOMENDAMOS
        ════════════════════════════════════════════════ -->
   <section id="recomendamos"
-    class="w-full bg-brand-orange py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
+    class="w-full bg-blk-lila py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
 
     <div class="relative z-10 max-w-7xl mx-auto flex flex-col items-center pb-8">
 
@@ -793,7 +798,7 @@
        SECCIÓN 6 — MANIFIESTO / FILOSOFÍA
        ════════════════════════════════════════════════ -->
   <section id="manifiesto"
-    class="w-full bg-brand-black py-32 md:py-48 relative overflow-hidden flex flex-col items-center justify-center">
+    class="w-full bg-blk-black py-32 md:py-48 relative overflow-hidden flex flex-col items-center justify-center">
 
     <!-- Cita central -->
     <div class="w-full px-6 md:px-16 lg:px-24 text-center z-10 animate-on-scroll">
@@ -869,10 +874,9 @@
     </div>
 
     <!-- Ticker/Marquee -->
-    <div
-      class="absolute bottom-0 left-0 w-full bg-brand-yellow border-t-[3px] border-brand-black overflow-hidden py-3 z-30">
+    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3 z-30">
       <div
-        class="marquee-track font-sans font-bold text-brand-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -884,8 +888,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 7 — ¿CÓMO PEDÍS?
        ════════════════════════════════════════════════ -->
-  <section id="como-pedir"
-    class="w-full bg-brand-yellow py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="como-pedir" class="w-full bg-blk-crema py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <div class="relative z-10 max-w-7xl mx-auto mb-16">
 
@@ -975,7 +978,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 8 — RESEÑAS
        ════════════════════════════════════════════════ -->
-  <section id="resenas" class="w-full bg-brand-cream py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="resenas" class="w-full bg-blk-crema py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <div class="relative z-10 max-w-7xl mx-auto">
 
@@ -1065,7 +1068,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 9 — FOOTER
        ════════════════════════════════════════════════ -->
-  <footer class="w-full bg-brand-black border-t-[3px] border-brand-cream/10 py-16 md:py-20 px-6 md:px-12 lg:px-20">
+  <footer class="w-full bg-blk-verde border-t-[3px] border-black py-16 md:py-20 px-6 md:px-12 lg:px-20">
     <div class="max-w-7xl mx-auto">
 
       <!-- Grid footer -->
@@ -1073,12 +1076,12 @@
 
         <!-- Col 1: Logo -->
         <div>
-          <p class="font-sans font-bold text-3xl text-brand-cream mb-4 flex items-center gap-3">
+          <p class="font-sans font-bold text-3xl text-black mb-4 flex items-center gap-3">
             <img src="img/brand-pablito.png" alt="Logo"
-              class="w-10 h-10 border-2 border-brand-cream rounded-full bg-brand-cream/10 p-1">
+              class="w-10 h-10 border-2 border-black rounded-full bg-black/10 p-1">
             PABLITO ROOTS
           </p>
-          <p class="font-sans text-sm text-brand-cream/50 leading-relaxed max-w-xs">
+          <p class="font-sans text-sm text-black/70 leading-relaxed max-w-xs">
             Los postres mágicos más ricos. Cookies artesanales con materia prima premium. Hecho con amor y demasiado
             chocolate.
           </p>
@@ -1086,29 +1089,28 @@
 
         <!-- Col 2: Navegación -->
         <div>
-          <p class="font-sans font-bold tracking-wide text-xs text-brand-cream uppercase mb-5">NAVEGACIÓN</p>
+          <p class="font-sans font-bold tracking-wide text-xs text-black uppercase mb-5">NAVEGACIÓN</p>
           <div class="flex flex-col gap-3">
             <a href="#menu"
-              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Menú</a>
+              class="font-sans text-sm text-black/60 hover:text-black transition-colors duration-150">Menú</a>
             <a href="#envios"
-              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Envíos</a>
+              class="font-sans text-sm text-black/60 hover:text-black transition-colors duration-150">Envíos</a>
             <a href="#recomendamos"
-              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Tips</a>
+              class="font-sans text-sm text-black/60 hover:text-black transition-colors duration-150">Tips</a>
             <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Hacer
-              un
+              class="font-sans text-sm text-black/60 hover:text-black transition-colors duration-150">Hacer un
               pedido</a>
           </div>
         </div>
 
         <!-- Col 3: Contacto -->
         <div>
-          <p class="font-sans font-bold tracking-wide text-xs text-brand-cream uppercase mb-5">CONTACTO</p>
+          <p class="font-sans font-bold tracking-wide text-xs text-black uppercase mb-5">CONTACTO</p>
           <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-            class="btn-pill-secondary text-sm text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
+            class="btn-pill-secondary text-sm text-black border-black hover:bg-black hover:text-blk-crema">
             📸 @pablito.roots
           </a>
-          <div class="mt-4 font-sans text-xs text-brand-cream/40 leading-loose">
+          <div class="mt-4 font-sans text-xs text-black/60 leading-loose">
             Envíos CABA<br>
             Miércoles 19–21hs<br>
             Sábado 09–13hs
