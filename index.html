@@ -344,7 +344,8 @@
     <!-- Logo -->
     <a href="#hero"
       class="flex items-center font-sans font-bold text-brand-black text-xl md:text-2xl tracking-wide uppercase hover:text-brand-orange transition-colors duration-150">
-      <span class="mr-2 text-lg">🐱</span>
+      <img src="img/brand-pablito.png" alt="Logo"
+        class="h-10 w-auto mr-3 border-2 border-brand-black rounded-full p-0.5 bg-brand-cream shadow-brutal transition-transform hover:scale-110">
       PABLITO ROOTS
     </a>
 
@@ -392,10 +393,20 @@
     <!-- ── Contenido principal (texto gigante) ── -->
     <div class="flex-1 flex flex-col items-center justify-center text-center w-full z-10 px-2 mt-12 md:mt-20">
 
+      <!-- Imagen Hero Destacada -->
+      <div class="relative mb-8 animate-on-scroll">
+        <img src="img/hero-cookie.png" alt="Cookie Premium"
+          class="w-48 md:w-64 h-auto border-[3px] border-brand-black shadow-brutal rotate-3 hover:rotate-0 transition-transform duration-300 bg-brand-cream p-2">
+        <div
+          class="absolute -top-4 -right-4 bg-brand-orange text-brand-black font-bold py-1 px-3 border-2 border-brand-black rounded-full text-xs shadow-brutal animate-bounce">
+          NUEVA!
+        </div>
+      </div>
+
       <!-- Badge pill -->
       <div
         class="btn-pill-secondary mb-8 text-xs bg-transparent text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
-        🐱 EMPRENDIMIENTO ARTESANAL · CABA
+        PRODUCTO ARTESANAL · CABA
       </div>
 
       <!-- Título principal gigante -->
@@ -502,10 +513,10 @@
           class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block h-[38rem] flex flex-col">
 
           <!-- Imagen 70% -->
-          <div class="relative w-full h-[70%] bg-brand-blue overflow-hidden flex-shrink-0">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <span class="text-6xl opacity-30">🍪</span>
-            </div>
+          <div
+            class="relative w-full h-[70%] bg-brand-blue overflow-hidden flex-shrink-0 flex items-center justify-center border-b-[3px] border-brand-black">
+            <img src="img/hero-cookie.png" alt="Cookie Premium"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
             <!-- Badge pill -->
             <div
               class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-orange text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
@@ -792,10 +803,14 @@
         horneada con atención, entregada con cariño. Somos un emprendimiento chico con muchas ganas, y eso se nota en
         cada caja que sale por la puerta.
       </p>
-      <span
-        class="btn-pill-secondary text-lg text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black inline-block">
-        — El equipo de Pablito Roots 🐱
-      </span>
+      <div class="flex flex-col items-center gap-4">
+        <img src="img/pablito-cat.png" alt="Pablito Cat"
+          class="w-20 h-20 rounded-full border-[3px] border-brand-cream shadow-brutal bg-brand-cream/10 object-cover mb-4">
+        <span
+          class="btn-pill-secondary text-lg text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black inline-block">
+          — El equipo de Pablito Roots
+        </span>
+      </div>
     </div>
 
     <!-- Galería marquee -->
@@ -988,7 +1003,8 @@
           <div class="flex items-center gap-3">
             <div
               class="w-10 h-10 rounded-full border-[2px] border-brand-black bg-brand-orange flex items-center justify-center">
-              <span class="font-sans font-bold text-sm text-brand-black">M</span></div>
+              <span class="font-sans font-bold text-sm text-brand-black">M</span>
+            </div>
             <div>
               <p class="font-sans font-bold tracking-wide text-sm text-brand-black">@mari.gomez</p>
               <p class="font-sans text-xs text-brand-black/50 mt-0.5">Cliente frecuente</p>
@@ -1009,7 +1025,8 @@
           <div class="flex items-center gap-3">
             <div
               class="w-10 h-10 rounded-full border-[2px] border-brand-black bg-brand-yellow flex items-center justify-center">
-              <span class="font-sans font-bold text-sm text-brand-black">S</span></div>
+              <span class="font-sans font-bold text-sm text-brand-black">S</span>
+            </div>
             <div>
               <p class="font-sans font-bold tracking-wide text-sm text-brand-black">@sofi.ramos</p>
               <p class="font-sans text-xs text-brand-black/50 mt-0.5">Cliente frecuente</p>
@@ -1030,7 +1047,8 @@
           <div class="flex items-center gap-3">
             <div
               class="w-10 h-10 rounded-full border-[2px] border-brand-black bg-brand-cream flex items-center justify-center">
-              <span class="font-sans font-bold text-sm text-brand-black">J</span></div>
+              <span class="font-sans font-bold text-sm text-brand-black">J</span>
+            </div>
             <div>
               <p class="font-sans font-bold tracking-wide text-sm text-brand-black">@juampi.v</p>
               <p class="font-sans text-xs text-brand-black/50 mt-0.5">Adicto confirmado</p>
@@ -1055,8 +1073,10 @@
 
         <!-- Col 1: Logo -->
         <div>
-          <p class="font-sans font-bold text-3xl text-brand-cream mb-4">
-            <span class="text-2xl mr-2">🐱</span>PABLITO ROOTS
+          <p class="font-sans font-bold text-3xl text-brand-cream mb-4 flex items-center gap-3">
+            <img src="img/brand-pablito.png" alt="Logo"
+              class="w-10 h-10 border-2 border-brand-cream rounded-full bg-brand-cream/10 p-1">
+            PABLITO ROOTS
           </p>
           <p class="font-sans text-sm text-brand-cream/50 leading-relaxed max-w-xs">
             Los postres mágicos más ricos. Cookies artesanales con materia prima premium. Hecho con amor y demasiado
