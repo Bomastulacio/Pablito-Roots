@@ -1028,7 +1028,118 @@
 
     /* But hero keeps its own padding bottom for ticker clearance */
     #hero {
-      padding: 0 clamp(1rem, 4vw, 2rem) 60px !important;
+      padding: 0 clamp(1rem, 4vw, 2rem) 36px !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO HEADLINE — Touchy Coffee single-text style
+       ═══════════════════════════════════════════════════════ */
+    .hero-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      line-height: 0.92;
+      color: #f5ede0;
+      text-align: center;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TICKER MONO — Courier New style (all tickers)
+       ═══════════════════════════════════════════════════════ */
+    .ticker-mono {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.18em !important;
+      font-weight: 400 !important;
+      color: #1a1208 !important;
+    }
+
+    /* Global ticker override — all section tickers to cream/mono */
+    [class*="absolute bottom-0"] .marquee-track,
+    [style*="background:#f5ede0"] .marquee-track {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.18em !important;
+      font-weight: 400 !important;
+      color: #1a1208 !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RECOMENDAMOS — full editorial text system
+       ═══════════════════════════════════════════════════════ */
+    .reco-label {
+      display: block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: #1a1208;
+      opacity: 0.6;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .reco-title {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 900 !important;
+      font-style: italic !important;
+      font-size: clamp(3rem, 7vw, 6rem) !important;
+      line-height: 0.95 !important;
+      color: #1a1208 !important;
+      letter-spacing: -0.02em !important;
+      margin-bottom: 4rem !important;
+    }
+
+    .reco-title em {
+      font-style: italic;
+    }
+
+    .reco-p1 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-style: italic !important;
+      font-size: clamp(1.8rem, 4vw, 3rem) !important;
+      line-height: 1.3 !important;
+      color: #1a1208 !important;
+      letter-spacing: 0.01em !important;
+      margin-bottom: 2.5rem;
+    }
+
+    .reco-p2 {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
+      line-height: 1.8 !important;
+      color: #1a1208 !important;
+      letter-spacing: 0.05em !important;
+      margin-bottom: 1.5rem;
+    }
+
+    .reco-p3 {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-style: italic !important;
+      font-size: clamp(0.85rem, 1.3vw, 1rem) !important;
+      line-height: 1.8 !important;
+      color: #1a120899 !important;
+      letter-spacing: 0.03em !important;
+      margin-bottom: 3rem;
+    }
+
+    .reco-divider {
+      border-top: 1px solid #1a120825;
+      margin: 3rem 0;
+    }
+
+    .reco-final {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 700 !important;
+      font-size: clamp(1rem, 2vw, 1.4rem) !important;
+      line-height: 1.5 !important;
+      color: #1a1208 !important;
+      letter-spacing: 0.01em !important;
     }
 
     .is-visible {
@@ -1053,80 +1164,18 @@
 
 
 
-  <section id="hero"
-    class="relative min-h-screen w-full bg-blk-terracota flex flex-col items-center justify-center overflow-hidden pt-0 pb-20 px-4 md:px-8">
+  <section id="hero" class="relative w-full flex items-center justify-center overflow-hidden px-4 md:px-8"
+    style="min-height: 100vh; background-color: #1a1208;">
 
-    <!-- Texto vertical decorativo (solo desktop) -->
-    <div id="vert-text"
-      class="hidden lg:flex flex-col items-center absolute left-6 top-1/2 -translate-y-1/2 font-display text-xs tracking-widest-2xl text-brand-cream/20 select-none"
-      aria-hidden="true">
-    </div>
+    <!-- Texto central tipo Touchy Coffee -->
+    <h1 class="hero-headline">
+      Los postres mágicos más ricos
+    </h1>
 
-    <!-- ── Contenido principal (texto gigante) ── -->
-    <div class="flex-1 flex flex-col items-center justify-center text-center w-full z-10 px-2">
-
-      <!-- Badge pill -->
-      <div
-        class="btn-pill-secondary mb-8 text-xs bg-transparent text-black border-black hover:bg-black hover:text-blk-crema">
-        PRODUCTO ARTESANAL · CABA
-      </div>
-
-      <!-- Título principal gigante -->
-      <h1 class="font-serif font-black text-black mb-10 w-full"
-        style="font-size: clamp(4rem, 10vw, 9rem); line-height: 0.9;">
-        Postres que<br>
-        <em class="italic">te abrazan.</em>
-      </h1>
-
-      <!-- Subtítulo -->
-      <p
-        class="font-sans font-light text-base md:text-xl text-black/70 leading-relaxed mb-12 max-w-sm md:max-w-xl mx-auto">
-        Cookies artesanales hechas con materia prima premium. Con envío a CABA o take away.
-      </p>
-
-      <!-- Botones CTA estilo Touchy Coffee -->
-      <div class="flex flex-col sm:flex-row items-center justify-center" style="gap:16px;">
-        <a href="#menu" class="hero-cta-primary">PEDIDOS →</a>
-        <a href="#recomendamos" class="hero-cta-secondary">RECOMENDAMOS →</a>
-      </div>
-    </div>
-
-    <!-- Sello vintage SVG flotante gigante -->
-    <div
-      class="absolute right-4 md:right-12 top-24 md:top-32 w-32 md:w-48 h-32 md:h-48 opacity-40 pointer-events-none hidden md:block">
-      <svg class="sello-vintage w-full h-full" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="56" fill="none" stroke="#FAF7F0" stroke-width="2" stroke-dasharray="4 3" />
-        <circle cx="60" cy="60" r="48" fill="none" stroke="#FAF7F0" stroke-width="1" opacity="0.5" />
-        <defs>
-          <path id="ct-hero" d="M 60,60 m -40,0 a 40,40 0 1,1 80,0" />
-          <path id="cb-hero" d="M 60,60 m -40,0 a 40,40 0 0,0 80,0" />
-        </defs>
-        <text font-family="'Space Grotesk', sans-serif" font-size="9" fill="#FAF7F0" letter-spacing="3">
-          <textPath href="#ct-hero" startOffset="5%">ARTESANAL · PREMIUM · CABA ·</textPath>
-        </text>
-        <text font-family="'Space Grotesk', sans-serif" font-size="9" fill="#FAF7F0" letter-spacing="3">
-          <textPath href="#cb-hero" startOffset="5%">PABLITO ROOTS · DESDE 2024 ·</textPath>
-        </text>
-        <ellipse cx="60" cy="60" rx="16" ry="15" fill="none" stroke="#FAF7F0" stroke-width="1.5" />
-        <ellipse cx="55" cy="56" rx="3" ry="2.5" fill="#FAF7F0" transform="rotate(-10 55 56)" />
-        <ellipse cx="64" cy="59" rx="2.5" ry="2" fill="#FAF7F0" transform="rotate(8 64 59)" />
-        <ellipse cx="57" cy="65" rx="2.8" ry="2.2" fill="#FAF7F0" transform="rotate(-5 57 65)" />
-      </svg>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-      aria-hidden="true">
-      <span class="font-sans text-xs text-brand-cream/40 tracking-widest uppercase">scroll</span>
-      <svg class="w-4 h-4 text-brand-cream/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
-    </div>
-
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-white border-y-[2px] border-black overflow-hidden py-3">
-      <div
-        class="marquee-track font-sans font-bold text-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
+    <!-- Ticker inferior -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden"
+      style="background:#f5ede0; height:36px; display:flex; align-items:center;">
+      <div class="marquee-track ticker-mono uppercase" style="white-space:nowrap;">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -1382,50 +1431,51 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 5 — RECOMENDAMOS
        ════════════════════════════════════════════════ -->
-  <section id="recomendamos"
-    class="w-full bg-blk-lila py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
+  <section id="recomendamos" class="w-full relative overflow-hidden flex flex-col"
+    style="background-color: #e8620a; padding: clamp(5rem, 10vw, 9rem) clamp(2rem, 10vw, 8rem);">
 
-    <div class="relative z-10 w-full max-w-3xl mx-auto flex flex-col pb-20">
+    <div style="max-width: 860px; width: 100%;">
 
       <!-- Label -->
-      <span class="recomendamos-label">🌿 ANTES DE ARRANCAR</span>
+      <span class="reco-label">ANTES DE ARRANCAR</span>
 
       <!-- Título -->
-      <h2 class="recomendamos-h2">
+      <h2 class="reco-title">
         Consejos para<br>
         <em>buen viaje.</em>
       </h2>
 
-      <!-- Texto principal grande (tipografía editorial) -->
-      <p class="recomendamos-main">
+      <!-- Párrafo 1 (Playfair italic grande) -->
+      <p class="reco-p1">
         Consumila preferentemente después de una comida.
       </p>
 
-      <!-- Segundo párrafo -->
-      <p class="recomendamos-body">
+      <!-- Párrafo 2 (Courier, cuerpo) -->
+      <p class="reco-p2">
         La dosis es fuerte. Recomendamos iniciar con un cuarto o media porción y esperar al menos 50 minutos antes de
         continuar.
       </p>
 
-      <!-- Tercer párrafo -->
-      <p class="recomendamos-note">
-        Una vez ingerida, el efecto puede demorar entre 2 y 4 horas según tu proceso digestivo.
+      <!-- Párrafo 3 (Courier, italic, sutil) -->
+      <p class="reco-p3">
+        Una vez ingerida, el efecto puede demorar entre 2 y 4 horas según tu proceso digestivo.<br>
         No te desesperes — los buenos viajes toman su tiempo.
       </p>
 
-      <!-- Frase final destacada -->
-      <p class="recomendamos-final">
+      <!-- Divisora -->
+      <div class="reco-divider"></div>
+
+      <!-- Frase final -->
+      <p class="reco-final">
         Si sentís que el viaje está siendo muy intenso: respirá hondo, hidratate, comé algo y recordá que se va a pasar.
-        🌿
       </p>
 
     </div>
 
-
     <!-- Ticker/Marquee -->
-    <div class="absolute bottom-0 left-0 w-full bg-brand-black overflow-hidden py-3 z-30">
-      <div
-        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden"
+      style="background:#f5ede0; height:36px; display:flex; align-items:center;">
+      <div class="marquee-track ticker-mono uppercase" style="white-space:nowrap;">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
