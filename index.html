@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,300;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital@1&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
 
   <!-- ─── TAILWIND CONFIG (must come BEFORE CDN script) ─── -->
@@ -1270,25 +1270,29 @@
 
 </head>
 
-<body class="font-sans text-black antialiased overflow-x-hidden">
+<body class="font-sans text-black antialiased overflow-x-hidden pb-20">
 
 
 
   <section id="hero" class="relative w-full flex items-center justify-center overflow-hidden px-4 md:px-8"
-    style="min-height: 100vh; background-color: #6b7c2a;">
+    style="min-height: 100vh; background-color: #899380;">
 
     <!-- Texto central tipo Touchy Coffee -->
-    <h1 class="hero-headline">
+    <h1 class="hero-headline" style="font-family: 'Instrument Serif', serif; font-style: italic; color: #F5F5F0;">
       Los postres mágicos más ricos
     </h1>
 
-    <!-- Ticker inferior -->
-    <div class="absolute bottom-0 left-0 w-full overflow-hidden"
-      style="background:#f5ede0; height:36px; display:flex; align-items:center;">
-      <div class="marquee-track ticker-mono uppercase" style="white-space:nowrap;">
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
-        <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
+    <!-- Ticker fijo en el bottom de la pantalla -->
+    <div class="fixed bottom-0 left-0 w-full z-50 overflow-hidden"
+      style="background:#ffffff; border-top: 2px solid #000000; padding: 10px 0;">
+      <div class="marquee-track uppercase"
+        style="white-space:nowrap; font-family:'Space Mono',monospace; font-size:0.75rem; letter-spacing:0.12em; color:#000000; font-weight:400;">
+        <span>COOKIES 🍪 ARTESANAL 🌿 CABA 🍪 PREMIUM 🌿 HECHO A MANO 🍪 MIÉRCOLES 🌿 SÁBADO 🍪 PABLITO ROOTS
+          🌿&nbsp;</span>
+        <span>COOKIES 🍪 ARTESANAL 🌿 CABA 🍪 PREMIUM 🌿 HECHO A MANO 🍪 MIÉRCOLES 🌿 SÁBADO 🍪 PABLITO ROOTS
+          🌿&nbsp;</span>
+        <span>COOKIES 🍪 ARTESANAL 🌿 CABA 🍪 PREMIUM 🌿 HECHO A MANO 🍪 MIÉRCOLES 🌿 SÁBADO 🍪 PABLITO ROOTS
+          🌿&nbsp;</span>
       </div>
     </div>
   </section>
