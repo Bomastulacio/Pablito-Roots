@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap"
     rel="stylesheet" />
 
   <!-- ─── TAILWIND CONFIG (must come BEFORE CDN script) ─── -->
@@ -21,41 +21,29 @@
       theme: {
         extend: {
           colors: {
-            'pr-beige': '#e8dfc8',
-            'pr-beige-light': '#f2ece0',
-            'pr-beige-dark': '#d4c9b0',
-            'pr-dark': '#1a1208',
-            'pr-dark-mid': '#2d1f0e',
-            'pr-orange': '#e8620a',
-            'pr-orange-hover': '#c4530a',
-            'pr-olive': '#6b7c2a',
-            'pr-olive-dark': '#4e5c1e',
-            'pr-brown': '#4a3520',
-            'pr-brown-light': '#7a5c3a',
-            'pr-cream': '#f5ede0',
-            'pr-gold': '#8b6914',
-            'pr-gold-light': '#c8a97e',
+            'brand-orange': '#ED8A4A',
+            'brand-yellow': '#F5ED98',
+            'brand-blue': '#C4E4EE',
+            'brand-black': '#111111',
+            'brand-cream': '#FAF7F0',
+            'brand-olive': '#6b7c2a',
           },
           fontFamily: {
             'serif': ['"Playfair Display"', 'Georgia', 'serif'],
-            'sans': ['"DM Sans"', 'system-ui', 'sans-serif'],
+            'sans': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
             'display': ['"Bebas Neue"', 'Impact', 'sans-serif'],
           },
           letterSpacing: {
             'widest-xl': '0.25em',
             'widest-2xl': '0.35em',
           },
-          backgroundImage: {
-            'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E\")",
-          },
           boxShadow: {
-            'warm': '0 4px 24px rgba(74, 53, 32, 0.15)',
-            'warm-lg': '0 8px 48px rgba(74, 53, 32, 0.20)',
-            'orange': '0 4px 20px rgba(232, 98, 10, 0.25)',
-            'gold': '0 0 0 1px rgba(139, 105, 20, 0.4)',
+            'brutal': '4px 4px 0px 0px rgba(0,0,0,1)',
+            'brutal-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+            'brutal-orange': '4px 4px 0px 0px #ED8A4A',
           },
           animation: {
-            'marquee': 'marquee 30s linear infinite',
+            'marquee': 'marquee 25s linear infinite',
             'marquee-slow': 'marquee 50s linear infinite',
             'fade-up': 'fadeUp 0.7s ease forwards',
             'stagger-in': 'staggerIn 0.05s ease forwards',
@@ -84,45 +72,36 @@
 
   <!-- ─── CUSTOM STYLES ─── -->
   <style>
-    /* ── Grain overlay global ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.035;
-      pointer-events: none;
-      z-index: 1000;
-    }
+    /* ── Neo-Brutalismo: NO grain, NO gradients, NO soft shadows ── */
 
     /* ── Scroll suave ── */
     html {
       scroll-behavior: smooth;
     }
 
-    /* ── Selection personalizada ── */
+    /* ── Selection ── */
     ::selection {
-      background: #e8620a;
-      color: white;
+      background: #111111;
+      color: #F5ED98;
     }
 
     /* ── Scrollbar custom (webkit) ── */
     ::-webkit-scrollbar {
-      width: 6px;
+      width: 8px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #e8dfc8;
+      background: #FAF7F0;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #8b6914;
-      border-radius: 99px;
+      background: #111111;
+      border-radius: 0;
     }
 
-    /* ── Cursor ── */
+    /* ── Cursor Neo-Brutal ── */
     * {
-      cursor: default;
+      cursor: crosshair;
     }
 
     a,
@@ -130,20 +109,119 @@
       cursor: pointer;
     }
 
-    /* ── Navbar scrolled ── */
+    /* ══════════════════════════════════════
+       PILL BUTTON SYSTEM
+       ══════════════════════════════════════ */
+
+    /* A. Primario — Píldora Negra */
+    .btn-pill-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      background: #111111;
+      color: #FAF7F0;
+      border: 3px solid #111111;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 150ms ease;
+    }
+
+    .btn-pill-primary:hover {
+      background: transparent;
+      color: #111111;
+    }
+
+    /* B. Secundario — Píldora Transparente */
+    .btn-pill-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.5rem;
+      background: transparent;
+      color: #111111;
+      border: 3px solid #111111;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 150ms ease;
+    }
+
+    .btn-pill-secondary:hover {
+      background: #111111;
+      color: #FAF7F0;
+    }
+
+    /* C. Compound Cart — Píldora Negra Compuesta */
+    .btn-compound-cart {
+      display: inline-flex;
+      align-items: center;
+      background: #111111;
+      color: #FAF7F0;
+      border: 3px solid #111111;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+    }
+
+    .btn-compound-cart .cart-control {
+      padding: 0.75rem 1rem;
+      transition: all 150ms ease;
+      user-select: none;
+    }
+
+    .btn-compound-cart .cart-control:hover {
+      opacity: 0.7;
+      transform: scale(1.15);
+    }
+
+    .btn-compound-cart .cart-qty {
+      padding: 0.75rem 0.5rem;
+      min-width: 2rem;
+      text-align: center;
+    }
+
+    .btn-compound-cart .cart-divider {
+      width: 2px;
+      align-self: stretch;
+      background: rgba(250, 247, 240, 0.25);
+    }
+
+    .btn-compound-cart .cart-add {
+      padding: 0.75rem 1.5rem;
+      transition: all 150ms ease;
+    }
+
+    .btn-compound-cart .cart-add:hover {
+      background: #ED8A4A;
+    }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+       ══════════════════════════════════════ */
     #navbar.scrolled {
-      background-color: rgba(232, 223, 200, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 24px rgba(74, 53, 32, 0.15);
-      border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+      background-color: #FAF7F0;
+      border-bottom: 3px solid #111111;
     }
 
     /* ── Mobile menu ── */
     #mobile-menu {
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
     }
 
     #mobile-menu.open {
@@ -177,25 +255,6 @@
       animation: staggerIn 0.4s ease forwards;
     }
 
-    /* ── Shimmer placeholders ── */
-    @keyframes shimmer {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .hero-placeholder {
-      background: linear-gradient(135deg, #d4c9b0 0%, #e8dfc8 40%, #d4c9b0 60%, #c8bda4 100%);
-      background-size: 300% 300%;
-      animation: shimmer 4s ease-in-out infinite;
-    }
-
     /* ── Scroll indicator ── */
     .scroll-indicator {
       animation: bounce 2s infinite;
@@ -227,7 +286,7 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marquee 35s linear infinite;
+      animation: marquee 25s linear infinite;
     }
 
     .marquee-track:hover {
@@ -240,72 +299,15 @@
       transform: translateY(0) !important;
     }
 
-    /* ── Texto vertical (writing mode) ── */
+    /* ── Texto vertical ── */
     .writing-vertical {
       writing-mode: vertical-rl;
       text-orientation: mixed;
     }
 
-    /* ── Imágenes reales ── */
-    .img-producto {
-      border-radius: 1.5rem;
-      object-fit: cover;
-      object-position: center;
-      filter: sepia(12%) saturate(110%) contrast(102%) brightness(98%);
-      box-shadow: 0 8px 48px rgba(74, 53, 32, 0.20), 0 2px 12px rgba(74, 53, 32, 0.10);
-      transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .img-producto:hover {
-      transform: scale(1.02) translateY(-2px);
-      filter: sepia(8%) saturate(115%) contrast(103%) brightness(100%);
-      box-shadow: 0 16px 64px rgba(74, 53, 32, 0.25), 0 4px 20px rgba(232, 98, 10, 0.10);
-    }
-
-    .img-gato {
-      border-radius: 9999px;
-      object-fit: cover;
-      object-position: center top;
-      border: 3px solid #8b6914;
-      outline: 6px solid rgba(139, 105, 20, 0.15);
-      filter: sepia(15%) saturate(105%) contrast(103%) brightness(97%);
-      box-shadow: 0 4px 24px rgba(74, 53, 32, 0.20), 0 0 0 8px rgba(232, 220, 200, 0.3);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .img-gato:hover {
-      transform: rotate(2deg) scale(1.04);
-      box-shadow: 0 8px 32px rgba(74, 53, 32, 0.25), 0 0 0 8px rgba(232, 98, 10, 0.12);
-    }
-
-    .img-logo {
-      filter: drop-shadow(0 2px 8px rgba(74, 53, 32, 0.25));
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .img-logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 4px 12px rgba(232, 98, 10, 0.20));
-    }
-
-    nav .img-logo {
-      height: 40px;
-      width: auto;
-    }
-
-    footer .img-logo {
-      height: 72px;
-      width: auto;
-      filter: brightness(1.05) drop-shadow(0 2px 12px rgba(139, 105, 20, 0.30));
-    }
-
-    /* ── Sello vintage — rotación lenta ── */
+    /* ── Sello — rotación ── */
     .sello-vintage {
       animation: sello-rotate 20s linear infinite;
-    }
-
-    .sello-inner {
-      /* el contenido central no rota */
     }
 
     @keyframes sello-rotate {
@@ -318,167 +320,146 @@
       }
     }
 
-    /* ── Process illos ── */
-    .process-illo {
-      width: 80px;
-      height: 80px;
-      opacity: 0.75;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+    /* ── Neo-Brutal Card hover ── */
+    .card-brutal {
+      transition: transform 150ms ease, box-shadow 150ms ease;
     }
 
-    .process-illo:hover {
-      opacity: 1;
-      transform: scale(1.08) rotate(-2deg);
-    }
-
-    /* ── SVG wave divider ── */
-    .section-divider {
-      display: block;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-    }
-
-    .section-divider svg {
-      display: block;
+    .card-brutal:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
     }
   </style>
 
 </head>
 
-<body class="bg-pr-beige font-sans text-pr-brown antialiased overflow-x-hidden">
+<body class="bg-brand-cream font-sans text-brand-black antialiased overflow-x-hidden">
 
   <!-- ════════════════════════════════════════════════
        SECCIÓN 1 — NAVBAR
        ════════════════════════════════════════════════ -->
   <nav id="navbar"
-    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-5 transition-all duration-500">
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-5 transition-all duration-300">
 
     <!-- Logo -->
     <a href="#hero"
-      class="flex items-center font-serif font-black text-pr-brown text-xl md:text-2xl tracking-widest-xl uppercase hover:text-pr-orange transition-colors duration-300">
+      class="flex items-center font-sans font-bold text-brand-black text-xl md:text-2xl tracking-wide uppercase hover:text-brand-orange transition-colors duration-150">
       <span class="mr-2 text-lg">🐱</span>
       PABLITO ROOTS
     </a>
 
     <!-- Links desktop -->
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#menu"
-        class="font-display tracking-widest text-sm text-pr-brown hover:text-pr-orange transition-colors duration-300">MENÚ</a>
-      <a href="#envios"
-        class="font-display tracking-widest text-sm text-pr-brown hover:text-pr-orange transition-colors duration-300">ENVÍOS</a>
-      <a href="#recomendamos"
-        class="font-display tracking-widest text-sm text-pr-brown hover:text-pr-orange transition-colors duration-300">RECOMENDAMOS</a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#menu" class="btn-pill-secondary text-sm py-2 px-4">MENÚ</a>
+      <a href="#envios" class="btn-pill-secondary text-sm py-2 px-4">ENVÍOS</a>
+      <a href="#recomendamos" class="btn-pill-secondary text-sm py-2 px-4">TIPS</a>
       <!-- CTA navbar -->
       <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-        class="ml-2 px-5 py-2 bg-pr-orange text-white font-display tracking-widest text-sm rounded-full hover:bg-pr-orange-hover transition-all duration-300 shadow-orange">
-        PEDIR
+        class="btn-pill-primary text-sm py-2 px-6">
+        PEDIR →
       </a>
     </div>
 
     <!-- Hamburger mobile -->
     <button id="hamburger" aria-label="Abrir menú" class="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 z-50">
-      <span class="bar-1 block w-6 h-0.5 bg-pr-brown rounded-full"></span>
-      <span class="bar-2 block w-6 h-0.5 bg-pr-brown rounded-full"></span>
-      <span class="bar-3 block w-6 h-0.5 bg-pr-brown rounded-full"></span>
+      <span class="bar-1 block w-6 h-0.5 bg-brand-black rounded-full"></span>
+      <span class="bar-2 block w-6 h-0.5 bg-brand-black rounded-full"></span>
+      <span class="bar-3 block w-6 h-0.5 bg-brand-black rounded-full"></span>
     </button>
   </nav>
 
   <!-- Menú mobile desplegable -->
-  <div id="mobile-menu" class="fixed inset-0 bg-pr-beige z-40 flex flex-col items-center justify-center gap-8">
-    <a href="#menu" onclick="closeMenu()"
-      class="font-display text-3xl tracking-widest text-pr-brown hover:text-pr-orange transition-colors duration-300">MENÚ</a>
-    <a href="#envios" onclick="closeMenu()"
-      class="font-display text-3xl tracking-widest text-pr-brown hover:text-pr-orange transition-colors duration-300">ENVÍOS</a>
-    <a href="#recomendamos" onclick="closeMenu()"
-      class="font-display text-3xl tracking-widest text-pr-brown hover:text-pr-orange transition-colors duration-300">RECOMENDAMOS</a>
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-yellow z-40 flex flex-col items-center justify-center gap-8">
+    <a href="#menu" onclick="closeMenu()" class="btn-pill-secondary text-2xl py-3 px-8">MENÚ</a>
+    <a href="#envios" onclick="closeMenu()" class="btn-pill-secondary text-2xl py-3 px-8">ENVÍOS</a>
+    <a href="#recomendamos" onclick="closeMenu()" class="btn-pill-secondary text-2xl py-3 px-8">TIPS</a>
     <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-      class="mt-4 px-8 py-3 bg-pr-orange text-white font-display tracking-widest text-xl rounded-full hover:bg-pr-orange-hover transition-all duration-300 shadow-orange">
-      PEDIR AHORA
+      class="btn-pill-primary text-2xl py-4 px-10 mt-4">
+      PEDIR AHORA →
     </a>
   </div>
 
 
-  <!-- ════════════════════════════════════════════════
-       SECCIÓN 2 — HERO (full screen)
-       ════════════════════════════════════════════════ -->
   <section id="hero"
-    class="relative min-h-screen w-full bg-pr-dark flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-4 md:px-8">
+    class="relative min-h-screen w-full bg-brand-black flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0 px-4 md:px-8">
 
     <!-- Texto vertical decorativo (solo desktop) -->
     <div id="vert-text"
-      class="hidden lg:flex flex-col items-center absolute left-6 top-1/2 -translate-y-1/2 font-display text-xs tracking-widest-2xl text-pr-cream/20 select-none"
+      class="hidden lg:flex flex-col items-center absolute left-6 top-1/2 -translate-y-1/2 font-display text-xs tracking-widest-2xl text-brand-cream/20 select-none"
       aria-hidden="true">
     </div>
 
     <!-- ── Contenido principal (texto gigante) ── -->
     <div class="flex-1 flex flex-col items-center justify-center text-center w-full z-10 px-2 mt-12 md:mt-20">
 
-      <!-- Badge -->
+      <!-- Badge pill -->
       <div
-        class="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full border border-pr-gold/40 bg-pr-gold/10 font-sans text-xs font-medium text-pr-cream tracking-widest uppercase">
+        class="btn-pill-secondary mb-8 text-xs bg-transparent text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
         🐱 EMPRENDIMIENTO ARTESANAL · CABA
       </div>
 
       <!-- Título principal gigante -->
-      <h1 class="font-serif font-black text-pr-cream mb-10 w-full"
-        style="font-size: clamp(4rem, 10vw, 9rem); leading-trim: both; text-edge: cap; line-height: 0.9;">
+      <h1 class="font-serif font-black text-brand-cream mb-10 w-full"
+        style="font-size: clamp(4rem, 10vw, 9rem); line-height: 0.9;">
         Postres que<br>
-        <em class="italic text-pr-olive">te abrazan.</em>
+        <em class="italic text-brand-orange">te abrazan.</em>
       </h1>
 
       <!-- Subtítulo -->
       <p
-        class="font-sans font-light text-base md:text-xl text-pr-cream/70 leading-relaxed mb-12 max-w-sm md:max-w-xl mx-auto">
+        class="font-sans font-light text-base md:text-xl text-brand-cream/70 leading-relaxed mb-12 max-w-sm md:max-w-xl mx-auto">
         Cookies artesanales hechas con materia prima premium. Con envío a CABA o take away.
       </p>
 
       <!-- Botones CTA -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full md:w-auto">
-        <!-- Primario -->
         <a href="#menu"
-          class="w-full sm:w-auto text-center px-10 py-5 bg-pr-orange text-white font-display tracking-widest text-lg md:text-xl rounded-full hover:bg-pr-orange-hover hover:shadow-orange hover:-translate-y-1 transition-all duration-300 ease-out shadow-orange">
-          VER MENÚ
+          class="btn-pill-primary text-lg md:text-xl py-4 px-10 bg-brand-orange border-brand-orange hover:bg-transparent hover:text-brand-orange">
+          VER MENÚ →
+        </a>
+        <a href="#envios"
+          class="btn-pill-secondary text-lg md:text-xl py-4 px-10 text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
+          ENVÍOS ↓
         </a>
       </div>
     </div>
 
     <!-- Sello vintage SVG flotante gigante -->
     <div
-      class="absolute right-4 md:right-12 top-24 md:top-32 w-32 md:w-48 h-32 md:h-48 opacity-60 pointer-events-none hidden md:block">
+      class="absolute right-4 md:right-12 top-24 md:top-32 w-32 md:w-48 h-32 md:h-48 opacity-40 pointer-events-none hidden md:block">
       <svg class="sello-vintage w-full h-full" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="56" fill="none" stroke="#c8a97e" stroke-width="1.5" stroke-dasharray="4 3" />
-        <circle cx="60" cy="60" r="48" fill="none" stroke="#c8a97e" stroke-width="1" opacity="0.5" />
+        <circle cx="60" cy="60" r="56" fill="none" stroke="#FAF7F0" stroke-width="2" stroke-dasharray="4 3" />
+        <circle cx="60" cy="60" r="48" fill="none" stroke="#FAF7F0" stroke-width="1" opacity="0.5" />
         <defs>
           <path id="ct-hero" d="M 60,60 m -40,0 a 40,40 0 1,1 80,0" />
           <path id="cb-hero" d="M 60,60 m -40,0 a 40,40 0 0,0 80,0" />
         </defs>
-        <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#c8a97e" letter-spacing="3">
+        <text font-family="'Space Grotesk', sans-serif" font-size="9" fill="#FAF7F0" letter-spacing="3">
           <textPath href="#ct-hero" startOffset="5%">ARTESANAL · PREMIUM · CABA ·</textPath>
         </text>
-        <text font-family="'Bebas Neue', sans-serif" font-size="9" fill="#c8a97e" letter-spacing="3">
+        <text font-family="'Space Grotesk', sans-serif" font-size="9" fill="#FAF7F0" letter-spacing="3">
           <textPath href="#cb-hero" startOffset="5%">PABLITO ROOTS · DESDE 2024 ·</textPath>
         </text>
-        <ellipse cx="60" cy="60" rx="16" ry="15" fill="none" stroke="#c8a97e" stroke-width="1" />
-        <ellipse cx="55" cy="56" rx="3" ry="2.5" fill="#c8a97e" transform="rotate(-10 55 56)" />
-        <ellipse cx="64" cy="59" rx="2.5" ry="2" fill="#c8a97e" transform="rotate(8 64 59)" />
-        <ellipse cx="57" cy="65" rx="2.8" ry="2.2" fill="#c8a97e" transform="rotate(-5 57 65)" />
+        <ellipse cx="60" cy="60" rx="16" ry="15" fill="none" stroke="#FAF7F0" stroke-width="1.5" />
+        <ellipse cx="55" cy="56" rx="3" ry="2.5" fill="#FAF7F0" transform="rotate(-10 55 56)" />
+        <ellipse cx="64" cy="59" rx="2.5" ry="2" fill="#FAF7F0" transform="rotate(8 64 59)" />
+        <ellipse cx="57" cy="65" rx="2.8" ry="2.2" fill="#FAF7F0" transform="rotate(-5 57 65)" />
       </svg>
     </div>
 
     <!-- Scroll indicator -->
     <div class="scroll-indicator absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       aria-hidden="true">
-      <span class="font-sans text-xs text-pr-cream/40 tracking-widest uppercase">scroll</span>
-      <svg class="w-4 h-4 text-pr-cream/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <span class="font-sans text-xs text-brand-cream/40 tracking-widest uppercase">scroll</span>
+      <svg class="w-4 h-4 text-brand-cream/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
       </svg>
     </div>
 
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-pr-dark border-t border-pr-gold/20 overflow-hidden py-3">
+    <!-- Ticker/Marquee separador inferior — AMARILLO POP -->
+    <div class="absolute bottom-0 left-0 w-full bg-brand-yellow border-t-[3px] border-brand-black overflow-hidden py-3">
       <div
-        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-brand-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -488,20 +469,14 @@
 
 
   <!-- ════════════════════════════════════════════════
-       PLACEHOLDER — Resto de secciones (Partes 2-5)
-       ════════════════════════════════════════════════ -->
-  <!-- ════════════════════════════════════════════════
        SECCIÓN 3 — EN NUESTRA COCINA (productos)
        ════════════════════════════════════════════════ -->
   <section id="menu"
-    class="w-full bg-pr-beige py-24 md:py-32 px-4 md:px-8 lg:px-12 relative overflow-hidden flex flex-col items-center">
-
-    <!-- Grain overlay -->
-    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+    class="w-full bg-brand-yellow py-24 md:py-32 px-4 md:px-8 lg:px-12 relative overflow-hidden flex flex-col items-center">
 
     <!-- Título vertical lateral (solo desktop) -->
     <div
-      class="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 font-display text-[10px] tracking-widest-2xl text-pr-brown/20 select-none"
+      class="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 font-display text-[10px] tracking-widest-2xl text-brand-black/10 select-none"
       style="writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg);" aria-hidden="true">
       E N · N U E S T R A · C O C I N A
     </div>
@@ -510,12 +485,12 @@
 
       <!-- Header de sección gigante -->
       <div class="mb-16 md:mb-20 animate-on-scroll text-center md:text-left">
-        <h2 class="font-display tracking-[0.1em] text-pr-orange text-2xl md:text-3xl uppercase mb-3 block">
+        <h2 class="font-sans font-bold tracking-wide text-brand-black text-2xl md:text-3xl uppercase mb-3 block">
           🍪 NUESTROS PRODUCTOS
         </h2>
-        <h3 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-dark leading-none uppercase">
+        <h3 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-black leading-none uppercase">
           LO QUE HACEMOS,<br>
-          <em class="font-serif italic text-pr-olive lowercase tracking-normal">lo hacemos bien.</em>
+          <em class="font-serif italic text-brand-olive lowercase tracking-normal">lo hacemos bien.</em>
         </h3>
       </div>
 
@@ -524,17 +499,16 @@
 
         <!-- ── CARD 1: INDIVIDUAL ── -->
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-pr-dark rounded-[4px] overflow-hidden border border-pr-gold/20 shadow-warm hover:-translate-y-2 transition-transform duration-400 ease-out cursor-pointer block h-[38rem] flex flex-col">
+          class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block h-[38rem] flex flex-col">
 
           <!-- Imagen 70% -->
-          <div class="relative w-full h-[70%] bg-pr-beige-dark overflow-hidden flex-shrink-0">
-            <div class="absolute inset-0 hero-placeholder"></div>
+          <div class="relative w-full h-[70%] bg-brand-blue overflow-hidden flex-shrink-0">
             <div class="absolute inset-0 flex items-center justify-center">
               <span class="text-6xl opacity-30">🍪</span>
             </div>
-            <!-- Badge -->
+            <!-- Badge pill -->
             <div
-              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-pr-orange text-white font-display tracking-[0.1em] text-sm rounded-[2px] uppercase">
+              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-orange text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
               INDIVIDUAL
             </div>
           </div>
@@ -543,34 +517,37 @@
           <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
             <div>
               <h3
-                class="font-display font-medium text-4xl text-pr-cream uppercase tracking-[0.1em] group-hover:text-pr-orange transition-colors duration-300">
+                class="font-sans font-bold text-3xl text-brand-black uppercase tracking-wide group-hover:text-brand-orange transition-colors duration-150">
                 LA COOKIE INDIVIDUAL
               </h3>
-              <p class="font-sans text-sm md:text-base text-pr-cream/70 leading-relaxed mt-2">
+              <p class="font-sans text-sm md:text-base text-brand-black/70 leading-relaxed mt-2">
                 Para cuando la querés toda para vos. Sin culpa, sin compartir. Una cookie entera de materia prima
                 premium.
               </p>
             </div>
-            <span
-              class="inline-flex items-center gap-2 font-display tracking-[0.1em] text-lg text-pr-orange group-hover:gap-3 transition-all duration-300 mt-4">
-              PEDIR POR DM →
-            </span>
+            <!-- Compound cart button -->
+            <div class="btn-compound-cart mt-4 self-start">
+              <span class="cart-control">−</span>
+              <span class="cart-qty">1</span>
+              <span class="cart-control">+</span>
+              <span class="cart-divider"></span>
+              <span class="cart-add">PEDIR →</span>
+            </div>
           </div>
         </a>
 
         <!-- ── CARD 2: BOX x3 ── -->
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-pr-dark rounded-[4px] overflow-hidden border border-pr-gold/20 shadow-warm hover:-translate-y-2 transition-transform duration-400 ease-out cursor-pointer block h-[38rem] flex flex-col">
+          class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block h-[38rem] flex flex-col">
 
           <!-- Imagen 70% -->
-          <div class="relative w-full h-[70%] bg-pr-beige-dark overflow-hidden flex-shrink-0">
-            <div class="absolute inset-0 hero-placeholder"></div>
+          <div class="relative w-full h-[70%] bg-brand-orange/30 overflow-hidden flex-shrink-0">
             <div class="absolute inset-0 flex items-center justify-center">
               <span class="text-6xl opacity-30">🍪</span>
             </div>
-            <!-- Badge LA MÁS PEDIDA -->
+            <!-- Badge pill -->
             <div
-              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-pr-olive text-white font-display tracking-[0.1em] text-sm rounded-[2px] uppercase">
+              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-yellow text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
               LA MÁS PEDIDA
             </div>
           </div>
@@ -579,31 +556,35 @@
           <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
             <div>
               <h3
-                class="font-display font-medium text-4xl text-pr-cream uppercase tracking-[0.1em] group-hover:text-pr-olive transition-colors duration-300">
+                class="font-sans font-bold text-3xl text-brand-black uppercase tracking-wide group-hover:text-brand-olive transition-colors duration-150">
                 LA BOX X3
               </h3>
-              <p class="font-sans text-sm md:text-base text-pr-cream/70 leading-relaxed mt-2">
+              <p class="font-sans text-sm md:text-base text-brand-black/70 leading-relaxed mt-2">
                 Tres cookies. Ideal para compartir — o no, te entendemos. La opción perfecta para el antojo en serio.
               </p>
             </div>
-            <span
-              class="inline-flex items-center gap-2 font-display tracking-[0.1em] text-lg text-pr-olive group-hover:gap-3 transition-all duration-300 mt-4">
-              PEDIR POR DM →
-            </span>
+            <!-- Compound cart button -->
+            <div class="btn-compound-cart mt-4 self-start">
+              <span class="cart-control">−</span>
+              <span class="cart-qty">1</span>
+              <span class="cart-control">+</span>
+              <span class="cart-divider"></span>
+              <span class="cart-add">PEDIR →</span>
+            </div>
           </div>
         </a>
 
         <!-- ── CARD 3: PEDIDOS ESPECIALES ── -->
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="group relative bg-pr-beige rounded-[4px] overflow-hidden border border-pr-gold/20 shadow-warm hover:-translate-y-2 transition-transform duration-400 ease-out cursor-pointer block md:col-span-2 lg:col-span-1 h-[38rem] flex flex-col">
+          class="group relative bg-brand-cream rounded-none overflow-hidden border-[3px] border-brand-black shadow-brutal card-brutal cursor-pointer block md:col-span-2 lg:col-span-1 h-[38rem] flex flex-col">
 
           <!-- Imagen 70% -->
           <div
-            class="relative w-full h-[70%] bg-[#d4c9b0] overflow-hidden flex-shrink-0 flex items-center justify-center">
+            class="relative w-full h-[70%] bg-brand-black/10 overflow-hidden flex-shrink-0 flex items-center justify-center">
             <span class="text-9xl opacity-20">📦</span>
-            <!-- Badge -->
+            <!-- Badge pill -->
             <div
-              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-pr-gold text-pr-dark font-display tracking-[0.1em] text-sm rounded-[2px] uppercase">
+              class="absolute top-4 left-4 z-10 px-4 py-1.5 bg-brand-cream text-brand-black font-sans font-bold tracking-wide text-sm rounded-full border-[2px] border-brand-black uppercase">
               MAYORISTA
             </div>
           </div>
@@ -612,15 +593,15 @@
           <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
             <div>
               <h3
-                class="font-display font-medium text-4xl text-pr-dark uppercase tracking-[0.1em] group-hover:text-pr-gold transition-colors duration-300">
+                class="font-sans font-bold text-3xl text-brand-black uppercase tracking-wide group-hover:text-brand-orange transition-colors duration-150">
                 PEDIDOS ESPECIALES
               </h3>
-              <p class="font-sans text-sm md:text-base text-pr-brown-light leading-relaxed mt-2">
+              <p class="font-sans text-sm md:text-base text-brand-black/70 leading-relaxed mt-2">
                 Precio y consultas para pedidos mayores al DM. Tu consulta no molesta.
               </p>
             </div>
-            <span
-              class="inline-flex items-center gap-2 font-display tracking-[0.1em] text-lg text-pr-gold group-hover:gap-3 transition-all duration-300 mt-4">
+            <!-- Secondary button -->
+            <span class="btn-pill-secondary mt-4 self-start text-sm">
               ESCRIBINOS →
             </span>
           </div>
@@ -629,16 +610,16 @@
       </div><!-- /grid -->
 
       <!-- Nota debajo del grid -->
-      <p class="mt-12 text-center font-sans text-sm text-pr-brown-light mb-8 pt-4">
+      <p class="mt-12 text-center font-sans text-sm text-brand-black/60 mb-8 pt-4">
         Todos los pedidos se coordinan por Instagram. Los precios se consultan por DM.
       </p>
 
     </div>
 
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-pr-dark border-t border-pr-gold/20 overflow-hidden py-3">
+    <!-- Ticker/Marquee separador inferior — POP -->
+    <div class="absolute bottom-0 left-0 w-full bg-brand-black border-t-[3px] border-brand-black overflow-hidden py-3">
       <div
-        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -648,23 +629,23 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 4 — ENVÍOS
        ════════════════════════════════════════════════ -->
-  <section id="envios" class="w-full bg-pr-dark py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <section id="envios" class="w-full bg-brand-blue py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <!-- Árbol bonsái decorativo de fondo -->
-    <div class="absolute bottom-0 right-0 text-[300px] leading-none opacity-[0.03] select-none pointer-events-none"
+    <div class="absolute bottom-0 right-0 text-[300px] leading-none opacity-[0.05] select-none pointer-events-none"
       aria-hidden="true">🌳</div>
 
     <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center pb-8">
 
       <!-- Header gigante -->
       <div class="mb-16 md:mb-24 animate-on-scroll text-center w-full">
-        <span class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-orange uppercase mb-4 block">📦
+        <span class="font-sans font-bold tracking-wide text-xl md:text-2xl text-brand-black uppercase mb-4 block">📦
           LOGÍSTICA</span>
-        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-cream leading-none uppercase">
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-black leading-none uppercase">
           ¿CUÁNDO<br>
-          <em class="font-serif italic text-pr-orange lowercase tracking-normal">llegamos?</em>
+          <em class="font-serif italic text-brand-orange lowercase tracking-normal">llegamos?</em>
         </h2>
-        <p class="font-sans text-lg text-pr-cream/70 mt-8 max-w-lg mx-auto">
+        <p class="font-sans text-lg text-brand-black/70 mt-8 max-w-lg mx-auto">
           Programá tu entrega. Solo hacemos envíos en estos horarios en CABA.
         </p>
       </div>
@@ -674,30 +655,34 @@
 
         <!-- CARD MIÉRCOLES -->
         <div
-          class="relative bg-pr-dark-mid rounded-[4px] border border-pr-gold/10 p-8 md:p-12 overflow-hidden hover:border-pr-orange/30 hover:-translate-y-2 transition-transform duration-400 ease-out text-center">
-          <div class="absolute -right-4 -top-6 font-display text-[150px] text-white/[0.02] leading-none select-none"
+          class="relative bg-brand-cream rounded-none border-[3px] border-brand-black p-8 md:p-12 overflow-hidden shadow-brutal card-brutal text-center">
+          <div
+            class="absolute -right-4 -top-6 font-sans font-bold text-[150px] text-brand-black/[0.03] leading-none select-none"
             aria-hidden="true">MI</div>
           <span class="text-4xl mb-6 block">🌙</span>
-          <span class="font-display tracking-[0.1em] text-pr-orange mb-4 block leading-none"
+          <span class="font-sans font-bold tracking-wide text-brand-black mb-4 block leading-none"
             style="font-size: clamp(3rem, 7vw, 6rem);">MIÉRCOLES</span>
-          <p class="font-serif font-bold text-pr-cream mb-6 leading-none" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+          <p class="font-serif font-bold text-brand-black mb-6 leading-none"
+            style="font-size: clamp(2rem, 4vw, 3.5rem);">
             19:00 — 21:00 hs</p>
-          <p class="font-sans text-sm md:text-lg text-pr-cream/50 pt-4 mt-6">
+          <p class="font-sans text-sm md:text-lg text-brand-black/50 pt-4 mt-6">
             Coordinar antes de las 18hs del miércoles
           </p>
         </div>
 
         <!-- CARD SÁBADO -->
         <div
-          class="relative bg-pr-dark-mid rounded-[4px] border border-pr-gold/10 p-8 md:p-12 overflow-hidden hover:border-pr-orange/30 hover:-translate-y-2 transition-transform duration-400 ease-out text-center">
-          <div class="absolute -right-4 -top-6 font-display text-[150px] text-white/[0.02] leading-none select-none"
+          class="relative bg-brand-cream rounded-none border-[3px] border-brand-black p-8 md:p-12 overflow-hidden shadow-brutal card-brutal text-center">
+          <div
+            class="absolute -right-4 -top-6 font-sans font-bold text-[150px] text-brand-black/[0.03] leading-none select-none"
             aria-hidden="true">SA</div>
           <span class="text-4xl mb-6 block">☀️</span>
-          <span class="font-display tracking-[0.1em] text-pr-orange mb-4 block leading-none"
+          <span class="font-sans font-bold tracking-wide text-brand-black mb-4 block leading-none"
             style="font-size: clamp(3rem, 7vw, 6rem);">SÁBADO</span>
-          <p class="font-serif font-bold text-pr-cream mb-6 leading-none" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+          <p class="font-serif font-bold text-brand-black mb-6 leading-none"
+            style="font-size: clamp(2rem, 4vw, 3.5rem);">
             09:00 — 13:00 hs</p>
-          <p class="font-sans text-sm md:text-lg text-pr-cream/50 pt-4 mt-6">
+          <p class="font-sans text-sm md:text-lg text-brand-black/50 pt-4 mt-6">
             Coordinar antes del viernes por la tarde
           </p>
         </div>
@@ -706,20 +691,22 @@
 
       <!-- Take Away -->
       <div
-        class="mt-16 p-8 md:p-10 rounded-[4px] border border-pr-gold/20 border-dashed bg-pr-dark flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-6 max-w-3xl w-full">
+        class="mt-16 p-8 md:p-10 rounded-none border-[3px] border-brand-black border-dashed bg-brand-cream flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-6 max-w-3xl w-full">
         <span class="text-4xl flex-shrink-0">🛍️</span>
-        <p class="font-sans text-pr-cream/80 text-lg md:text-xl leading-relaxed">
-          <span class="font-display text-pr-orange tracking-[0.1em] text-2xl block mb-1">TAKE AWAY DISPONIBLE.</span>
+        <p class="font-sans text-brand-black/80 text-lg md:text-xl leading-relaxed">
+          <span class="font-sans font-bold text-brand-black tracking-wide text-2xl block mb-1">TAKE AWAY
+            DISPONIBLE.</span>
           Pasás a buscar tus cookies y coordinamos el punto de encuentro por DM. Nada complicado.
         </p>
       </div>
 
     </div>
 
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-pr-dark border-t border-pr-gold/20 overflow-hidden py-3 z-30">
+    <!-- Ticker/Marquee -->
+    <div
+      class="absolute bottom-0 left-0 w-full bg-brand-black border-t-[3px] border-brand-black overflow-hidden py-3 z-30">
       <div
-        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -730,49 +717,50 @@
        SECCIÓN 5 — RECOMENDAMOS
        ════════════════════════════════════════════════ -->
   <section id="recomendamos"
-    class="w-full bg-pr-orange py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
+    class="w-full bg-brand-orange py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden flex flex-col items-center">
 
     <div class="relative z-10 max-w-7xl mx-auto flex flex-col items-center pb-8">
 
       <!-- Header gigante -->
       <div class="text-center w-full">
-        <span class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-dark uppercase mb-4 block">🌿 ANTES DE
+        <span class="font-sans font-bold tracking-wide text-xl md:text-2xl text-brand-black uppercase mb-4 block">🌿
+          ANTES DE
           ARRANCAR</span>
-        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-cream leading-none uppercase">
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-cream leading-none uppercase">
           CONSEJOS PARA<br>
-          <em class="font-serif italic text-pr-dark lowercase tracking-normal">buen viaje.</em>
+          <em class="font-serif italic text-brand-black lowercase tracking-normal">buen viaje.</em>
         </h2>
       </div>
 
       <!-- Card de advertencia amigable -->
       <div
-        class="mt-16 md:mt-24 max-w-3xl relative bg-pr-beige rounded-[4px] border-none shadow-warm-lg p-10 md:p-16 overflow-hidden text-center mx-auto">
+        class="mt-16 md:mt-24 max-w-3xl relative bg-brand-cream rounded-none border-[3px] border-brand-black shadow-brutal-lg p-10 md:p-16 overflow-hidden text-center mx-auto">
 
         <!-- Texto principal -->
-        <p class="font-display tracking-[0.1em] text-3xl md:text-4xl lg:text-5xl text-pr-dark leading-[1.1] mb-8">
+        <p
+          class="font-sans font-bold tracking-wide text-3xl md:text-4xl lg:text-5xl text-brand-black leading-[1.1] mb-8">
           CONSUMILA PREFERENTEMENTE<br>
           DESPUÉS DE UNA COMIDA<br>
           (BRUNCH, ALMUERZO).
         </p>
 
         <!-- Divisor centrado -->
-        <div class="w-24 h-px bg-pr-dark/20 mx-auto mb-8"></div>
+        <div class="w-24 h-[3px] bg-brand-black mx-auto mb-8"></div>
 
         <!-- Texto secundario -->
-        <p class="font-serif italic text-xl md:text-2xl text-pr-olive leading-relaxed mb-6">
+        <p class="font-serif italic text-xl md:text-2xl text-brand-olive leading-relaxed mb-6">
           Nuestras cookies están hechas con materia prima PREMIUM.
         </p>
 
         <!-- Texto terciario -->
-        <p class="font-sans text-lg md:text-xl text-pr-brown leading-relaxed">
+        <p class="font-sans text-lg md:text-xl text-brand-black leading-relaxed">
           Seguí nuestros consejos. Recomendamos
-          <span class="font-bold text-pr-dark">iniciar con media cookie</span>
+          <span class="font-bold text-brand-black">iniciar con media cookie</span>
           para que el viaje arranque bien.
         </p>
 
-        <!-- Badge de calidad -->
-        <div
-          class="mt-10 inline-flex items-center gap-3 px-6 py-3 bg-pr-dark text-pr-cream rounded-[4px] font-display tracking-[0.1em] text-sm uppercase">
+        <!-- Badge pill -->
+        <div class="mt-10 btn-pill-primary inline-flex text-sm">
           ✓ MATERIA PRIMA PREMIUM
         </div>
 
@@ -780,10 +768,10 @@
 
     </div>
 
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-pr-dark overflow-hidden py-3 z-30">
+    <!-- Ticker/Marquee -->
+    <div class="absolute bottom-0 left-0 w-full bg-brand-black overflow-hidden py-3 z-30">
       <div
-        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -794,88 +782,82 @@
        SECCIÓN 6 — MANIFIESTO / FILOSOFÍA
        ════════════════════════════════════════════════ -->
   <section id="manifiesto"
-    class="w-full bg-pr-olive py-32 md:py-48 relative overflow-hidden flex flex-col items-center justify-center">
+    class="w-full bg-brand-black py-32 md:py-48 relative overflow-hidden flex flex-col items-center justify-center">
 
     <!-- Cita central -->
     <div class="w-full px-6 md:px-16 lg:px-24 text-center z-10 animate-on-scroll">
-      <p class="font-serif text-pr-cream leading-[1.2] mb-12 uppercase mx-auto"
+      <p class="font-serif text-brand-cream leading-[1.2] mb-12 uppercase mx-auto"
         style="font-size: clamp(1.5rem, 3vw, 2.8rem); max-width: 90vw;">
         Pablito nació de las ganas de hacer algo rico de verdad. Sin atajos, sin apuro. Cada cookie mezclada a mano,
         horneada con atención, entregada con cariño. Somos un emprendimiento chico con muchas ganas, y eso se nota en
         cada caja que sale por la puerta.
       </p>
       <span
-        class="font-display tracking-[0.2em] text-lg text-pr-dark uppercase bg-pr-cream px-6 py-2 rounded-full inline-block">
+        class="btn-pill-secondary text-lg text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black inline-block">
         — El equipo de Pablito Roots 🐱
       </span>
     </div>
 
     <!-- Galería marquee -->
-    <div class="mt-24 relative w-full overflow-hidden opacity-90">
-      <div
-        class="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-pr-olive to-transparent pointer-events-none">
-      </div>
-      <div
-        class="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-pr-olive to-transparent pointer-events-none">
-      </div>
-
+    <div class="mt-24 relative w-full overflow-hidden">
       <div class="flex gap-6 animate-marquee" style="width: max-content;">
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🍪</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🍪</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🍫</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🍫</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🌿</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🌿</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">⭐</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">⭐</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🍪</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🍪</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">📦</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">📦</span>
         </div>
         <!-- duplicado para loop seamless -->
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🍪</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🍪</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🍫</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🍫</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🌿</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🌿</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-dark border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">⭐</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-orange border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">⭐</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-beige border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">🍪</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-yellow border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">🍪</span>
         </div>
         <div
-          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-[4px] bg-pr-orange border-none flex items-center justify-center shadow-lg">
-          <span class="text-6xl opacity-40">📦</span>
+          class="flex-shrink-0 w-56 h-56 md:w-64 md:h-64 rounded-none bg-brand-blue border-[3px] border-brand-cream/20 flex items-center justify-center">
+          <span class="text-6xl opacity-60">📦</span>
         </div>
       </div>
     </div>
 
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-pr-dark overflow-hidden py-3 z-30">
+    <!-- Ticker/Marquee -->
+    <div
+      class="absolute bottom-0 left-0 w-full bg-brand-yellow border-t-[3px] border-brand-black overflow-hidden py-3 z-30">
       <div
-        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-brand-black text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -887,37 +869,36 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 7 — ¿CÓMO PEDÍS?
        ════════════════════════════════════════════════ -->
-  <section id="como-pedir" class="w-full bg-pr-beige py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
-
-    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+  <section id="como-pedir"
+    class="w-full bg-brand-yellow py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <div class="relative z-10 max-w-7xl mx-auto mb-16">
 
       <!-- Header gigante -->
       <div class="text-center md:text-left mb-16 md:mb-24 w-full">
         <span
-          class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-orange uppercase mb-4 block">PROCESO</span>
-        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-dark leading-none uppercase">
+          class="font-sans font-bold tracking-wide text-xl md:text-2xl text-brand-black uppercase mb-4 block">PROCESO</span>
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-black leading-none uppercase">
           PEDIR ES<br>
-          <em class="font-serif italic text-pr-olive lowercase tracking-normal">facilísimo.</em>
+          <em class="font-serif italic text-brand-olive lowercase tracking-normal">facilísimo.</em>
         </h2>
       </div>
 
       <!-- Steps -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-12 max-w-4xl mx-auto relative stagger-children">
         <div
-          class="hidden md:block absolute top-10 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px bg-pr-gold/30"
+          class="hidden md:block absolute top-10 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-[3px] bg-brand-black/20"
           aria-hidden="true"></div>
 
         <!-- Paso 1 -->
         <div class="relative flex flex-col items-center text-center group">
           <div
-            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-pr-gold/40 bg-pr-beige flex items-center justify-center mb-6 group-hover:border-pr-orange/60 group-hover:bg-pr-orange/5 transition-all duration-300">
-            <span class="font-display text-2xl text-pr-brown">01</span>
+            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-[3px] border-brand-black bg-brand-cream flex items-center justify-center mb-6 group-hover:bg-brand-orange/20 transition-all duration-150">
+            <span class="font-sans font-bold text-2xl text-brand-black">01</span>
             <span class="absolute -top-2 -right-2 text-2xl">🛒</span>
           </div>
-          <h3 class="font-serif font-bold text-xl text-pr-brown mb-3">Elegís tus cookies</h3>
-          <p class="font-sans text-sm text-pr-brown-light leading-relaxed">
+          <h3 class="font-sans font-bold text-xl text-brand-black mb-3">Elegís tus cookies</h3>
+          <p class="font-sans text-sm text-brand-black/70 leading-relaxed">
             Mirás el menú, te decidís (spoiler: vas a querer todo). Individual o Box, vos mandás.
           </p>
         </div>
@@ -925,16 +906,16 @@
         <!-- Paso 2 -->
         <div class="relative flex flex-col items-center text-center group">
           <div
-            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-pr-gold/40 bg-pr-beige flex items-center justify-center mb-6 group-hover:border-pr-orange/60 group-hover:bg-pr-orange/5 transition-all duration-300">
-            <span class="font-display text-2xl text-pr-brown">02</span>
+            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-[3px] border-brand-black bg-brand-cream flex items-center justify-center mb-6 group-hover:bg-brand-orange/20 transition-all duration-150">
+            <span class="font-sans font-bold text-2xl text-brand-black">02</span>
             <span class="absolute -top-2 -right-2 text-2xl">📩</span>
           </div>
-          <h3 class="font-serif font-bold text-xl text-pr-brown mb-3">Escribís por Instagram</h3>
-          <p class="font-sans text-sm text-pr-brown-light leading-relaxed">
+          <h3 class="font-sans font-bold text-xl text-brand-black mb-3">Escribís por Instagram</h3>
+          <p class="font-sans text-sm text-brand-black/70 leading-relaxed">
             Mandanos un DM a @pablito.roots con tu pedido. Tu consulta no molesta, de verdad.
           </p>
           <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-            class="mt-3 px-3 py-1 rounded-full bg-pr-orange/10 border border-pr-orange/30 font-display tracking-widest text-xs text-pr-orange uppercase hover:bg-pr-orange/20 transition-colors duration-200 inline-block">
+            class="btn-pill-secondary mt-3 text-xs py-1 px-3">
             @pablito.roots
           </a>
         </div>
@@ -942,12 +923,12 @@
         <!-- Paso 3 -->
         <div class="relative flex flex-col items-center text-center group">
           <div
-            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-pr-gold/40 bg-pr-beige flex items-center justify-center mb-6 group-hover:border-pr-orange/60 group-hover:bg-pr-orange/5 transition-all duration-300">
-            <span class="font-display text-2xl text-pr-brown">03</span>
+            class="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-[3px] border-brand-black bg-brand-cream flex items-center justify-center mb-6 group-hover:bg-brand-orange/20 transition-all duration-150">
+            <span class="font-sans font-bold text-2xl text-brand-black">03</span>
             <span class="absolute -top-2 -right-2 text-2xl">📦</span>
           </div>
-          <h3 class="font-serif font-bold text-xl text-pr-brown mb-3">Coordinamos la entrega</h3>
-          <p class="font-sans text-sm text-pr-brown-light leading-relaxed">
+          <h3 class="font-sans font-bold text-xl text-brand-black mb-3">Coordinamos la entrega</h3>
+          <p class="font-sans text-sm text-brand-black/70 leading-relaxed">
             Envío a CABA (miércoles o sábado) o take away. Acordamos todo por DM, sin complicaciones.
           </p>
         </div>
@@ -957,17 +938,17 @@
       <!-- CTA -->
       <div class="mt-20 flex justify-center pb-12">
         <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-4 px-12 py-6 bg-pr-dark text-white font-display tracking-[0.1em] text-xl rounded-full hover:bg-pr-orange hover:shadow-orange hover:-translate-y-1 transition-all duration-300 shadow-warm">
-          📸&nbsp; IR AL INSTAGRAM
+          class="btn-pill-primary text-xl py-5 px-12">
+          📸&nbsp; IR AL INSTAGRAM →
         </a>
       </div>
 
     </div>
 
-    <!-- Ticker/Marquee separador inferior -->
-    <div class="absolute bottom-0 left-0 w-full bg-pr-dark overflow-hidden py-3 z-30">
+    <!-- Ticker/Marquee -->
+    <div class="absolute bottom-0 left-0 w-full bg-brand-black overflow-hidden py-3 z-30">
       <div
-        class="marquee-track font-display text-pr-cream text-xl tracking-widest uppercase flex items-center whitespace-nowrap">
+        class="marquee-track font-sans font-bold text-brand-yellow text-xl tracking-wide uppercase flex items-center whitespace-nowrap">
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
         <span>COOKIES · ARTESANAL · CABA · PREMIUM · MIÉRCOLES · SÁBADO · PABLITO ROOTS · HECHO A MANO ·&nbsp;</span>
@@ -979,18 +960,16 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 8 — RESEÑAS
        ════════════════════════════════════════════════ -->
-  <section id="resenas" class="w-full bg-pr-dark-mid py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
-
-    <div class="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden="true"></div>
+  <section id="resenas" class="w-full bg-brand-cream py-24 md:py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
     <div class="relative z-10 max-w-7xl mx-auto">
 
       <div class="text-center mb-16 md:mb-24 w-full">
         <span
-          class="font-display tracking-[0.1em] text-xl md:text-2xl text-pr-gold uppercase mb-4 block">COMUNIDAD</span>
-        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-pr-cream leading-none uppercase">
+          class="font-sans font-bold tracking-wide text-xl md:text-2xl text-brand-black uppercase mb-4 block">COMUNIDAD</span>
+        <h2 class="font-serif font-black text-6xl md:text-7xl lg:text-8xl text-brand-black leading-none uppercase">
           LO QUE DICE<br>
-          <em class="font-serif italic text-pr-orange lowercase tracking-normal">la gente.</em>
+          <em class="font-serif italic text-brand-orange lowercase tracking-normal">la gente.</em>
         </h2>
       </div>
 
@@ -998,60 +977,63 @@
 
         <!-- Reseña 1 -->
         <div
-          class="relative bg-pr-dark rounded-[4px] border border-pr-gold/10 p-8 md:p-10 hover:border-pr-gold/30 hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between">
-          <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
-              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
-              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
-          <p class="font-serif italic text-pr-cream/90 text-base md:text-lg leading-relaxed mb-6">
+          class="relative bg-brand-yellow rounded-none border-[3px] border-brand-black p-8 md:p-10 shadow-brutal card-brutal flex flex-col justify-between">
+          <div class="flex gap-1 mb-4"><span class="text-brand-orange text-lg">★</span><span
+              class="text-brand-orange text-lg">★</span><span class="text-brand-orange text-lg">★</span><span
+              class="text-brand-orange text-lg">★</span><span class="text-brand-orange text-lg">★</span></div>
+          <p class="font-serif italic text-brand-black/90 text-base md:text-lg leading-relaxed mb-6">
             "Los brownies son literalmente los mejores que probé en mi vida. Pedí doble la segunda vez, sin ningún
             arrepentimiento."
           </p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-pr-brown/40 flex items-center justify-center"><span
-                class="font-display text-sm text-pr-gold">M</span></div>
+            <div
+              class="w-10 h-10 rounded-full border-[2px] border-brand-black bg-brand-orange flex items-center justify-center">
+              <span class="font-sans font-bold text-sm text-brand-black">M</span></div>
             <div>
-              <p class="font-display tracking-wider text-sm text-pr-gold">@mari.gomez</p>
-              <p class="font-sans text-xs text-pr-cream/40 mt-0.5">Cliente frecuente</p>
+              <p class="font-sans font-bold tracking-wide text-sm text-brand-black">@mari.gomez</p>
+              <p class="font-sans text-xs text-brand-black/50 mt-0.5">Cliente frecuente</p>
             </div>
           </div>
         </div>
 
         <!-- Reseña 2 -->
         <div
-          class="relative bg-pr-dark rounded-[4px] border border-pr-gold/10 p-8 md:p-10 hover:border-pr-gold/30 hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between">
-          <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
-              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
-              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
-          <p class="font-serif italic text-pr-cream/90 text-base md:text-lg leading-relaxed mb-6">
+          class="relative bg-brand-blue rounded-none border-[3px] border-brand-black p-8 md:p-10 shadow-brutal card-brutal flex flex-col justify-between">
+          <div class="flex gap-1 mb-4"><span class="text-brand-orange text-lg">★</span><span
+              class="text-brand-orange text-lg">★</span><span class="text-brand-orange text-lg">★</span><span
+              class="text-brand-orange text-lg">★</span><span class="text-brand-orange text-lg">★</span></div>
+          <p class="font-serif italic text-brand-black/90 text-base md:text-lg leading-relaxed mb-6">
             "Las cookies llegaron perfectas y la presentación era re cuidada. Ya pedí para regalar en el cumple de mi
             mamá."
           </p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-pr-brown/40 flex items-center justify-center"><span
-                class="font-display text-sm text-pr-gold">S</span></div>
+            <div
+              class="w-10 h-10 rounded-full border-[2px] border-brand-black bg-brand-yellow flex items-center justify-center">
+              <span class="font-sans font-bold text-sm text-brand-black">S</span></div>
             <div>
-              <p class="font-display tracking-wider text-sm text-pr-gold">@sofi.ramos</p>
-              <p class="font-sans text-xs text-pr-cream/40 mt-0.5">Cliente frecuente</p>
+              <p class="font-sans font-bold tracking-wide text-sm text-brand-black">@sofi.ramos</p>
+              <p class="font-sans text-xs text-brand-black/50 mt-0.5">Cliente frecuente</p>
             </div>
           </div>
         </div>
 
         <!-- Reseña 3 -->
         <div
-          class="relative bg-pr-dark rounded-[4px] border border-pr-gold/10 p-8 md:p-10 hover:border-pr-gold/30 hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between">
-          <div class="flex gap-1 mb-4"><span class="text-pr-orange text-lg">★</span><span
-              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span><span
-              class="text-pr-orange text-lg">★</span><span class="text-pr-orange text-lg">★</span></div>
-          <p class="font-serif italic text-pr-cream/90 text-base md:text-lg leading-relaxed mb-6">
+          class="relative bg-brand-orange/30 rounded-none border-[3px] border-brand-black p-8 md:p-10 shadow-brutal card-brutal flex flex-col justify-between">
+          <div class="flex gap-1 mb-4"><span class="text-brand-orange text-lg">★</span><span
+              class="text-brand-orange text-lg">★</span><span class="text-brand-orange text-lg">★</span><span
+              class="text-brand-orange text-lg">★</span><span class="text-brand-orange text-lg">★</span></div>
+          <p class="font-serif italic text-brand-black/90 text-base md:text-lg leading-relaxed mb-6">
             "El gato del logo me conquistó antes de probarlas. Los brownies terminaron de convencerme. Ahora pido cada
             semana."
           </p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-pr-brown/40 flex items-center justify-center"><span
-                class="font-display text-sm text-pr-gold">J</span></div>
+            <div
+              class="w-10 h-10 rounded-full border-[2px] border-brand-black bg-brand-cream flex items-center justify-center">
+              <span class="font-sans font-bold text-sm text-brand-black">J</span></div>
             <div>
-              <p class="font-display tracking-wider text-sm text-pr-gold">@juampi.v</p>
-              <p class="font-sans text-xs text-pr-cream/40 mt-0.5">Adicto confirmado</p>
+              <p class="font-sans font-bold tracking-wide text-sm text-brand-black">@juampi.v</p>
+              <p class="font-sans text-xs text-brand-black/50 mt-0.5">Adicto confirmado</p>
             </div>
           </div>
         </div>
@@ -1065,7 +1047,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 9 — FOOTER
        ════════════════════════════════════════════════ -->
-  <footer class="w-full bg-pr-dark border-t border-pr-gold/10 py-16 md:py-20 px-6 md:px-12 lg:px-20">
+  <footer class="w-full bg-brand-black border-t-[3px] border-brand-cream/10 py-16 md:py-20 px-6 md:px-12 lg:px-20">
     <div class="max-w-7xl mx-auto">
 
       <!-- Grid footer -->
@@ -1073,10 +1055,10 @@
 
         <!-- Col 1: Logo -->
         <div>
-          <p class="font-serif font-black text-3xl text-pr-cream mb-4">
+          <p class="font-sans font-bold text-3xl text-brand-cream mb-4">
             <span class="text-2xl mr-2">🐱</span>PABLITO ROOTS
           </p>
-          <p class="font-sans text-sm text-pr-cream/50 leading-relaxed max-w-xs">
+          <p class="font-sans text-sm text-brand-cream/50 leading-relaxed max-w-xs">
             Los postres mágicos más ricos. Cookies artesanales con materia prima premium. Hecho con amor y demasiado
             chocolate.
           </p>
@@ -1084,28 +1066,29 @@
 
         <!-- Col 2: Navegación -->
         <div>
-          <p class="font-display tracking-widest text-xs text-pr-gold uppercase mb-5">NAVEGACIÓN</p>
+          <p class="font-sans font-bold tracking-wide text-xs text-brand-cream uppercase mb-5">NAVEGACIÓN</p>
           <div class="flex flex-col gap-3">
             <a href="#menu"
-              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Menú</a>
+              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Menú</a>
             <a href="#envios"
-              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Envíos</a>
+              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Envíos</a>
             <a href="#recomendamos"
-              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Recomendamos</a>
+              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Tips</a>
             <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-              class="font-sans text-sm text-pr-cream/60 hover:text-pr-cream transition-colors duration-200">Hacer un
+              class="font-sans text-sm text-brand-cream/60 hover:text-brand-cream transition-colors duration-150">Hacer
+              un
               pedido</a>
           </div>
         </div>
 
         <!-- Col 3: Contacto -->
         <div>
-          <p class="font-display tracking-widest text-xs text-pr-gold uppercase mb-5">CONTACTO</p>
+          <p class="font-sans font-bold tracking-wide text-xs text-brand-cream uppercase mb-5">CONTACTO</p>
           <a href="https://instagram.com/pablito.roots" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 font-display tracking-widest text-sm text-pr-orange hover:text-pr-cream transition-colors duration-200">
+            class="btn-pill-secondary text-sm text-brand-cream border-brand-cream hover:bg-brand-cream hover:text-brand-black">
             📸 @pablito.roots
           </a>
-          <div class="mt-4 font-sans text-xs text-pr-cream/40 leading-loose">
+          <div class="mt-4 font-sans text-xs text-brand-cream/40 leading-loose">
             Envíos CABA<br>
             Miércoles 19–21hs<br>
             Sábado 09–13hs
@@ -1115,9 +1098,10 @@
       </div><!-- /grid -->
 
       <!-- Divisor + copyright -->
-      <div class="border-t border-pr-gold/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="font-sans text-xs text-pr-cream/30">© 2025 Pablito Roots. Todos los derechos reservados.</p>
-        <p class="font-serif italic text-xs text-pr-gold/50">"Hecho con amor y demasiado chocolate." 🐱</p>
+      <div
+        class="border-t-[3px] border-brand-cream/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-sans text-xs text-brand-cream/30">© 2025 Pablito Roots. Todos los derechos reservados.</p>
+        <p class="font-serif italic text-xs text-brand-cream/50">"Hecho con amor y demasiado chocolate." 🐱</p>
       </div>
 
     </div>
