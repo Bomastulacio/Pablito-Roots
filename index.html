@@ -1393,37 +1393,79 @@
           display: grid;
           gap: 24px;
           max-width: 1100px;
-          margin: 0 auto 48px auto;
-          padding: 0 20px;
+          margin: 0 auto !important;
+          align-items: stretch;
         }
 
-        /* Desktop: Grilla de 3 columnas */
+        /* Desktop: Grilla de 3 columnas (INTACTA) */
         @media (min-width: 768px) {
           .swipe-grid {
             grid-template-columns: repeat(3, 1fr);
+            padding: 0 20px;
+            margin-bottom: 48px !important;
           }
         }
 
-        /* Mobile: Carrusel horizontal swipeable */
+        /* Mobile: Carrusel de Fricción Cero con "Peek" y Smooth Scroll */
         @media (max-width: 767px) {
           .swipe-grid {
             grid-auto-flow: column;
-            grid-auto-columns: 85vw;
-            overflow-x: auto;
+            grid-auto-columns: 75vw;
+            /* Ocupa 75% del ancho para dejar el peek */
+            overflow-x: scroll;
+            /* Cambiado a scroll para mayor suavidad */
             scroll-snap-type: x mandatory;
-            padding-bottom: 24px;
+            scroll-behavior: smooth;
+            /* CRÍTICO para la suavidad de la interacción */
+            -webkit-overflow-scrolling: touch;
+            /* Suavidad en iOS */
             scrollbar-width: none;
-            /* Firefox */
+            margin-bottom: 24px !important;
+            /* Padding horizontal para centrar el primer y último item con peek */
+            scroll-padding: 0 10vw;
+            padding-left: 10vw;
+            padding-right: 10vw;
           }
 
           .swipe-grid::-webkit-scrollbar {
             display: none;
-            /* Chrome/Safari */
           }
 
           .swipe-grid>div {
             scroll-snap-align: center;
+            /* Snap perfecto al centro */
           }
+        }
+
+        /* Estilos para los Puntitos de Paginación (Dots) */
+        .carousel-dots {
+          display: none;
+          /* Ocultos en desktop */
+          text-align: center;
+          width: 100%;
+          margin-bottom: 48px;
+        }
+
+        @media (max-width: 767px) {
+          .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+          }
+        }
+
+        .dot {
+          height: 8px;
+          width: 8px;
+          background-color: transparent;
+          border: 1.5px solid #000000;
+          border-radius: 50%;
+          display: inline-block;
+          cursor: pointer;
+        }
+
+        .dot.active {
+          background-color: #000000;
         }
       </style>
 
@@ -1480,6 +1522,12 @@
 
       </div>
 
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
       <!-- Grid de Proceso -->
       <div class="swipe-grid">
 
@@ -1523,6 +1571,12 @@
             style="font-family: 'IBM Plex Mono', monospace !important; font-size: 14px !important; font-weight: normal !important; color: #000000 !important; line-height: 1.5 !important;">
             Envío a CABA (miércoles o sábado) o take away. Acordamos todo por DM, sin complicaciones.
           </p>
+        </div>
+
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
 
       </div>
