@@ -1389,83 +1389,78 @@
 
       <!-- Motor del Carrusel Mobile -->
       <style>
+        /* Desktop: Grilla de 3 columnas (Base) */
         .swipe-grid {
-          display: grid;
-          gap: 24px;
-          max-width: 1100px;
-          margin: 0 auto !important;
-          align-items: stretch;
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 24px !important;
+          max-width: 1100px !important;
+          margin: 0 auto 48px auto !important;
+          padding: 0 20px !important;
+          width: 100% !important;
         }
 
-        /* Desktop: Grilla de 3 columnas (INTACTA) */
-        @media (min-width: 768px) {
-          .swipe-grid {
-            grid-template-columns: repeat(3, 1fr);
-            padding: 0 20px;
-            margin-bottom: 48px !important;
-          }
-        }
-
-        /* Mobile: Carrusel de Fricción Cero con "Peek" y Smooth Scroll */
+        /* Mobile: Carrusel Flexbox Imbatible (Fricción Cero) */
         @media (max-width: 767px) {
           .swipe-grid {
-            grid-auto-flow: column;
-            grid-auto-columns: 75vw;
-            /* Ocupa 75% del ancho para dejar el peek */
-            overflow-x: scroll;
-            /* Cambiado a scroll para mayor suavidad */
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            /* CRÍTICO para la suavidad de la interacción */
-            -webkit-overflow-scrolling: touch;
-            /* Suavidad en iOS */
-            scrollbar-width: none;
-            margin-bottom: 24px !important;
-            /* Padding horizontal para centrar el primer y último item con peek */
-            scroll-padding: 0 10vw;
-            padding-left: 10vw;
-            padding-right: 10vw;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            scroll-snap-type: x mandatory !important;
+            scroll-behavior: smooth !important;
+            -webkit-overflow-scrolling: touch !important;
+            /* Suavidad nativa en iOS */
+            scrollbar-width: none !important;
+            /* Oculta barra en Firefox */
+            padding: 0 5vw !important;
+            /* Espacio para el peek a los costados */
+            gap: 16px !important;
           }
 
           .swipe-grid::-webkit-scrollbar {
-            display: none;
+            display: none !important;
+            /* Oculta barra en Chrome/Safari */
           }
 
           .swipe-grid>div {
-            scroll-snap-align: center;
-            /* Snap perfecto al centro */
+            flex: 0 0 85vw !important;
+            /* Fuerza a la tarjeta a ocupar 85% de la pantalla */
+            max-width: 85vw !important;
+            scroll-snap-align: center !important;
+            /* Centrado perfecto al soltar el dedo */
+            height: auto !important;
           }
         }
 
         /* Estilos para los Puntitos de Paginación (Dots) */
         .carousel-dots {
-          display: none;
-          /* Ocultos en desktop */
-          text-align: center;
-          width: 100%;
-          margin-bottom: 48px;
+          display: none !important;
+          text-align: center !important;
+          width: 100% !important;
+          margin-bottom: 48px !important;
         }
 
         @media (max-width: 767px) {
           .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
+            display: flex !important;
+            justify-content: center !important;
+            gap: 8px !important;
           }
         }
 
         .dot {
-          height: 8px;
-          width: 8px;
-          background-color: transparent;
-          border: 1.5px solid #000000;
-          border-radius: 50%;
-          display: inline-block;
-          cursor: pointer;
+          height: 8px !important;
+          width: 8px !important;
+          background-color: transparent !important;
+          border: 1.5px solid #000000 !important;
+          border-radius: 50% !important;
+          display: inline-block !important;
         }
 
         .dot.active {
-          background-color: #000000;
+          background-color: #000000 !important;
         }
       </style>
 
