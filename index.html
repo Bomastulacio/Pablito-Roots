@@ -1387,6 +1387,46 @@
 
     <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center pb-8">
 
+      <!-- Motor del Carrusel Mobile -->
+      <style>
+        .swipe-grid {
+          display: grid;
+          gap: 24px;
+          max-width: 1100px;
+          margin: 0 auto 48px auto;
+          padding: 0 20px;
+        }
+
+        /* Desktop: Grilla de 3 columnas */
+        @media (min-width: 768px) {
+          .swipe-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        /* Mobile: Carrusel horizontal swipeable */
+        @media (max-width: 767px) {
+          .swipe-grid {
+            grid-auto-flow: column;
+            grid-auto-columns: 85vw;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 24px;
+            scrollbar-width: none;
+            /* Firefox */
+          }
+
+          .swipe-grid::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari */
+          }
+
+          .swipe-grid>div {
+            scroll-snap-align: center;
+          }
+        }
+      </style>
+
       <!-- Header gigante -->
       <div class="mb-16 md:mb-24 animate-on-scroll text-center w-full">
         <h2
@@ -1396,8 +1436,7 @@
       </div>
 
       <!-- Grid de Logística -->
-      <div
-        style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; gap: 24px !important; max-width: 1100px !important; margin: 0 auto 48px auto !important; padding: 0 20px !important; width: 100%;">
+      <div class="swipe-grid">
 
         <!-- CARD MIÉRCOLES -->
         <div
@@ -1442,8 +1481,7 @@
       </div>
 
       <!-- Grid de Proceso -->
-      <div
-        style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; gap: 24px !important; max-width: 1100px !important; margin: 0 auto 48px auto !important; padding: 0 20px !important; width: 100%;">
+      <div class="swipe-grid">
 
         <!-- Paso 1 -->
         <div
