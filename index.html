@@ -1272,19 +1272,26 @@
 
 <body class="font-sans text-black antialiased overflow-x-hidden pb-20">
 
+  <!-- Botón de Menú Flotante (Touchy Style) -->
+  <div style="position: fixed !important; top: 24px !important; left: 24px !important; z-index: 9999 !important;">
+    <button
+      style="background-color: #000000 !important; color: #FAF9F6 !important; border-radius: 9999px !important; padding: 10px 28px !important; font-family: 'IBM Plex Mono', monospace !important; font-size: 13px !important; font-weight: bold !important; letter-spacing: 0.25em !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; box-shadow: none !important;">
+      M E N U
+    </button>
+  </div>
 
 
   <section id="hero" class="relative w-full flex items-center justify-center overflow-hidden px-4 md:px-8"
-    style="min-height: 100vh; background-color: #899380 !important; flex-direction: column !important;">
-
-    <!-- Logo Sello -->
-    <img src="./ruta-de-tu-logo.png" alt="Logo Pablito Roots"
-      style="display: block !important; margin: 0 auto 64px auto !important; width: 100% !important; max-width: 180px !important; height: auto !important; object-fit: contain !important; border: none !important; box-shadow: none !important; background-color: transparent !important;">
+    style="min-height: 100vh; background-color: #899380 !important; flex-direction: column !important; padding-top: 100px !important;">
 
     <!-- Texto central tipo Touchy Coffee -->
     <h1 class="hero-headline" style="font-family: 'Instrument Serif', serif; font-style: italic; color: #F5F5F0;">
       Los postres mágicos más ricos
     </h1>
+
+    <!-- Logo Sello Reubicado -->
+    <img src="./ruta-de-tu-logo.png" alt="Logo Pablito Roots"
+      style="display: block !important; margin: 48px auto 0 auto !important; width: 100% !important; max-width: 180px !important; height: auto !important; object-fit: contain !important; border: none !important; box-shadow: none !important; background-color: transparent !important;">
 
     <!-- Ticker fijo en el bottom de la pantalla -->
     <div class="fixed bottom-0 left-0 z-50 w-full overflow-hidden"
