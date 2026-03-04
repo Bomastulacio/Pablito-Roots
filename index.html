@@ -1272,12 +1272,103 @@
 
 <body class="font-sans text-black antialiased overflow-x-hidden pb-20">
 
-  <!-- Botón de Menú Flotante (Touchy Style) -->
-  <div style="position: fixed !important; top: 24px !important; left: 24px !important; z-index: 9999 !important;">
-    <button
-      style="background-color: #000000 !important; color: #FAF9F6 !important; border-radius: 9999px !important; padding: 10px 28px !important; font-family: 'IBM Plex Mono', monospace !important; font-size: 13px !important; font-weight: bold !important; letter-spacing: 0.25em !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; box-shadow: none !important;">
-      M E N U
+  <div id="touchy-menu-wrapper"
+    style="position: fixed !important; top: 24px !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 9999 !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important;">
+
+    <style>
+      .menu-pill {
+        border-radius: 9999px !important;
+        padding: 10px 28px !important;
+        font-family: 'IBM Plex Mono', monospace !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        letter-spacing: 0.35em !important;
+        text-transform: uppercase !important;
+        border: 2px solid #000000 !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.2s ease !important;
+        width: max-content !important;
+      }
+
+      /* Estado Cerrado (Botón Principal) */
+      #menu-toggle.closed {
+        background-color: #000000 !important;
+        color: #FAF9F6 !important;
+      }
+
+      /* Estado Abierto (Botón C L O S E) */
+      #menu-toggle.open {
+        background-color: #FAF9F6 !important;
+        color: #000000 !important;
+      }
+
+      /* Links Desplegables */
+      .menu-link {
+        background-color: #000000 !important;
+        color: #FAF9F6 !important;
+      }
+
+      .menu-link:hover {
+        background-color: #FAF9F6 !important;
+        color: #000000 !important;
+      }
+
+      /* Letras Rotadas */
+      .rot {
+        display: inline-block !important;
+        transform: rotate(90deg) !important;
+      }
+    </style>
+
+    <button id="menu-toggle" class="menu-pill closed">
+      <span id="menu-text">M <span class="rot">E</span> N <span class="rot">U</span></span>
     </button>
+
+    <div id="menu-dropdown" style="display: none; flex-direction: column; gap: 12px; align-items: center;">
+      <a href="#tienda" class="menu-pill menu-link">S H O P</a>
+      <a href="#buen-viaje" class="menu-pill menu-link">T I P S</a>
+      <a href="#logistica" class="menu-pill menu-link">I N F O</a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const dropdown = document.getElementById("menu-dropdown");
+        const menuText = document.getElementById("menu-text");
+
+        toggleBtn.addEventListener("click", function () {
+          if (dropdown.style.display === "none") {
+            // Abrir menú
+            dropdown.style.display = "flex";
+            toggleBtn.classList.remove("closed");
+            toggleBtn.classList.add("open");
+            menuText.innerHTML = "C L O S E";
+          } else {
+            // Cerrar menú
+            dropdown.style.display = "none";
+            toggleBtn.classList.remove("open");
+            toggleBtn.classList.add("closed");
+            menuText.innerHTML = 'M <span class="rot">E</span> N <span class="rot">U</span>';
+          }
+        });
+
+        // Cerrar al hacer clic en un link
+        const links = document.querySelectorAll(".menu-link");
+        links.forEach(link => {
+          link.addEventListener("click", function () {
+            dropdown.style.display = "none";
+            toggleBtn.classList.remove("open");
+            toggleBtn.classList.add("closed");
+            menuText.innerHTML = 'M <span class="rot">E</span> N <span class="rot">U</span>';
+          });
+        });
+      });
+    </script>
+
   </div>
 
 
@@ -1312,7 +1403,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 3 — EN NUESTRA COCINA (productos)
        ════════════════════════════════════════════════ -->
-  <section id="menu" class="w-full relative overflow-hidden flex flex-col" style="background-color:#e8dfc8;">
+  <section id="tienda" class="w-full relative overflow-hidden flex flex-col" style="background-color:#e8dfc8;">
 
     <!-- Título de sección -->
     <div style="padding: clamp(3rem,6vw,5rem) clamp(1rem,4vw,3rem) 2rem;">
@@ -1389,7 +1480,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 4 — ENVÍOS
        ════════════════════════════════════════════════ -->
-  <section id="envios" class="w-full relative overflow-hidden"
+  <section id="logistica" class="w-full relative overflow-hidden"
     style="background-color: #899380 !important; padding-top: 100px !important; padding-bottom: 100px !important; width: 100% !important;">
 
     <!-- Árbol bonsái decorativo de fondo -->
@@ -1610,7 +1701,7 @@
   <!-- ════════════════════════════════════════════════
        SECCIÓN 5 — RECOMENDAMOS
        ════════════════════════════════════════════════ -->
-  <section id="recomendamos" class="w-full relative overflow-hidden flex flex-col"
+  <section id="buen-viaje" class="w-full relative overflow-hidden flex flex-col"
     style="background-color: #FAF9F6 !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; padding: 100px 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important;">
 
     <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
