@@ -1272,104 +1272,104 @@
 
 <body class="font-sans text-black antialiased overflow-x-hidden pb-20">
 
-  <div id="touchy-menu-wrapper"
-    style="position: fixed !important; top: 24px !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 9999 !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important;">
+<div id="touchy-menu-wrapper" style="position: fixed !important; top: 24px !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 9999 !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important;">
 
-    <style>
-      .menu-pill {
-        border-radius: 9999px !important;
-        padding: 10px 28px !important;
-        font-family: 'IBM Plex Mono', monospace !important;
-        font-size: 14px !important;
-        font-weight: bold !important;
-        letter-spacing: 0.35em !important;
-        text-transform: uppercase !important;
-        border: 2px solid #000000 !important;
-        cursor: pointer !important;
-        text-decoration: none !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        transition: all 0.2s ease !important;
-        width: max-content !important;
-      }
+  <style>
+    .menu-pill {
+      border-radius: 9999px !important;
+      padding: 12px 24px !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 14px !important;
+      font-weight: bold !important;
+      border: 2px solid #000000 !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.2s ease !important;
+      width: max-content !important;
+    }
 
-      /* Estado Cerrado (Botón Principal) */
-      #menu-toggle.closed {
-        background-color: #000000 !important;
-        color: #FAF9F6 !important;
-      }
+    /* Contenedor Flex para alinear letras */
+    .menu-text-container {
+      display: flex !important;
+      gap: 8px !important; /* Espaciado perfecto entre letras */
+      align-items: center !important;
+    }
 
-      /* Estado Abierto (Botón C L O S E) */
-      #menu-toggle.open {
-        background-color: #FAF9F6 !important;
-        color: #000000 !important;
-      }
+    /* Cajita estabilizadora para cada letra rotada */
+    .rot {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transform: rotate(90deg) !important;
+      line-height: 1 !important;
+      width: 14px !important; /* Forzamos el mismo ancho para todas */
+      height: 14px !important;
+    }
 
-      /* Links Desplegables */
-      .menu-link {
-        background-color: #000000 !important;
-        color: #FAF9F6 !important;
-      }
+    /* Estados de Color */
+    #menu-toggle.closed { background-color: #000000 !important; color: #FAF9F6 !important; }
+    #menu-toggle.open { background-color: #FAF9F6 !important; color: #000000 !important; }
+    .menu-link { background-color: #000000 !important; color: #FAF9F6 !important; }
+    .menu-link:hover { background-color: #FAF9F6 !important; color: #000000 !important; }
+  </style>
 
-      .menu-link:hover {
-        background-color: #FAF9F6 !important;
-        color: #000000 !important;
-      }
+  <button id="menu-toggle" class="menu-pill closed">
+    <span id="menu-text" class="menu-text-container">
+      <span class="rot">M</span><span class="rot">E</span><span class="rot">N</span><span class="rot">U</span>
+    </span>
+  </button>
 
-      /* Letras Rotadas */
-      .rot {
-        display: inline-block !important;
-        transform: rotate(90deg) !important;
-      }
-    </style>
+  <div id="menu-dropdown" style="display: none; flex-direction: column; gap: 12px; align-items: center;">
+    <a href="#tienda" class="menu-pill menu-link">
+      <span class="menu-text-container"><span class="rot">S</span><span class="rot">H</span><span class="rot">O</span><span class="rot">P</span></span>
+    </a>
+    <a href="#buen-viaje" class="menu-pill menu-link">
+      <span class="menu-text-container"><span class="rot">T</span><span class="rot">I</span><span class="rot">P</span><span class="rot">S</span></span>
+    </a>
+    <a href="#logistica" class="menu-pill menu-link">
+      <span class="menu-text-container"><span class="rot">I</span><span class="rot">N</span><span class="rot">F</span><span class="rot">O</span></span>
+    </a>
+  </div>
 
-    <button id="menu-toggle" class="menu-pill closed">
-      <span id="menu-text"><span class="rot">M</span> <span class="rot">E</span> <span class="rot">N</span> <span class="rot">U</span></span>
-    </button>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggleBtn = document.getElementById("menu-toggle");
+      const dropdown = document.getElementById("menu-dropdown");
+      const menuText = document.getElementById("menu-text");
 
-    <div id="menu-dropdown" style="display: none; flex-direction: column; gap: 12px; align-items: center;">
-      <a href="#tienda" class="menu-pill menu-link">S H O P</a>
-      <a href="#buen-viaje" class="menu-pill menu-link">T I P S</a>
-      <a href="#logistica" class="menu-pill menu-link">I N F O</a>
-    </div>
+      const menuHTML = '<span class="rot">M</span><span class="rot">E</span><span class="rot">N</span><span class="rot">U</span>';
+      const closeHTML = '<span class="rot">C</span><span class="rot">L</span><span class="rot">O</span><span class="rot">S</span><span class="rot">E</span>';
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toggleBtn = document.getElementById("menu-toggle");
-        const dropdown = document.getElementById("menu-dropdown");
-        const menuText = document.getElementById("menu-text");
+      toggleBtn.addEventListener("click", function() {
+        if (dropdown.style.display === "none") {
+          dropdown.style.display = "flex";
+          toggleBtn.classList.remove("closed");
+          toggleBtn.classList.add("open");
+          menuText.innerHTML = closeHTML;
+        } else {
+          dropdown.style.display = "none";
+          toggleBtn.classList.remove("open");
+          toggleBtn.classList.add("closed");
+          menuText.innerHTML = menuHTML;
+        }
+      });
 
-        toggleBtn.addEventListener("click", function () {
-          if (dropdown.style.display === "none") {
-            // Abrir menú
-            dropdown.style.display = "flex";
-            toggleBtn.classList.remove("closed");
-            toggleBtn.classList.add("open");
-            menuText.innerHTML = "C L O S E";
-          } else {
-            // Cerrar menú
-            dropdown.style.display = "none";
-            toggleBtn.classList.remove("open");
-            toggleBtn.classList.add("closed");
-            menuText.innerHTML = 'M <span class="rot">E</span> N <span class="rot">U</span>';
-          }
-        });
-
-        // Cerrar al hacer clic en un link
-        const links = document.querySelectorAll(".menu-link");
-        links.forEach(link => {
-          link.addEventListener("click", function () {
-            dropdown.style.display = "none";
-            toggleBtn.classList.remove("open");
-            toggleBtn.classList.add("closed");
-            menuText.innerHTML = 'M <span class="rot">E</span> N <span class="rot">U</span>';
-          });
+      const links = document.querySelectorAll(".menu-link");
+      links.forEach(link => {
+        link.addEventListener("click", function() {
+          dropdown.style.display = "none";
+          toggleBtn.classList.remove("open");
+          toggleBtn.classList.add("closed");
+          menuText.innerHTML = menuHTML;
         });
       });
-    </script>
+    });
+  </script>
 
-  </div>
+</div>
 
 
   <section id="hero" class="relative w-full flex items-center justify-center overflow-hidden px-4 md:px-8"
